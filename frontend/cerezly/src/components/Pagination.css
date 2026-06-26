@@ -1,0 +1,179 @@
+/* Pagination Container */
+.pagination-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  padding: 20px 0;
+  flex-wrap: wrap;
+}
+
+/* Butonlar - Yumru kənarlar */
+.pagination-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-width: 42px;
+  height: 42px;
+  padding: 0 14px;
+  background: white;
+  border: 1px solid #e0d0c0;
+  border-radius: 21px;
+  color: #5D4037;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pagination-btn:hover:not(:disabled) {
+  background: #8B4513;
+  color: white;
+  border-color: #8B4513;
+  transform: translateY(-2px);
+}
+
+.pagination-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.pagination-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  background: #f5f5f5;
+}
+
+/* Səhifə nömrələri */
+.pagination-numbers {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pagination-number {
+  min-width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border: 1px solid #e0d0c0;
+  border-radius: 21px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #5D4037;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pagination-number:hover:not(.active):not(.dots) {
+  background: #fff5e8;
+  border-color: #8B4513;
+  transform: translateY(-2px);
+}
+
+.pagination-number.active {
+  background: #8B4513;
+  color: white;
+  border-color: #8B4513;
+  cursor: default;
+  transform: scale(1.05);
+}
+
+.pagination-number.dots {
+  cursor: default;
+  background: transparent;
+  border: none;
+  color: #b0a088;
+  min-width: 30px;
+  transform: none;
+}
+
+/* Məlumat paneli */
+.pagination-info {
+  background: #fff5e8;
+  padding: 6px 16px;
+  border-radius: 21px;
+  font-size: 13px;
+  color: #8B4513;
+  border: 1px solid #f0e0d0;
+  margin-left: 8px;
+}
+
+/* İkonlar */
+.btn-icon {
+  font-size: 16px;
+}
+
+.btn-text {
+  font-size: 13px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .pagination-container {
+    gap: 6px;
+  }
+  
+  .pagination-btn,
+  .pagination-number {
+    min-width: 36px;
+    height: 36px;
+    padding: 0 10px;
+  }
+  
+  .btn-text {
+    display: none;
+  }
+  
+  .pagination-info {
+    padding: 5px 12px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pagination-btn,
+  .pagination-number {
+    min-width: 32px;
+    height: 32px;
+    font-size: 13px;
+  }
+  
+  .pagination-number.dots {
+    min-width: 24px;
+  }
+  
+  .pagination-info {
+    padding: 4px 10px;
+    font-size: 11px;
+  }
+}
+
+/* Touch cihazlar */
+@media (hover: none) and (pointer: coarse) {
+  .pagination-btn:active:not(:disabled),
+  .pagination-number:active:not(.active):not(.dots) {
+    transform: scale(0.96);
+  }
+  
+  .pagination-btn:hover:not(:disabled),
+  .pagination-number:hover:not(.active):not(.dots) {
+    transform: none;
+  }
+}
+
+/* Animasiyaları azaldanlar üçün */
+@media (prefers-reduced-motion: reduce) {
+  .pagination-btn,
+  .pagination-number {
+    transition: none;
+  }
+  
+  .pagination-number.active {
+    transform: scale(1);
+  }
+}

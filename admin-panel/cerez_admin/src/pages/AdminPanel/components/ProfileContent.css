@@ -1,0 +1,576 @@
+/* ProfileContent.css */
+
+.profile-content-wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Başlıq bölməsi */
+.profile-header-section {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.profile-page-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #2d3748;
+  margin-bottom: 10px;
+  position: relative;
+  display: inline-block;
+}
+
+.profile-page-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 2px;
+}
+
+.profile-page-subtitle {
+  font-size: 16px;
+  color: #718096;
+  margin-top: 20px;
+}
+
+/* Uğur mesajı */
+.profile-success-message {
+  background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+  color: white;
+  padding: 15px 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  font-weight: 500;
+  box-shadow: 0 4px 15px rgba(72, 187, 120, 0.3);
+  animation: slideDown 0.3s ease;
+}
+
+.profile-success-message svg {
+  font-size: 20px;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Əsas profil kartı */
+.profile-main-card {
+  background: white;
+  border-radius: 24px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Profil şəkli bölməsi */
+.profile-image-section {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 40px 20px 30px;
+  text-align: center;
+  position: relative;
+  color: white;
+}
+
+.profile-image-container {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 20px;
+  position: relative;
+  border-radius: 50%;
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.profile-image-container:hover {
+  transform: scale(1.05);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Şəkil placeholder (via.placeholder.com əvəzinə) */
+.profile-image-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-initials {
+  font-size: 48px;
+  font-weight: 700;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.profile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-image-upload {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: #4a5568;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.profile-image-upload:hover {
+  background: #2d3748;
+  transform: scale(1.1);
+}
+
+.profile-image-upload svg {
+  font-size: 18px;
+}
+
+.profile-name-title h2 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 5px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  color: white;
+}
+
+.profile-name-title p {
+  font-size: 16px;
+  opacity: 0.9;
+  margin: 0;
+  color: white;
+}
+
+.profile-edit-button {
+  background: white;
+  color: #667eea;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.profile-edit-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  background: #f7fafc;
+}
+
+/* Tab menyusu */
+.profile-tabs {
+  display: flex;
+  border-bottom: 2px solid #e2e8f0;
+  padding: 0 20px;
+  background: #f8fafc;
+}
+
+.profile-tab {
+  padding: 18px 25px;
+  background: transparent;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  color: #718096;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  margin-right: 10px;
+}
+
+.profile-tab:hover {
+  color: #667eea;
+}
+
+.profile-tab.active {
+  color: #667eea;
+}
+
+.profile-tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 3px 3px 0 0;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* Tab məzmunu */
+.profile-tab-content {
+  padding: 30px;
+}
+
+.profile-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+}
+
+.profile-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.profile-form-group.full-width {
+  grid-column: span 2;
+}
+
+.profile-form-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #4a5568;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.profile-form-icon {
+  color: #667eea;
+  font-size: 16px;
+}
+
+/* Statik mətn rəngləri */
+.profile-form-text {
+  font-size: 16px;
+  color: #2d3748 !important;
+  padding: 12px 0;
+  border-bottom: 1px dashed #e2e8f0;
+  margin: 0;
+}
+
+.profile-form-text.bio-text {
+  line-height: 1.6;
+  border-bottom: none;
+  background: #f7fafc;
+  padding: 15px;
+  border-radius: 10px;
+  color: #2d3748 !important;
+}
+
+/* Input və textarea rəngləri */
+.profile-form-input,
+.profile-form-textarea {
+  padding: 12px 15px;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  background: #ffffff !important;
+  color: #1a202c !important;
+  font-weight: 400;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.profile-form-input::placeholder,
+.profile-form-textarea::placeholder {
+  color: #a0aec0 !important;
+  opacity: 1;
+}
+
+.profile-form-input:hover,
+.profile-form-textarea:hover {
+  border-color: #cbd5e0;
+}
+
+.profile-form-input:focus,
+.profile-form-textarea:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  background: #ffffff !important;
+  color: #1a202c !important;
+}
+
+.profile-form-input.error {
+  border-color: #f56565;
+  background: #fff5f5 !important;
+  color: #1a202c !important;
+}
+
+.profile-form-input.error:focus {
+  background: #fff5f5 !important;
+  border-color: #f56565;
+  box-shadow: 0 0 0 3px rgba(245, 101, 101, 0.1);
+}
+
+.profile-form-error {
+  font-size: 12px;
+  color: #f56565;
+  margin-top: 4px;
+}
+
+input[type="date"].profile-form-input {
+  color: #1a202c !important;
+  background: #ffffff !important;
+}
+
+input[type="date"].profile-form-input::-webkit-calendar-picker-indicator {
+  background: transparent;
+  color: #667eea;
+  cursor: pointer;
+}
+
+/* Redaktə düymələri */
+.profile-action-buttons {
+  display: flex;
+  gap: 15px;
+  padding: 20px 30px 30px;
+  border-top: 2px solid #e2e8f0;
+  background: #f8fafc;
+}
+
+.profile-save-button,
+.profile-cancel-button {
+  padding: 14px 30px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex: 1;
+}
+
+.profile-save-button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.profile-save-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+.profile-save-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.profile-cancel-button {
+  background: white;
+  color: #4a5568;
+  border: 2px solid #e2e8f0;
+}
+
+.profile-cancel-button:hover:not(:disabled) {
+  background: #f7fafc;
+  border-color: #cbd5e0;
+  transform: translateY(-2px);
+}
+
+.profile-cancel-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Spinner animasiyası */
+.profile-spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  display: inline-block;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive dizayn */
+@media (max-width: 768px) {
+  .profile-content-wrapper {
+    padding: 15px;
+  }
+
+  .profile-page-title {
+    font-size: 28px;
+  }
+
+  .profile-image-container {
+    width: 120px;
+    height: 120px;
+  }
+
+  .profile-name-title h2 {
+    font-size: 24px;
+  }
+
+  .profile-tabs {
+    flex-direction: column;
+    padding: 0;
+  }
+
+  .profile-tab {
+    width: 100%;
+    text-align: left;
+    padding: 15px 20px;
+    margin-right: 0;
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  .profile-tab.active::after {
+    display: none;
+  }
+
+  .profile-tab.active {
+    background: linear-gradient(135deg, #667eea10 0%, #764ba210 100%);
+    border-left: 4px solid #667eea;
+  }
+
+  .profile-tab-content {
+    padding: 20px;
+  }
+
+  .profile-form-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .profile-form-group.full-width {
+    grid-column: span 1;
+  }
+
+  .profile-action-buttons {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .profile-save-button,
+  .profile-cancel-button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-image-section {
+    padding: 30px 15px 20px;
+  }
+
+  .profile-image-container {
+    width: 100px;
+    height: 100px;
+  }
+
+  .profile-initials {
+    font-size: 36px;
+  }
+
+  .profile-name-title h2 {
+    font-size: 20px;
+  }
+
+  .profile-name-title p {
+    font-size: 14px;
+  }
+
+  .profile-edit-button {
+    padding: 10px 25px;
+    font-size: 14px;
+  }
+
+  .profile-form-label {
+    font-size: 13px;
+  }
+
+  .profile-form-text {
+    font-size: 14px;
+  }
+
+  .profile-form-input,
+  .profile-form-textarea {
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+
+  .profile-save-button,
+  .profile-cancel-button {
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+}
+
+/* Hover effektləri */
+.profile-form-input:hover,
+.profile-form-textarea:hover {
+  border-color: #cbd5e0;
+}
+
+.profile-form-input:focus:hover,
+.profile-form-textarea:focus:hover {
+  border-color: #667eea;
+}
+
+.profile-main-card:hover {
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+  transition: box-shadow 0.3s ease;
+}

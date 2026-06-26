@@ -1,0 +1,361 @@
+/* ========== AUTH BUTTON - FƏRDİ CLASSLAR ========== */
+
+/* Buton */
+.auth-login-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  background: linear-gradient(135deg, #d6800f 0%, #f4a742 100%);
+  border: none;
+  border-radius: 40px;
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  box-shadow: 0 4px 12px rgba(214, 128, 15, 0.3);
+}
+
+.auth-login-btn:hover {
+  transform: scale(1.05);
+}
+
+.auth-login-btn:active {
+  transform: scale(0.98);
+}
+
+.auth-login-icon {
+  font-size: 18px;
+}
+
+.auth-login-text {
+  font-size: 14px;
+}
+
+/* User Menu */
+.auth-user-menu {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.auth-user-avatar {
+  width: 42px;
+  height: 42px;
+  background: linear-gradient(135deg, #d6800f, #f4a742);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-user-avatar:hover {
+  transform: scale(1.05);
+}
+
+.auth-avatar-initial {
+  font-size: 18px;
+  font-weight: 600;
+  color: white;
+}
+
+/* Dropdown */
+.auth-dropdown {
+  position: absolute;
+  top: 52px;
+  right: 0;
+  width: 280px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  padding: 12px 0;
+  z-index: 1000;
+  border: 1px solid rgba(214, 128, 15, 0.1);
+  animation: authDropdownSlide 0.2s ease;
+}
+
+@keyframes authDropdownSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.auth-dropdown-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: rgba(214, 128, 15, 0.05);
+  border-bottom: 1px solid rgba(214, 128, 15, 0.1);
+}
+
+.auth-dropdown-avatar {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, #d6800f, #f4a742);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.auth-dropdown-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.auth-dropdown-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #2c1810;
+}
+
+.auth-dropdown-email {
+  font-size: 12px;
+  color: #888;
+  word-break: break-all;
+}
+
+.auth-dropdown-divider {
+  height: 1px;
+  background: rgba(214, 128, 15, 0.1);
+  margin: 8px 0;
+}
+
+.auth-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 12px 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  font-size: 14px;
+  color: #2c1810;
+  text-align: left;
+}
+
+.auth-dropdown-item:hover {
+  background: rgba(214, 128, 15, 0.08);
+}
+
+.auth-dropdown-logout:hover {
+  background: rgba(231, 76, 60, 0.08);
+  color: #e74c3c;
+}
+
+.auth-dropdown-icon {
+  font-size: 18px;
+  color: #d6800f;
+}
+
+.auth-dropdown-logout .auth-dropdown-icon {
+  color: #e74c3c;
+}
+
+/* ========== BİLDİRİŞ - CARTMODAL İLƏ EYNİ STİL ========== */
+.cerez-auth-notification {
+  position: fixed;
+  top: 90px;
+  right: 30px;
+  z-index: 100000;
+  animation: cerezAuthSlideIn 0.3s ease;
+  pointer-events: none;
+}
+
+.cerez-auth-notification.fade-out {
+  animation: cerezAuthFadeOut 0.3s ease forwards;
+}
+
+.cerez-auth-notification-content {
+  background: #2c1810;
+  border-radius: 50px;
+  padding: 10px 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: auto;
+  max-width: 320px;
+}
+
+.cerez-auth-notification.success .cerez-auth-notification-content {
+  background: #2c1810;
+}
+
+.cerez-auth-notification.info .cerez-auth-notification-content {
+  background: #2c1810;
+}
+
+.cerez-auth-notification.warning .cerez-auth-notification-content {
+  background: #2c1810;
+}
+
+.cerez-auth-notification-message {
+  font-size: 13px;
+  color: #ffffff;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.cerez-auth-notification-message::before {
+  content: '✓';
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  background: #27ae60;
+  color: white;
+  border-radius: 50%;
+  font-size: 11px;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.cerez-auth-notification.info .cerez-auth-notification-message::before {
+  content: 'i';
+  background: #3498db;
+}
+
+.cerez-auth-notification.warning .cerez-auth-notification-message::before {
+  content: '!';
+  background: #f39c12;
+}
+
+@keyframes cerezAuthSlideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes cerezAuthFadeOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .auth-login-btn {
+    padding: 8px 16px;
+  }
+  
+  .auth-login-text {
+    display: none;
+  }
+  
+  .auth-login-btn {
+    padding: 10px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    justify-content: center;
+  }
+  
+  .auth-login-icon {
+    font-size: 20px;
+    margin: 0;
+  }
+  
+  .auth-user-avatar {
+    width: 38px;
+    height: 38px;
+  }
+  
+  .auth-avatar-initial {
+    font-size: 16px;
+  }
+  
+  .auth-dropdown {
+    width: 260px;
+    right: -10px;
+  }
+  
+  .cerez-auth-notification {
+    top: 80px;
+    right: 20px;
+  }
+  
+  .cerez-auth-notification-content {
+    padding: 8px 16px;
+  }
+  
+  .cerez-auth-notification-message {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .auth-login-btn {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .auth-user-avatar {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .auth-avatar-initial {
+    font-size: 14px;
+  }
+  
+  .auth-dropdown {
+    width: 240px;
+  }
+  
+  .auth-dropdown-email {
+    font-size: 11px;
+  }
+  
+  .cerez-auth-notification {
+    top: 70px;
+    right: 15px;
+  }
+  
+  .cerez-auth-notification-content {
+    padding: 6px 14px;
+  }
+  
+  .cerez-auth-notification-message {
+    font-size: 11px;
+  }
+  
+  .cerez-auth-notification-message::before {
+    width: 16px;
+    height: 16px;
+    font-size: 10px;
+  }
+}

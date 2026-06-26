@@ -1,0 +1,160 @@
+/* Terms of Service Page Styles */
+.terms-page {
+  min-height: calc(100vh - 200px);
+  background: linear-gradient(135deg, #faf7f2 0%, #f5efe6 100%);
+  padding: 60px 20px;
+}
+
+.terms-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  padding: 50px 60px;
+}
+
+.terms-title {
+  font-size: 36px;
+  font-weight: 700;
+  color: #3b2002;
+  text-align: center;
+  margin-bottom: 15px;
+  position: relative;
+  padding-bottom: 20px;
+}
+
+.terms-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #ffcf99, #ff9a56);
+  border-radius: 2px;
+}
+
+.terms-date {
+  text-align: center;
+  color: #888;
+  font-size: 14px;
+  margin-bottom: 40px;
+}
+
+/* Intro hissəsi üçün əlavə */
+.terms-intro {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #444;
+  margin-bottom: 35px;
+  padding: 15px 20px;
+  background: #fef9f0;
+  border-left: 4px solid #ff9a56;
+  border-radius: 8px;
+}
+
+.terms-section {
+  margin-bottom: 35px;
+}
+
+.terms-section h2 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #3b2002;
+  margin-bottom: 15px;
+  padding-left: 15px;
+  border-left: 4px solid #ff9a56;
+}
+
+.terms-section p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #444;
+  margin-bottom: 8px;
+}
+
+.terms-section ul {
+  margin: 10px 0 10px 35px;
+  padding-left: 0;
+}
+
+.terms-section li {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 6px;
+}
+
+.terms-contact {
+  background: #f8f4ee;
+  padding: 25px 30px;
+  border-radius: 15px;
+  margin-top: 40px;
+  border: 1px solid #e8dfd3;
+}
+
+.terms-contact h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #3b2002;
+  margin-bottom: 12px;
+}
+
+.terms-contact p {
+  font-size: 15px;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .terms-page {
+    padding: 40px 15px;
+  }
+  
+  .terms-container {
+    padding: 30px 25px;
+  }
+  
+  .terms-title {
+    font-size: 28px;
+  }
+  
+  .terms-section h2 {
+    font-size: 20px;
+  }
+  
+  .terms-section p,
+  .terms-section li,
+  .terms-intro {
+    font-size: 14px;
+  }
+  
+  .terms-intro {
+    padding: 12px 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .terms-container {
+    padding: 25px 20px;
+  }
+  
+  .terms-title {
+    font-size: 24px;
+  }
+  
+  .terms-section h2 {
+    font-size: 18px;
+  }
+  
+  .terms-contact {
+    padding: 20px;
+  }
+  
+  .terms-section ul {
+    margin-left: 20px;
+  }
+}

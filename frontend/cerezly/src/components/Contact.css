@@ -1,0 +1,1009 @@
+/* contact üçün persistent padding */
+.contact-page {
+  padding-top: calc(var(--nav-height) + 20px);
+}
+
+/* universal scroll anchor düzəlişi */
+html {
+  scroll-padding-top: calc(var(--nav-height) + 20px);
+}
+
+/* =============================================== */
+/* 🍎 iOS & TOUCH HOVER FIX */
+/* =============================================== */
+
+@media (hover: none) and (pointer: coarse) {
+  .hover-card:hover,
+  .info-card:hover,
+  .contact-form:hover,
+  .contact-map:hover {
+    transform: none !important;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.06) !important;
+  }
+  
+  .send-btn:hover,
+  .map-directions-btn:hover {
+    transform: none !important;
+    background: #c58828 !important;
+  }
+  
+  .info-card:hover .info-icon,
+  .contact-map:hover .map-icon {
+    transform: scale(1) !important;
+  }
+  
+  .qty-btn:hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+  
+  .qty-btn.minus:hover {
+    background: white !important;
+  }
+  
+  .qty-btn.plus:hover {
+    background: white !important;
+  }
+  
+  .quantity-display-clickable:hover {
+    background: rgba(214, 128, 15, 0.08) !important;
+    transform: none !important;
+  }
+  
+  .edit-save-btn:hover,
+  .edit-cancel-btn:hover {
+    transform: none !important;
+  }
+}
+
+.contact-form:focus-within,
+.info-card:focus-within,
+.contact-map:focus-within {
+  transform: none !important;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.06) !important;
+}
+
+/* =============================================== */
+/* Ümumi bölmə */
+/* =============================================== */
+
+.contact-section {
+  background: #f8f3ec;
+  padding: 36px 14px;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color: #222;
+  overflow: hidden;
+}
+
+/* ===== HEADER ANIMATIONS ===== */
+.contact-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.badge-hidden {
+  background: #f4e7d7;
+  color: #c58828;
+  padding: 6px 20px;
+  border-radius: 40px;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 15px;
+  margin-bottom: 10px;
+  opacity: 0;
+  transform: translateY(20px) scale(0.9);
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.badge-visible {
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
+}
+
+.title-hidden {
+  font-size: 30px;
+  margin: 8px 0;
+  font-weight: 700;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s;
+}
+
+.title-visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+.contact-header h1 span {
+  color: #c58828;
+}
+
+.subtitle-hidden {
+  color: #666;
+  font-size: 14px;
+  margin-top: 6px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s;
+}
+
+.subtitle-visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* ===== 4 KART 2x2 GRID ===== */
+.contact-cards-grid {
+  max-width: 1050px;
+  margin: 0 auto 40px auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+/* ===== INFO KARTLARI ===== */
+.info-card {
+  background: #fff;
+  padding: 22px 20px;
+  border-radius: 14px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+  min-height: 120px;
+}
+
+.card-hidden {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.card-visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+.info-icon {
+  background: #f5e3cd;
+  color: #c58828;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+  transition: all 0.3s ease !important;
+}
+
+.card-visible .info-icon {
+  animation: iconPulse 0.6s ease 0.3s forwards;
+}
+
+@keyframes iconPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.info-card h2 {
+  font-size: 17px;
+  margin: 0 0 8px 0;
+  color: #222;
+  opacity: 0;
+  transform: translateY(5px);
+  transition: all 0.4s ease 0.2s;
+}
+
+.card-visible h2 {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+.info-card p {
+  margin: 4px 0;
+  font-size: 14px;
+  color: #666;
+  line-height: 1.4;
+  opacity: 0;
+  transform: translateY(5px);
+  transition: all 0.4s ease 0.3s;
+}
+
+.card-visible p {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* ===== FORM + XƏRİTƏ KONTEYNERİ ===== */
+.contact-wrapper {
+  max-width: 1050px;
+  margin: 0 auto;
+  display: flex;
+  gap: 30px;
+  align-items: stretch;
+}
+
+/* ===== FORM ===== */
+.contact-form {
+  flex: 1;
+  background: #fff;
+  padding: 28px;
+  border-radius: 16px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-hidden {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s;
+}
+
+.form-visible {
+  opacity: 1 !important;
+  transform: translateX(0) !important;
+}
+
+.contact-form h2 {
+  margin: 0 0 20px 0;
+  font-size: 20px;
+  color: #222;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.4s ease 0.1s;
+}
+
+.form-visible h2 {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* ===== XƏRİTƏ - DÜZƏLDİLMİŞ ===== */
+.contact-map {
+  flex: 1;
+  background: #fff;
+  padding: 28px;
+  border-radius: 16px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+  display: flex;
+  flex-direction: column;
+}
+
+.map-hidden {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.4s;
+}
+
+.map-visible {
+  opacity: 1 !important;
+  transform: translateX(0) !important;
+}
+
+.map-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.map-icon {
+  background: #f5e3cd;
+  color: #c58828;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  transition: all 0.3s ease !important;
+}
+
+.contact-map h2 {
+  font-size: 20px;
+  margin: 0;
+  color: #222;
+  opacity: 0;
+  transform: translateY(5px);
+  transition: all 0.4s ease 0.1s;
+}
+
+.map-visible h2 {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* ✅ DÜZƏLDİLMİŞ MAP EMBED - XƏRİTƏ TAM GÖRÜNSÜN ÜÇÜN */
+.map-embed {
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  width: 100%;
+  opacity: 0;
+  transform: scale(0.95);
+  transition: all 0.5s ease 0.2s;
+}
+
+.map-visible .map-embed {
+  opacity: 1 !important;
+  transform: scale(1) !important;
+}
+
+/* Xəritə iframe - sabit hündürlük ilə */
+.map-embed iframe {
+  width: 100%;
+  height: 280px;
+  border: none;
+  display: block;
+}
+
+.map-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-top: auto;
+}
+
+.map-info p {
+  margin: 0;
+  font-size: 14px;
+  color: #666;
+  flex: 1;
+  opacity: 0;
+  transform: translateY(5px);
+  transition: all 0.4s ease 0.3s;
+}
+
+.map-visible .map-info p {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+.map-directions-btn {
+  padding: 10px 20px;
+  background: #f5e3cd;
+  color: #c58828;
+  border: none;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease !important;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(5px);
+  transition: all 0.4s ease 0.4s, background 0.3s ease, transform 0.3s ease !important;
+}
+
+.map-visible .map-directions-btn {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+.map-directions-btn:hover {
+  background: #c58828;
+  color: white;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(197, 136, 40, 0.2);
+}
+
+/* ===== HOVER ANİMASİYALARI ===== */
+.hover-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.hover-card:hover {
+  transform: translateY(-6px) !important;
+  box-shadow: 0 10px 22px rgba(0,0,0,0.12) !important;
+}
+
+.info-card:hover,
+.contact-form:hover,
+.contact-map:hover {
+  transform: translateY(-6px) !important;
+  box-shadow: 0 10px 22px rgba(0,0,0,0.12) !important;
+}
+
+/* ===== FORM ELEMENTLƏRİ ===== */
+.form-row {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  font-size: 14px;
+  color: #444;
+  margin-bottom: 8px;
+  font-weight: 500;
+  opacity: 0;
+  transform: translateY(5px);
+  transition: all 0.4s ease 0.2s;
+}
+
+.form-visible .form-group label {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+input,
+textarea {
+  padding: 14px 16px;
+  border: 1px solid #e6e1dd;
+  border-radius: 12px;
+  font-size: 15px;
+  color: #222;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+  resize: none;
+  background: #fff;
+  opacity: 0;
+  transform: translateY(5px);
+  transition: all 0.4s ease 0.3s, border-color 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.form-visible input,
+.form-visible textarea {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #c58828;
+  box-shadow: 0 0 0 4px rgba(197,136,40,0.12) !important;
+  outline: none;
+}
+
+textarea {
+  height: 140px;
+  flex: 1;
+}
+
+.send-btn {
+  margin-top: auto;
+  background: #c58828;
+  color: #fff;
+  border: none;
+  padding: 14px 20px;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease !important;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.4s ease 0.4s, background 0.3s ease, transform 0.3s ease !important;
+}
+
+.form-visible .send-btn {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+.send-btn:hover { 
+  background: #ad721f !important; 
+  transform: translateY(-2px) !important; 
+  box-shadow: 0 4px 12px rgba(173, 114, 31, 0.2) !important;
+}
+
+/* =============================================== */
+/* 📧 ƏLAQƏ BİLDİRİŞİ */
+/* =============================================== */
+
+.cerez-contact-notification {
+  position: fixed;
+  top: 90px;
+  right: 30px;
+  z-index: 100000;
+  animation: cerezContactNotifSlideIn 0.3s ease;
+  pointer-events: none;
+}
+
+.cerez-contact-notification.fade-out {
+  animation: cerezContactNotifFadeOut 0.3s ease forwards;
+}
+
+.cerez-contact-notification-content {
+  background: #2c1810;
+  border-radius: 50px;
+  padding: 10px 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: auto;
+  max-width: 380px;
+}
+
+.cerez-contact-notification.success .cerez-contact-notification-content {
+  background: #2c1810;
+}
+
+.cerez-contact-notification.error .cerez-contact-notification-content {
+  background: #c0392b;
+}
+
+.cerez-contact-notification-message {
+  font-size: 13px;
+  color: #ffffff;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.cerez-contact-notification.success .cerez-contact-notification-message::before {
+  content: '✓';
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  background: #27ae60;
+  color: white;
+  border-radius: 50%;
+  font-size: 11px;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.cerez-contact-notification.error .cerez-contact-notification-message::before {
+  content: '!';
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  background: #e74c3c;
+  color: white;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+@keyframes cerezContactNotifSlideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes cerezContactNotifFadeOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+/* =============================================== */
+/* ✨ EMAIL OPTIONAL FIELD STILLƏRİ */
+/* =============================================== */
+
+.required-field {
+  color: #e74c3c;
+  font-size: 12px;
+  font-weight: 600;
+  margin-left: 4px;
+}
+
+.optional-field {
+  color: #888;
+  font-size: 11px;
+  font-weight: 400;
+  font-style: italic;
+  margin-left: 6px;
+}
+
+.email-hint {
+  display: block;
+  margin-top: 6px;
+  font-size: 11px;
+  color: #c58828;
+  background: rgba(197, 136, 40, 0.1);
+  padding: 6px 12px;
+  border-radius: 8px;
+  line-height: 1.4;
+}
+
+.form-group input[type="email"] {
+  transition: all 0.3s ease;
+}
+
+.form-group input[type="email"]:focus {
+  border-color: #c58828;
+  box-shadow: 0 0 0 4px rgba(197, 136, 40, 0.12);
+}
+
+/* =============================================== */
+/* 📱 TELEFON SAHƏSİ ÜÇÜN XÜSUSİ STİLLƏR */
+/* =============================================== */
+
+input[type="tel"] {
+  font-family: monospace;
+  letter-spacing: 0.5px;
+  font-size: 15px;
+}
+
+input[type="tel"]:focus {
+  border-color: #c58828;
+  box-shadow: 0 0 0 4px rgba(197, 136, 40, 0.12);
+}
+
+input[type="tel"]::placeholder {
+  font-family: monospace;
+  letter-spacing: 0.5px;
+  color: #aaa;
+  font-size: 14px;
+}
+
+/* =============================================== */
+/* RESPONSIVE DESIGN */
+/* =============================================== */
+
+@media (max-width: 980px) {
+  .contact-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    max-width: 600px;
+  }
+  
+  .contact-wrapper { 
+    flex-direction: column; 
+    gap: 24px;
+    max-width: 600px;
+  }
+  
+  .form-row { 
+    flex-direction: column; 
+    gap: 12px;
+  }
+  
+  .contact-header h1 { 
+    font-size: 26px; 
+  }
+  
+  .info-icon { 
+    width: 44px; 
+    height: 44px; 
+    font-size: 18px; 
+  }
+  
+  .info-card {
+    min-height: 110px;
+    padding: 20px;
+  }
+  
+  .map-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .map-directions-btn {
+    align-self: flex-start;
+  }
+  
+  .card-hidden {
+    transform: translateY(20px);
+  }
+  
+  .form-hidden {
+    transform: translateY(30px);
+    transition: all 0.5s ease 0.2s;
+  }
+  
+  .map-hidden {
+    transform: translateY(30px);
+    transition: all 0.5s ease 0.3s;
+  }
+  
+  .hover-card:hover,
+  .info-card:hover,
+  .contact-form:hover,
+  .contact-map:hover {
+    transform: none !important;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.06) !important;
+  }
+  
+  .required-field {
+    font-size: 11px;
+  }
+  
+  .optional-field {
+    font-size: 10px;
+  }
+  
+  .email-hint {
+    font-size: 10px;
+    padding: 5px 10px;
+  }
+  
+  input[type="tel"] {
+    font-size: 14px;
+  }
+  
+  input[type="tel"]::placeholder {
+    font-size: 13px;
+  }
+  
+  /* Responsive üçün xəritə hündürlüyü */
+  .map-embed iframe {
+    height: 250px;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-section {
+    padding: 30px 12px;
+  }
+  
+  .contact-cards-grid {
+    gap: 14px;
+  }
+  
+  .contact-wrapper {
+    gap: 20px;
+  }
+  
+  .contact-form,
+  .contact-map {
+    padding: 24px;
+  }
+  
+  .hover-card:hover {
+    transform: none !important;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.06) !important;
+  }
+  
+  input:focus,
+  textarea:focus {
+    transform: none !important;
+    scale: 1 !important;
+  }
+  
+  .cerez-contact-notification {
+    top: 80px;
+    right: 20px;
+  }
+  
+  .cerez-contact-notification-content {
+    padding: 8px 16px;
+    max-width: 320px;
+  }
+  
+  .cerez-contact-notification-message {
+    font-size: 12px;
+  }
+  
+  input[type="tel"] {
+    font-size: 14px;
+  }
+  
+  input[type="tel"]::placeholder {
+    font-size: 13px;
+  }
+  
+  /* Responsive üçün xəritə hündürlüyü */
+  .map-embed iframe {
+    height: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-section {
+    padding: 24px 12px;
+  }
+  
+  .contact-header h1 {
+    font-size: 24px;
+  }
+  
+  .badge-hidden {
+    font-size: 14px;
+    padding: 6px 18px;
+  }
+  
+  .info-card,
+  .contact-form,
+  .contact-map {
+    padding: 20px;
+  }
+  
+  .info-card h2 {
+    font-size: 16px;
+  }
+  
+  .info-card p {
+    font-size: 13px;
+  }
+  
+  .contact-form h2,
+  .contact-map h2 {
+    font-size: 18px;
+  }
+  
+  input,
+  textarea {
+    padding: 12px 14px;
+    font-size: 14px;
+  }
+  
+  .send-btn {
+    padding: 12px 18px;
+    font-size: 15px;
+  }
+  
+  .map-directions-btn {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+  
+  .required-field {
+    font-size: 10px;
+  }
+  
+  .optional-field {
+    font-size: 9px;
+  }
+  
+  .email-hint {
+    font-size: 9px;
+    padding: 4px 8px;
+  }
+  
+  .cerez-contact-notification {
+    top: 70px;
+    right: 15px;
+  }
+  
+  .cerez-contact-notification-content {
+    padding: 6px 14px;
+    max-width: 280px;
+  }
+  
+  .cerez-contact-notification-message {
+    font-size: 11px;
+  }
+  
+  .cerez-contact-notification.success .cerez-contact-notification-message::before,
+  .cerez-contact-notification.error .cerez-contact-notification-message::before {
+    width: 16px;
+    height: 16px;
+    font-size: 10px;
+  }
+  
+  input[type="tel"] {
+    font-size: 13px;
+    letter-spacing: 0.3px;
+  }
+  
+  input[type="tel"]::placeholder {
+    font-size: 12px;
+  }
+  
+  /* Mobil üçün xəritə hündürlüyü */
+  .map-embed iframe {
+    height: 220px;
+  }
+}
+
+/* =============================================== */
+/* 🍏 iOS XÜSUSİ FIX'LƏR */
+/* =============================================== */
+
+@supports (-webkit-touch-callout: none) {
+  .contact-form,
+  .info-card,
+  .contact-map {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+  
+  input,
+  textarea {
+    font-size: 16px !important;
+    line-height: 1.4 !important;
+  }
+  
+  input[type="tel"] {
+    font-size: 16px !important;
+  }
+}
+
+/* =============================================== */
+/* TOUCH DEVICE OPTIMIZASIYASI */
+/* =============================================== */
+
+@media (hover: none) and (pointer: coarse) {
+  .hover-card:active,
+  .info-card:active,
+  .contact-form:active,
+  .contact-map:active {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12) !important;
+    transition: transform 0.15s ease, box-shadow 0.15s ease !important;
+  }
+  
+  .send-btn:active,
+  .map-directions-btn:active {
+    transform: translateY(-2px) !important;
+    background: #ad721f !important;
+    transition: transform 0.15s ease, background 0.15s ease !important;
+  }
+  
+  .qty-btn:active {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1) !important;
+  }
+  
+  .qty-btn.minus:active {
+    background: rgba(231, 76, 60, 0.1) !important;
+  }
+  
+  .qty-btn.plus:active {
+    background: rgba(39, 174, 96, 0.1) !important;
+  }
+  
+  .quantity-display-clickable:active {
+    background: rgba(214, 128, 15, 0.12) !important;
+    transform: translateY(-2px) !important;
+  }
+  
+  .edit-save-btn:active {
+    background: #219653 !important;
+    transform: scale(1.1) !important;
+  }
+  
+  .edit-cancel-btn:active {
+    background: #c0392b !important;
+    transform: scale(1.1) !important;
+  }
+}
+
+/* =============================================== */
+/* GECİKMƏLƏRİ TƏMİZ VƏ TƏK TƏYİN ET */
+/* =============================================== */
+
+.info-card,
+.contact-form,
+.contact-map,
+.send-btn,
+.map-directions-btn {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, color 0.3s ease !important;
+}
+
+.info-card:hover .info-icon,
+.contact-form:hover h2,
+.contact-map:hover .map-icon {
+  transform: scale(1.05) !important;
+}

@@ -1,0 +1,692 @@
+{
+  "nav": {
+    "home": "Home",
+    "products": "Products",
+    "about": "About",
+    "contact": "Contact",
+    "blog": "Blog",
+    "campaigns": "Campaigns"
+  },
+  "search": {
+    "placeholder": "Search products..."
+  },
+  "hero": {
+    "badge": "Premium Dried Fruits",
+    "title": "Natural Flavors, <1>Healthy</1><br/>Life",
+    "description": "Carefully selected dried fruits, nuts, spices and legumes. A natural choice for your health!",
+    "buttons": {
+      "products": "View Products",
+      "about": "About Us"
+    },
+    "stats": {
+      "products": "Product Types",
+      "natural": "Natural",
+      "customers": "Customers"
+    }
+  },
+  "products": {
+    "loading": "Loading products...",
+    "retry": "Retry",
+    "allProductsTitle": "All Products",
+    "allProductsSubtitle": "Nuts & Dried Fruits",
+    "searchPlaceholder": "Search by product name...",
+    "noResultsTitle": "No products found",
+    "noResultsForSearch": "No products found for \"{{term}}\".",
+    "noResultsForFilter": "No products found matching the selected filters.",
+    "searchSuggestion": "Try different keywords or adjust your filters.",
+    "showAll": "Show all products",
+    "noImage": "No image",
+    "outOfStockBadge": "Out of stock",
+    "outOfStock": "Out of stock",
+    "perKg": "/ 1 kg",
+    "selectedWeight": "Selected",
+    "addToCart": "Add to Cart",
+    "sectionTag": "Products",
+    "sectionTitle": "Premium <1>Snacks</1>",
+    "sectionSubtitle": "Highest quality dried fruits and nuts",
+    "items": [
+      {
+        "id": 1,
+        "name": "Walnut",
+        "tag": "Favorite",
+        "desc": "Fresh and delicious. Supports heart and brain health with high nutritional value."
+      },
+      {
+        "id": 2,
+        "name": "Almond",
+        "tag": "Premium",
+        "desc": "Premium quality almonds, source of vitamin E"
+      },
+      {
+        "id": 3,
+        "name": "Hazelnut",
+        "tag": "Local",
+        "desc": "Rich in vitamins and minerals, high nutritional value natural hazelnuts."
+      },
+      {
+        "id": 4,
+        "name": "Dried Apricot",
+        "tag": "Healthy",
+        "desc": "Natural dried apricots rich in vitamins that support the digestive system."
+      },
+      {
+        "id": 5,
+        "name": "Freeze-dried foods",
+        "tag": "New",
+        "desc": "Freeze-dried fruits that preserve taste and nutritional value at low temperatures."
+      },
+      {
+        "id": 6,
+        "name": "Raisin",
+        "tag": "Popular",
+        "desc": "Quality raisins selected for their natural sweetness and energy-giving composition."
+      }
+    ],
+    "quantity": {
+      "customPlaceholder": "Custom quantity (gr)",
+      "selectedText": "Selected quantity:",
+      "minQuantity": "Minimum quantity is 100 grams!",
+      "options": [
+        { "label": "250 gr", "value": 250 },
+        { "label": "500 gr", "value": 500 },
+        { "label": "750 gr", "value": 750 },
+        { "label": "1 kg", "value": 1000 },
+        { "label": "2 kg", "value": 2000 },
+        { "label": "5 kg", "value": 5000 }
+      ]
+    },
+    "buttons": {
+      "addToCart": "Add to Cart",
+      "allProducts": "All Products",
+      "outOfStock": "Out of stock",
+      "outOfStockBadge": "Out of stock"
+    },
+    "notifications": {
+      "addedToCartFormat": "{{name}} - {{quantity}} ({{price}} AZN) added to cart!",
+      "outOfStock": "{{name}} is currently out of stock! Please check again later.",
+      "selectWeight": "Please select a weight for {{name}}!"
+    },
+    "unit": "/1kg"
+  },
+  "cart": {
+    "kg": "kg",
+    "gr": "gr",
+    "piece": "pcs",
+    "pieces": "pcs",
+    "piece_one": "pc",
+    "piece_other": "pcs",
+    "decreaseAmount": "100 gr",
+    "increaseAmount": "100 gr",
+    "decreasePieceAmount": "1 pc",
+    "increasePieceAmount": "1 pc",
+    "decrease": "Decrease 100 gr",
+    "decreasePiece": "Decrease 1 pc",
+    "title": "Your Cart",
+    "productCount": "{{count}} pc",
+    "productCount_0": "0 pcs",
+    "productCount_1": "1 pc",
+    "productCount_2": "2 pcs",
+    "productCount_3": "3 pcs",
+    "productCount_4": "4 pcs",
+    "productCount_5": "5 pcs",
+    "productCount_plural": "{{count}} pcs",
+    "productCountLabel": "Product count",
+    "items": "items",
+    "empty": "Your cart is empty",
+    "continueShopping": "Continue Shopping",
+    "close": "Close",
+    "decrease": "Decrease 100gr",
+    "increase": "Increase 100gr",
+    "remove": "Remove",
+    "selectedWeight": "Selected weight",
+    "totalItems": "Total items",
+    "totalWeight": "Total weight:",
+    "totalAmount": "Total amount:",
+    "orderNow": "Place Order",
+    "orderNote": "We will contact you once your order has been received",
+    "stockOutShort": "{{productName}} is out of stock",
+    "stockRemainingShort": "{{availableKg}} kg of {{productName}} remaining in stock",
+    "reduceQuantityShort": "Please reduce the quantity",
+    "stockWarningMultiple": "{{stockText}}. Also, {{restCount}} other products have stock issues. {{reduceText}}",
+    "stockWarningDefault": "Some products have insufficient stock. Please reduce the quantity.",
+    "orderSuccess": "Order #{{orderNumber}} has been received!",
+    "orderError": "Order error",
+    "orderErrorRetry": "Order error! Please try again.",
+    "loginRequired": "Please login!",
+    "defaultProduct": "Product",
+    "missingPhone": "Phone number",
+    "missingAddress": "Delivery address",
+    "missingInfoTitle": "Incomplete information",
+    "missingInfoMessage": "Please fill in the following information to complete your order:",
+    "required": "(required)",
+    "goToSettings": "Go to account settings",
+    "submitting": "Submitting...",
+    "stockOut": "{{productName}} is out of stock",
+    "stockRemaining": "{{availableKg}} kg of {{productName}} remaining in stock",
+    "reduceQuantity": "{{stockText}}. Please reduce the quantity",
+    "stockWarningTitle": "⚠️ The following products have low stock"
+  },
+  "about": {
+    "subtitle": "About Us",
+    "whyChooseUs": "Why Choose Us?",
+    "description": "With over 10 years of experience, we offer you the highest quality products. Each product is carefully selected and packaged.",
+    "natural": "100% Natural",
+    "naturalDesc": "Pure natural products without any chemical additives",
+    "health": "For Health",
+    "healthDesc": "Rich in vitamins and minerals, beneficial for the body",
+    "fastDelivery": "Fast Delivery",
+    "deliveryDesc": "Delivery service to Baku and regions",
+    "quality": "Quality Guarantee",
+    "qualityDesc": "Premium quality products carefully selected from reliable sources",
+    "ourStory": "Our Story",
+    "storyPart1": "Çərəz store started as a small business in 2014. Our goal was simple: to offer people the purest and tastiest products.",
+    "storyPart2": "Today, thousands of families across Azerbaijan enjoy healthy eating with us. And we continue to remain committed to quality with the same passion every day.",
+    "storyPart3": "Behind every product of ours lies love, care and family values.",
+    "yearsExperience": "Years of Experience",
+    "products": "Product Types",
+    "satisfiedCustomers": "Satisfied Customers",
+    "support": "Support"
+  },
+  "faq": {
+    "badge": "FAQ",
+    "title": "We Answer Your Questions",
+    "subtitle": "Find the most frequently asked questions here. If you have additional questions, contact us.",
+    "contactText": "Couldn't find the answer to your question?",
+    "contactLink": "Contact us →",
+    "deliveryCostQuestion": "How much is the delivery cost?",
+    "deliveryCostAnswer": "Delivery cost varies depending on the order quantity and address.",
+    "howToOrderQuestion": "How do I place an order?",
+    "howToOrderAnswer": "Orders are accepted either through the website, WhatsApp, or by phone call.",
+    "deliveryTimeQuestion": "How long does it take to deliver after placing an order?",
+    "deliveryTimeAnswer": "Orders are usually delivered within 24 hours. Delivery time may vary depending on the address, region, and other conditions.",
+    "paymentMethodsQuestion": "What are the payment methods?",
+    "paymentMethodsAnswer": "Cash, card, or online payment is possible.",
+    "wholesaleQuestion": "Is there wholesale?",
+    "wholesaleAnswer": "No, wholesale is not available.",
+    "returnPolicyQuestion": "Can products be returned or exchanged?",
+    "returnPolicyAnswer": "Due to food safety, opened products cannot be returned. However, in case of wrong or damaged products, replacement or refund is carried out if contacted within 24 hours."
+  },
+  "reviews": {
+    "badge": "REVIEWS",
+    "title": "What Our Customers Say?",
+    "subtitle": "Read reviews from thousands of satisfied customers",
+    "review1": {
+      "name": "Anonymous Customer",
+      "role": "Regular Customer",
+      "text": "The dried fruits I buy from Çərəz are always fresh and of high quality."
+    },
+    "review2": {
+      "name": "Anonymous Customer",
+      "role": "Restaurant Owner",
+      "text": "We order from here every week for our restaurant."
+    },
+    "review3": {
+      "name": "Anonymous Customer",
+      "role": "Healthy Eating Enthusiast",
+      "text": "I am very pleased that the products are natural and have a wide variety."
+    }
+  },
+  "contact": {
+    "badge": "Contact",
+    "title": "Get In <1>Touch</1> With Us",
+    "subtitle": "Contact us to place an order or for any questions you may have",
+    "cards": {
+      "address": {
+        "title": "Address",
+        "line1": "Baku city, Nasimi district",
+        "line2": "28 May Street, 15"
+      },
+      "email": {
+        "title": "Email",
+        "line1": "info@cerez.az",
+        "line2": "support@cerez.az"
+      },
+      "phone": {
+        "title": "Phone",
+        "line1": "+994 50 854 49 14",
+        "line2": "+994 12 456 78 90"
+      },
+      "hours": {
+        "title": "Working Hours",
+        "line1": "Monday – Saturday: 09:00 – 20:00",
+        "line2": "Sunday: 10:00 – 18:00"
+      }
+    },
+    "form": {
+      "title": "Send Message",
+      "name": "Your Name and Surname",
+      "namePlaceholder": "Enter your First and Last Name",
+      "phone": "Phone",
+      "phonePlaceholder": "+994 XX XXX XX XX",
+      "email": "Email",
+      "emailPlaceholder": "email@example.com",
+      "optional": "optional",
+      "emailHint": "⚠️ If you do not provide an email address, you will receive our response only by phone.",
+      "message": "Your Message",
+      "messagePlaceholder": "Your order or question...",
+      "button": "Send"
+    },
+    "map": {
+      "title": "Our Address",
+      "address": "📍 Baku city, Nasimi district, 28 May Street, 15",
+      "directions": "Get Directions"
+    }
+  },
+  "footer": {
+    "description": "Follow us on social media for updates and promotions.",
+    "sections": {
+      "products": {
+        "title": "Categories",
+        "driedFruits": "Dried fruits",
+        "saltyNuts": "Salty snacks",
+        "chocolateNuts": "Chocolate nuts",
+        "spices": "Spices",
+        "legumesAndGrains": "Legumes & Grains",
+        "vegetableOils": "Vegetable Oils",
+        "driedHerbsAndTeas": "Dried Herbs & Teas",
+        "giftPackages": "Gift Packages"
+      },
+      "links": {
+        "title": "Links",
+        "about": "About Us",
+        "blog": "Blog",
+        "campaigns": "Campaigns",
+        "contact": "Contact",
+        "faq": "Frequently Asked Questions"
+      },
+      "contact": {
+        "title": "Contact",
+        "address": "Baku, Azerbaijan",
+        "phone": "+994 50 854 49 14",
+        "email": "info@cerez.az",
+        "hours": "09:00 – 22:00"
+      }
+    },
+    "bottom": {
+      "copyright": "© 2025 Çərəz. All rights reserved.",
+      "madeWithLove": "Made with love",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service"
+    }
+  },
+  "whatsapp": {
+    "text": "Chat with us",
+    "ariaLabel": "Contact via WhatsApp"
+  },
+  "login": {
+    "welcome": "Welcome!",
+    "createAccount": "Create Account",
+    "loginToAccount": "Login to your account",
+    "createNewAccount": "Create new account",
+    "firstName": "First Name",
+    "firstNamePlaceholder": "Enter your first name",
+    "lastName": "Last Name",
+    "lastNamePlaceholder": "Enter your last name",
+    "phone": "Phone number",
+    "phonePlaceholder": "050 555 55 55",
+    "email": "Email",
+    "emailPlaceholder": "Enter your email address",
+    "password": "Password",
+    "passwordPlaceholder": "Enter your password",
+    "confirmPassword": "Confirm Password",
+    "confirmPasswordPlaceholder": "Confirm your password",
+    "forgotPassword": "Forgot Password?",
+    "loginButton": "Login",
+    "registerButton": "Register",
+    "loggingIn": "Logging in...",
+    "registering": "Signing up...",
+    "noAccount": "Don't have an account?",
+    "haveAccount": "Already have an account?",
+    "register": "Register",
+    "login": "Login",
+    "logout": "Logout",
+    "terms": {
+      "agree": "I agree to the",
+      "link": "Terms of Service",
+      "and": "and",
+      "privacy": "Privacy Policy",
+      "accept": ""
+    },
+    "errors": {
+      "firstNameRequired": "First name is required",
+      "lastNameRequired": "Last name is required",
+      "emailRequired": "Email address is required",
+      "emailInvalid": "Please enter a valid email address",
+      "passwordRequired": "Password is required",
+      "passwordMin": "Password must be at least 6 characters",
+      "confirmPasswordRequired": "Please confirm your password",
+      "confirmPasswordMatch": "Passwords do not match",
+      "phoneRequired": "Phone number is required",
+      "phoneInvalid": "Please enter a valid phone number (e.g., 050 555 55 55)",
+      "phoneDigits": "Phone number must contain only digits",
+      "termsRequired": "Please confirm that you agree to the Terms of Service and Privacy Policy",
+      "wrongCredentials": "Invalid email or password",
+      "registerError": "Registration failed"
+    },
+    "notifications": {
+      "loginSuccess": "Successfully logged in!",
+      "registerSuccess": "Successfully registered!",
+      "logout": "Logged out of your account"
+    }
+  },
+  "forgotPassword": {
+    "title": "Forgot Password?",
+    "subtitle": "Enter your email address associated with your account. We'll send you a password reset link.",
+    "emailLabel": "Email address",
+    "sendButton": "Continue",
+    "sendingButton": "Sending...",
+    "verificationTitle": "Verification Code",
+    "verificationSubtitle": "We sent a 6-digit verification code to {{email}}. Enter the code below.",
+    "codeLabel": "Verification code",
+    "verifyButton": "Verify",
+    "resendButton": "Resend code",
+    "resendDisabled": "Resend in {{countdown}} seconds",
+    "newPasswordTitle": "Set new password",
+    "newPasswordSubtitle": "Your new password must be at least 6 characters long.",
+    "newPasswordLabel": "New password",
+    "confirmPasswordLabel": "Confirm password",
+    "updateButton": "Update password",
+    "updatingButton": "Updating...",
+    "backButton": "Back",
+    "errors": {
+      "emailRequired": "Please enter your email address",
+      "emailInvalid": "Please enter a valid email address",
+      "codeRequired": "Please enter the verification code",
+      "codeInvalid": "Verification code is incorrect",
+      "newPasswordRequired": "Please enter a new password",
+      "newPasswordMin": "Password must be at least 6 characters",
+      "confirmPasswordRequired": "Please confirm your password",
+      "confirmPasswordMatch": "Passwords do not match"
+    },
+    "notifications": {
+      "codeSent": "Verification code sent!",
+      "codeResent": "New code sent!",
+      "passwordUpdated": "Your password has been updated successfully!"
+    }
+  },
+  "blog": {
+    "loading": "Loading...",
+    "badge": "Blog",
+    "title": "B",
+    "titleSuffix": "log",
+    "subtitle": "Useful information about dried fruits and legumes",
+    "views": "views",
+    "readMore": "Read More",
+    "minRead": "{{count}} min",
+    "defaultDescription": "Information about the article",
+    "noArticles": "No articles found in this category",
+    "selectOtherCategory": "Select another category",
+    "shareTitle": "Article",
+    "shareLinkTitle": "Share link",
+    "shareLinkDesc": "Copy the article link and share it anywhere you want",
+    "copyLink": "Copy link",
+    "copied": "Copied!",
+    "copyError": "Could not copy link",
+    "close": "Close",
+    "removedFromBookmarks": "Removed from bookmarks",
+    "addedToBookmarks": "Saved to bookmarks",
+    "liked": "You liked it! ❤️",
+    "notFound": "Article not found",
+    "notFoundDesc": "The article you are looking for does not exist or has been deleted.",
+    "allArticles": "All articles",
+    "noContent": "Article content has not been added.",
+    "category": "Category",
+    "share": "Share",
+    "like": "Like",
+    "addToBookmarks": "Save to bookmarks",
+    "removeFromBookmarks": "Remove from bookmarks",
+    "locale": "en-US",
+    "categories": {
+      "all": "All",
+      "sağlamlıq": "Health",
+      "qidalanma": "Nutrition",
+      "təbiiqarışıqlar": "Natural Mixes",
+      "gözəllik": "Beauty",
+      "reseptlər": "Recipes",
+      "idman": "Sports",
+      "uşaqlar": "Children",
+      "vegan": "Vegan"
+    }
+  },
+  "pagination": {
+    "first": "First",
+    "prev": "Prev",
+    "next": "Next",
+    "last": "Last",
+    "firstTitle": "First page",
+    "prevTitle": "Previous page",
+    "nextTitle": "Next page",
+    "lastTitle": "Last page",
+    "ariaLabel": "Pagination",
+    "goToPage": "Go to page {{page}}",
+    "pageInfo": "Page {{current}} of {{total}}"
+  },
+  "filter": {
+    "filters": "Filters",
+    "categories": "Categories",
+    "sort": "Sort By",
+    "priceRange": "Price Range",
+    "selectAll": "Select All",
+    "sortDefault": "Default",
+    "sortPriceAsc": "Price: Low to High",
+    "sortPriceDesc": "Price: High to Low",
+    "sortNameAsc": "Name: A to Z",
+    "sortNameDesc": "Name: Z to A",
+    "clearFilters": "Clear Filters",
+    "apply": "Apply"
+  },
+  "campaigns": {
+    "badge": "Special Offers",
+    "title": "Campaign",
+    "titleSuffix": "s",
+    "subtitle": "Take advantage of discounts and cashback opportunities",
+    "readMore": "Details",
+    "discount": "Discount",
+    "startDate": "Start date",
+    "endDate": "End date",
+    "active": "Active campaign",
+    "expired": "Expired",
+    "expiredStatus": "Campaign ended",
+    "shareTitle": "Share this campaign",
+    "shareNote": "Share the campaign with your friends and let them benefit from discounts too!",
+    "linkCopied": "Link copied! You can share it on Instagram.",
+    "linkCopiedTikTok": "Link copied! You can share it on TikTok.",
+    "notFound": "Campaign not found",
+    "notFoundDesc": "The campaign you are looking for does not exist or has been deleted.",
+    "allCampaigns": "All campaigns",
+    "noActiveCampaigns": "No active campaigns at the moment",
+    "noActiveCampaignsDesc": "Stay tuned for new campaigns!",
+    "noActiveCampaignsSuggestion": "Be the first to know about the latest discounts!",
+      "toast": {
+        "linkCopiedInstagram": "Link copied! You can share it on Instagram.",
+        "linkCopiedTikTok": "Link copied! You can share it on TikTok.",
+        "copyFailed": "Failed to copy link. Please copy the link manually."
+     },
+      "loading": {
+        "title": "Loading",
+        "subtitle": "Please wait..."
+     }
+  },
+  "account": {
+    "accountSettings": "Account Settings",
+    "manageAccount": "Manage your account information",
+    "profileInfo": "Profile Information",
+    "changePassword": "Change Password",
+    "changePasswordBtn": "Change Password",
+    "savingProfile": "Updating profile...",
+    "savingPassword": "Updating password...",
+    "address": "Delivery address",
+    "addressPlaceholder": "Enter your delivery address",
+    "paymentMethod": "Payment method",
+    "cash": "Cash",
+    "card": "Card payment",
+    "online": "Online payment",
+    "saveChanges": "Save changes",
+    "noChanges": "No changes made!",
+    "profileUpdated": "Profile information updated!",
+    "currentPassword": "Current password",
+    "currentPasswordPlaceholder": "Enter your current password",
+    "newPassword": "New password",
+    "newPasswordPlaceholder": "Enter your new password",
+    "confirmNewPassword": "Confirm new password",
+    "confirmNewPasswordPlaceholder": "Confirm your new password",
+    "currentPasswordRequired": "Current password is required",
+    "newPasswordRequired": "New password is required",
+    "confirmPasswordRequired": "Password confirmation is required",
+    "passwordSameError": "New password cannot be the same as the old password!",
+    "passwordUpdated": "Password changed successfully!",
+    "emailCannotChange": "Email address cannot be changed.",
+    "emailChangeNotAllowed": "Email address cannot be changed!",
+    "passwordChangeRequired": "For security reasons, you must update your password!"
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "lastUpdated": "Last updated: January 15, 2025",
+    "intro": "This Privacy Policy defines the rules for collecting, processing and protecting personal data of individuals using the services provided by Cherez.az.",
+    "sections": {
+      "general": {
+        "title": "1. General Provisions",
+        "clause1": "1.1. By using the site, the user is deemed to have accepted the terms of this Privacy Policy.",
+        "clause2": "1.2. The user is responsible for the accuracy and currency of the information provided."
+      },
+      "collectedData": {
+        "title": "2. Collected Information",
+        "clause1": "2.1. The following information voluntarily provided by the user may be collected:",
+        "list": {
+          "name": "First name, last name",
+          "phone": "Contact number",
+          "address": "Delivery address",
+          "email": "Email address (if provided)",
+          "orderInfo": "Order information"
+        }
+      },
+      "purposes": {
+        "title": "3. Purposes of Data Processing",
+        "clause1": "3.1. The collected information is used for the following purposes:",
+        "list": {
+          "orderProcessing": "Order acceptance and fulfillment",
+          "delivery": "Ensuring delivery",
+          "contact": "Communicating with the user",
+          "quality": "Improving service quality",
+          "marketing": "Marketing and information (based on user consent)"
+        }
+      },
+      "protection": {
+        "title": "4. Data Protection and Storage",
+        "clause1": "4.1. The company implements appropriate technical and organizational measures to protect user data.",
+        "clause2": "4.2. Personal data is stored and protected in accordance with legal requirements."
+      },
+      "thirdParty": {
+        "title": "5. Transfer to Third Parties",
+        "clause1": "5.1. User data may be transferred to third parties in the following cases:",
+        "clause2": "5.2. In other cases, data is not shared without the user's consent.",
+        "list": {
+          "deliveryService": "For delivery service",
+          "legalRequirement": "When required by law"
+        }
+      },
+      "security": {
+        "title": "6. Data Security",
+        "clause1": "6.1. We use modern encryption technologies (SSL) to ensure the security of your data.",
+        "clause2": "6.2. Your personal data is stored on protected servers and can only be accessed by authorized personnel."
+      },
+      "cookies": {
+        "title": "7. Cookies",
+        "clause1": "7.1. The site may use cookies to improve user experience."
+      },
+      "userRights": {
+        "title": "8. User Rights",
+        "clause1": "8.1. The user has the following rights:",
+        "list": {
+          "access": "Access their data",
+          "correction": "Request correction or deletion of data",
+          "objection": "Object to data processing"
+        }
+      },
+      "changes": {
+        "title": "9. Changes",
+        "clause1": "9.1. This Privacy Policy may be amended from time to time.",
+        "clause2": "9.2. Changes take effect as soon as they are posted on the site."
+      }
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "If you have any questions about our Privacy Policy, please contact us:",
+      "emailLabel": "Email",
+      "phoneLabel": "Phone",
+      "addressLabel": "Address",
+      "address": "Baku, Azerbaijan"
+    }
+  },
+  "terms": {
+    "title": "Terms of Service",
+    "lastUpdated": "Last updated: January 15, 2025",
+    "intro": "By using the Cherez.az website, you agree to the following Terms of Service. If you do not agree to these terms, please do not use our site.",
+    "sections": {
+      "general": {
+        "title": "1. General Provisions",
+        "clause1": "1.1. Any person using the site is deemed to have agreed to these terms.",
+        "clause2": "1.2. The store reserves the right to change these terms without prior notice."
+      },
+      "registration": {
+        "title": "2. Registration and User Account",
+        "clause1": "2.1. Users must register to place an order.",
+        "clause2": "2.2. The user is responsible for the accuracy of the information provided.",
+        "clause3": "2.3. The user is obliged to protect the confidentiality of their account information."
+      },
+      "orderPayment": {
+        "title": "3. Order and Payment Terms",
+        "clause1": "3.1. All prices are shown in AZN (Azerbaijani Manat).",
+        "clause2": "3.2. Prices may be changed without prior notice.",
+        "clause3": "3.3. Orders are placed through the site via the cart system.",
+        "clause4": "3.4. Payment is only accepted upon delivery of the order.",
+        "clause5": "3.5. There is no online payment system on the site."
+      },
+      "delivery": {
+        "title": "4. Delivery Rules",
+        "clause1": "4.1. The delivery time is communicated to the user after order confirmation and is approximate.",
+        "clause2": "4.2. The company is not responsible for delays caused by an incorrect address provided by the user.",
+        "clause3": "4.3. Upon delivery, the product should be inspected and any discrepancy reported immediately."
+      },
+      "products": {
+        "title": "5. Products and Liability",
+        "clause1": "5.1. We are not liable if the site is temporarily down due to technical issues.",
+        "clause2": "5.2. Product images on the site are for informational purposes.",
+        "clause3": "5.3. Availability and prices may change without prior notice."
+      },
+      "liability": {
+        "title": "6. Limitation of Liability",
+        "clause1": "6.1. The store is not responsible for problems arising from incorrect or incomplete information provided by the user.",
+        "clause2": "6.2. The store is not liable for temporary suspension of service due to technical failures."
+      },
+      "return": {
+        "title": "7. Return and Exchange Conditions",
+        "clause1": "7.1. Due to food safety, opened products cannot be returned.",
+        "clause2": "7.2. Exceptions may apply only in the following cases:",
+        "clause3": "7.3. In such cases, the user must contact the store upon receipt of the product or within 24 hours at the latest.",
+        "clause4": "7.4. After reviewing the request, the store decides on replacement or return of the product.",
+        "list": {
+          "damaged": "If the product is spoiled, of poor quality, or damaged",
+          "wrongProduct": "If a different product is delivered than ordered"
+        }
+      },
+      "cancellation": {
+        "title": "8. Cancellation",
+        "clause1": "8.1. The user can cancel the order only before delivery has been carried out.",
+        "clause2": "8.2. Once the delivery process has begun, cancellation may not be possible."
+      },
+      "changes": {
+        "title": "9. Changes to Terms",
+        "clause1": "9.1. The store reserves the right to change these Terms of Service at any time. Changes take effect as soon as they are posted on the site."
+      }
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "If you have any questions about our Terms of Service, please contact us:",
+      "emailLabel": "Email",
+      "phoneLabel": "Phone",
+      "addressLabel": "Address",
+      "address": "Baku, Azerbaijan"
+    }
+  }
+}

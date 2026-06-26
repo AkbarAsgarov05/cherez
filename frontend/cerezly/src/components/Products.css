@@ -1,0 +1,1125 @@
+/* ================================
+   CEREZ PRODUCTS SECTION - TAM CSS
+   Həm Kq, həm də Ədəd dəstəyi ilə
+================================ */
+
+.cerez-products-section {
+  padding: 40px 5%;
+  text-align: center;
+  background: #fef6eb;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.cerez-section-tag {
+  background: #f6eadf;
+  color: #b56b20;
+  padding: 8px 20px;
+  border-radius: 20px;
+  display: inline-block;
+  margin-bottom: 10px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.cerez-section-title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  font-family: Georgia, serif;
+  color: #222;
+  line-height: 1.3;
+}
+
+.cerez-section-title .cerez-highlight {
+  color: #d6800f;
+}
+
+.cerez-section-subtitle {
+  color: #666;
+  margin-bottom: 40px;
+  font-size: 16px;
+  line-height: 1.5;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ===========================================
+   LOADING & ERROR STATES
+=========================================== */
+
+.cerez-products-loading {
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cerez-products-error {
+  text-align: center;
+  padding: 60px 20px;
+  background: white;
+  border-radius: 16px;
+  margin: 20px auto;
+  max-width: 500px;
+}
+
+.cerez-products-error p {
+  color: #dc3545;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.cerez-retry-btn {
+  background: #d6800f;
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cerez-retry-btn:hover {
+  background: #e68a1a;
+  transform: translateY(-2px);
+}
+
+/* ===========================================
+   GRID LAYOUT - RESPONSIVE
+=========================================== */
+
+.cerez-products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  justify-items: center;
+  margin: 0 auto;
+  max-width: 1200px;
+  box-sizing: border-box;
+}
+
+/* ===========================================
+   RESPONSIVE BREAKPOINTS
+=========================================== */
+
+@media (max-width: 1024px) {
+  .cerez-products-section {
+    padding: 35px 4%;
+  }
+  .cerez-products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 700px;
+  }
+  .cerez-section-title {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cerez-products-section {
+    padding: 30px 20px;
+  }
+  .cerez-products-grid {
+    gap: 18px;
+    max-width: 100%;
+  }
+  .cerez-section-title {
+    font-size: 26px;
+  }
+  .cerez-section-subtitle {
+    font-size: 15px;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 600px) {
+  .cerez-products-section {
+    padding: 25px 15px;
+  }
+  .cerez-products-grid {
+    gap: 15px;
+  }
+}
+
+@media (max-width: 500px) {
+  .cerez-products-section {
+    padding: 22px 12px;
+  }
+  .cerez-products-grid {
+    gap: 12px;
+  }
+  .cerez-section-title {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 450px) {
+  .cerez-products-section {
+    padding: 20px 10px;
+  }
+  .cerez-products-grid {
+    gap: 10px;
+  }
+  .cerez-section-title {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 380px) {
+  .cerez-products-grid {
+    gap: 8px;
+  }
+}
+
+/* ===========================================
+   PRODUCT CARD
+=========================================== */
+
+.cerez-product-card {
+  background: #fff;
+  padding: 15px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: visible;
+  border: 1.5px solid transparent;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  box-sizing: border-box;
+}
+
+@media (hover: hover) {
+  .cerez-product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 32px rgba(214, 128, 15, 0.15);
+    border-color: rgba(214, 128, 15, 0.2);
+  }
+  .cerez-product-card:hover .cerez-product-img {
+    transform: scale(1.1);
+  }
+  .cerez-product-card:hover .cerez-card-badge {
+    background: #d6800f;
+    color: white;
+    transform: translateY(-2px);
+  }
+  .cerez-product-card:hover .cerez-product-name {
+    color: #d6800f;
+  }
+  .cerez-product-card:hover .cerez-price {
+    transform: scale(1.05);
+  }
+  .cerez-product-card:hover .cerez-cart-icon {
+    transform: translateY(-2px) scale(1.1);
+  }
+}
+
+.cerez-product-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(214, 128, 15, 0.03), rgba(251, 216, 166, 0.06));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  border-radius: 16px;
+  z-index: -1;
+}
+
+.cerez-product-card:hover::before {
+  opacity: 1;
+}
+
+/* ===========================================
+   CARD İÇİ ELEMENTLƏR
+=========================================== */
+
+.cerez-image-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  height: 200px;
+  margin-bottom: 10px;
+  flex-shrink: 0;
+  width: 100%;
+}
+
+.cerez-product-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.6s ease;
+  display: block;
+}
+
+.cerez-card-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: #fbd8a6;
+  color: #a9651c;
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-weight: 600;
+  z-index: 2;
+  transition: all 0.3s ease;
+  transform: translateY(0);
+  white-space: nowrap;
+}
+
+.cerez-out-of-stock-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background-color: #dc3545;
+  color: white;
+  font-size: 10px;
+  padding: 3px 8px;
+  border-radius: 20px;
+  font-weight: 600;
+  z-index: 10;
+  animation: cerezPulse 1s infinite;
+  white-space: nowrap;
+}
+
+@keyframes cerezPulse {
+  0% { opacity: 0.7; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+  100% { opacity: 0.7; transform: scale(1); }
+}
+
+.cerez-card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  overflow: visible;
+}
+
+.cerez-product-name {
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  transition: color 0.3s ease;
+  color: #222;
+  line-height: 1.3;
+  text-align: center;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+.cerez-product-desc {
+  color: #666;
+  font-size: 12px;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  flex-shrink: 0;
+  overflow: hidden;
+  text-align: center;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+/* ===========================================
+   KİLOQRAM ÜÇÜN MİQDAR SEÇİMİ
+=========================================== */
+
+.cerez-quantity-selection {
+  margin: 10px 0;
+  padding: 12px;
+  background: rgba(214, 128, 15, 0.03);
+  border-radius: 12px;
+  border: 1px solid rgba(214, 128, 15, 0.1);
+  flex-shrink: 0;
+  overflow: visible;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.cerez-quantity-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+  justify-content: center;
+}
+
+.cerez-quantity-option {
+  padding: 8px 12px;
+  border: 2px solid #e0e0e0;
+  border-radius: 30px;
+  background: #faf5f0;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #5a4a42;
+  flex: 0 1 auto;
+  min-width: 70px;
+  text-align: center;
+  position: relative;
+}
+
+.cerez-quantity-option:hover:not(:disabled) {
+  border-color: #d6800f;
+  background: #f0e4d8;
+  color: #8B5A2B;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(214, 128, 15, 0.1);
+}
+
+.cerez-quantity-option.cerez-selected {
+  background: #d6800f;
+  color: white;
+  border-color: #d6800f;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(214, 128, 15, 0.2);
+}
+
+.cerez-quantity-option.cerez-default {
+  border-color: #d6800f;
+  background: #fff8f0;
+  color: #d6800f;
+}
+
+.cerez-quantity-option.cerez-default::after {
+  content: '✓';
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: #27ae60;
+  color: white;
+  font-size: 9px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.cerez-quantity-option.cerez-default:hover:not(:disabled) {
+  background: #e8d5c0;
+  color: #b5671a;
+  border-color: #b5671a;
+}
+
+.cerez-quantity-option.cerez-default:hover:not(:disabled)::after {
+  background: white;
+  color: #27ae60;
+}
+
+.cerez-quantity-option:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.cerez-custom-quantity {
+  display: block;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.cerez-custom-quantity-input {
+  width: 100%;
+  padding: 10px 15px;
+  border: 2px solid #ddd;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  background: white;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.cerez-custom-quantity-input:focus {
+  outline: none;
+  border-color: #d6800f;
+  box-shadow: 0 0 0 3px rgba(214, 128, 15, 0.1);
+}
+
+.cerez-custom-quantity-input::placeholder {
+  color: #999;
+  opacity: 0.7;
+  font-size: 13px;
+}
+
+.cerez-custom-quantity-input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.cerez-selected-quantity-info {
+  margin-top: 10px;
+  padding: 8px 12px;
+  background: rgba(39, 174, 96, 0.1);
+  border-radius: 10px;
+  border: 1px solid rgba(39, 174, 96, 0.2);
+  animation: cerezFadeIn 0.3s ease;
+}
+
+@keyframes cerezFadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.cerez-selected-quantity-text {
+  font-size: 13px;
+  font-weight: 600;
+  color: #27ae60;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  justify-content: center;
+}
+
+.cerez-selected-quantity-text::before {
+  content: '✓';
+  font-size: 14px;
+}
+
+/* ===========================================
+   ƏDƏD İLƏ SATILAN MƏHSULLAR ÜÇÜN SEÇİM
+=========================================== */
+
+.cerez-piece-selection {
+  margin: 10px 0;
+  padding: 12px;
+  background: rgba(214, 128, 15, 0.03);
+  border-radius: 12px;
+  border: 1px solid rgba(214, 128, 15, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.cerez-piece-counter {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: white;
+  border-radius: 40px;
+  border: 1px solid #e0e0e0;
+  overflow: hidden;
+}
+
+.cerez-piece-btn {
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: #faf5f0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #d6800f;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cerez-piece-btn:hover:not(:disabled) {
+  background: #d6800f;
+  color: white;
+}
+
+.cerez-piece-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.cerez-piece-minus:active, .cerez-piece-plus:active {
+  transform: scale(0.95);
+}
+
+.cerez-piece-value {
+  min-width: 50px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  color: #333;
+  padding: 0 10px;
+}
+
+.cerez-piece-unit {
+  display: flex;
+  align-items: center;
+}
+
+.cerez-piece-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #666;
+  background: #f0e4d8;
+  padding: 5px 12px;
+  border-radius: 30px;
+}
+
+/* ===========================================
+   CARD FOOTER
+=========================================== */
+
+.cerez-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid #f0f0f0;
+  gap: 10px;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+}
+
+.cerez-price {
+  font-weight: bold;
+  color: #d6800f;
+  font-size: 18px;
+  transition: transform 0.3s ease;
+  display: flex;
+  align-items: baseline;
+  flex-shrink: 0;
+}
+
+.cerez-price .cerez-unit {
+  font-weight: normal;
+  color: #777;
+  font-size: 12px;
+  margin-left: 3px;
+}
+
+/* ===========================================
+   SƏBƏT BUTONU
+=========================================== */
+
+.cerez-cart-icon {
+  display: inline-block;
+  vertical-align: middle;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  min-width: 16px;
+  min-height: 16px;
+  margin: 0;
+}
+
+.cerez-products-add-btn {
+  background: #f4e7d9;
+  color: #d6800f;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  font-weight: 600;
+  font-size: 12px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  box-shadow: 0 3px 8px rgba(214, 128, 15, 0.15);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 100px;
+  height: 38px;
+  box-sizing: border-box;
+  gap: 6px;
+}
+
+.cerez-products-add-btn.cerez-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.cerez-products-add-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+@media (hover: hover) {
+  .cerez-products-add-btn:hover:not(:disabled):not(.cerez-disabled) {
+    background: #d6800f;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(214, 128, 15, 0.35);
+  }
+  .cerez-products-add-btn:hover:not(:disabled):not(.cerez-disabled) .cerez-cart-icon {
+    transform: translateY(-2px) scale(1.1);
+  }
+}
+
+.cerez-products-add-btn:active {
+  transform: scale(0.95);
+  transition: transform 0.1s;
+}
+
+/* Dil tənzimləmələri */
+[lang="ru"] .cerez-products-add-btn {
+  font-size: 11px;
+  padding: 8px 12px;
+  min-width: 100px;
+  gap: 5px;
+}
+
+[lang="en"] .cerez-products-add-btn {
+  font-size: 11px;
+  min-width: 95px;
+  gap: 5px;
+}
+
+[lang="az"] .cerez-products-add-btn {
+  font-size: 12px;
+  min-width: 100px;
+  gap: 6px;
+}
+
+/* ===========================================
+   BİLDİRİŞ
+=========================================== */
+
+.cerez-products-notification {
+  position: fixed;
+  top: 120px;
+  right: 20px;
+  background-color: #27ae60;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 10px;
+  box-shadow: 0 8px 25px rgba(39, 174, 96, 0.35);
+  z-index: 999999;
+  max-width: 350px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-left: 5px solid #2ecc71;
+  animation: cerezNotificationSlideIn 0.3s ease forwards, cerezNotificationFadeOut 0.3s ease 2.7s forwards;
+}
+
+.cerez-products-notification.cerez-error {
+  background-color: #dc3545 !important;
+  border-left: 5px solid #ffc107 !important;
+  box-shadow: 0 8px 25px rgba(220, 53, 69, 0.3) !important;
+}
+
+.cerez-products-notification.cerez-error .cerez-products-notification-icon {
+  background-color: #ffc107 !important;
+  color: #dc3545 !important;
+}
+
+.cerez-products-notification-icon {
+  background-color: rgba(255, 255, 255, 0.25);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.cerez-products-notification-text {
+  flex: 1;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+@keyframes cerezNotificationSlideIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes cerezNotificationFadeOut {
+  from { opacity: 1; transform: translateX(0); }
+  to { opacity: 0; transform: translateX(100%); }
+}
+
+/* ===========================================
+   BÜTÜN MƏHSULLAR BUTONU
+=========================================== */
+
+.cerez-view-all {
+  margin-top: 35px;
+  background: #d6800f;
+  color: #fff;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 15px;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+@media (hover: hover) {
+  .cerez-view-all:hover {
+    background: #e68a1a;
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(214, 128, 15, 0.3);
+    text-decoration: none;
+  }
+  .cerez-view-all::after {
+    content: ' →';
+    opacity: 0;
+    transform: translateX(-5px);
+    transition: all 0.3s ease;
+    display: inline-block;
+  }
+  .cerez-view-all:hover::after {
+    opacity: 1;
+    transform: translateX(3px);
+  }
+}
+
+.cerez-view-all:active {
+  transform: scale(0.98);
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .cerez-view-all {
+    padding: 10px 25px;
+    font-size: 14px;
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 500px) {
+  .cerez-view-all {
+    padding: 9px 22px;
+    font-size: 13px;
+    margin-top: 25px;
+  }
+}
+
+/* ===========================================
+   SCROLL ANİMASİYASI
+=========================================== */
+
+.cerez-animate-card {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.cerez-animate-card.cerez-show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cerez-animate-card.delay-0 { transition-delay: 0s; }
+.cerez-animate-card.delay-1 { transition-delay: 0.1s; }
+.cerez-animate-card.delay-2 { transition-delay: 0.2s; }
+.cerez-animate-card.delay-3 { transition-delay: 0.3s; }
+.cerez-animate-card.delay-4 { transition-delay: 0.4s; }
+.cerez-animate-card.delay-5 { transition-delay: 0.5s; }
+.cerez-animate-card.delay-6 { transition-delay: 0.6s; }
+.cerez-animate-card.delay-7 { transition-delay: 0.7s; }
+.cerez-animate-card.delay-8 { transition-delay: 0.8s; }
+.cerez-animate-card.delay-9 { transition-delay: 0.9s; }
+.cerez-animate-card.delay-10 { transition-delay: 1.0s; }
+
+/* ===========================================
+   MOBİL GÖRÜNÜŞ
+=========================================== */
+
+@media (max-width: 768px) {
+  .cerez-image-wrapper {
+    height: 180px;
+  }
+}
+
+@media (max-width: 600px) {
+  .cerez-quantity-option {
+    padding: 6px 10px;
+    font-size: 11px;
+    min-width: 55px;
+  }
+  .cerez-quantity-options {
+    gap: 6px;
+  }
+  .cerez-quantity-option.cerez-default::after {
+    width: 13px;
+    height: 13px;
+    font-size: 8px;
+    top: -5px;
+    right: -5px;
+  }
+  .cerez-products-add-btn {
+    padding: 6px 10px;
+    font-size: 11px;
+    min-width: 85px;
+    height: 34px;
+    gap: 4px;
+  }
+  .cerez-cart-icon {
+    width: 14px;
+    height: 14px;
+    min-width: 14px;
+    min-height: 14px;
+  }
+  .cerez-price {
+    font-size: 16px;
+  }
+  .cerez-price .cerez-unit {
+    font-size: 10px;
+  }
+  .cerez-product-name {
+    font-size: 15px;
+  }
+  .cerez-product-desc {
+    font-size: 11px;
+  }
+  .cerez-image-wrapper {
+    height: 160px;
+  }
+  .cerez-products-notification {
+    top: 100px;
+    right: 10px;
+    left: auto;
+    max-width: calc(100% - 20px);
+    padding: 12px 16px;
+  }
+  .cerez-products-notification-text {
+    font-size: 13px;
+  }
+  .cerez-products-notification-icon {
+    width: 22px;
+    height: 22px;
+    font-size: 14px;
+  }
+  
+  /* Ədəd seçimi mobil */
+  .cerez-piece-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+  }
+  .cerez-piece-value {
+    min-width: 40px;
+    font-size: 16px;
+    padding: 0 6px;
+  }
+  .cerez-piece-label {
+    font-size: 12px;
+    padding: 4px 10px;
+  }
+  .cerez-piece-selection {
+    gap: 10px;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 450px) {
+  .cerez-quantity-option {
+    padding: 5px 8px;
+    font-size: 10px;
+    min-width: 50px;
+  }
+  .cerez-products-add-btn {
+    padding: 5px 8px;
+    font-size: 10px;
+    min-width: 75px;
+    height: 32px;
+  }
+  .cerez-product-card {
+    padding: 10px;
+  }
+  .cerez-quantity-selection {
+    padding: 8px;
+  }
+  .cerez-custom-quantity-input {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+  .cerez-card-footer {
+    gap: 8px;
+  }
+  .cerez-image-wrapper {
+    height: 140px;
+  }
+  .cerez-products-notification {
+    top: 90px;
+    right: 10px;
+    left: 10px;
+    max-width: calc(100% - 20px);
+    padding: 10px 14px;
+  }
+  .cerez-products-notification-text {
+    font-size: 12px;
+  }
+  .cerez-products-notification-icon {
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+  }
+  
+  /* Ədəd seçimi kiçik mobil */
+  .cerez-piece-btn {
+    width: 28px;
+    height: 28px;
+    font-size: 14px;
+  }
+  .cerez-piece-value {
+    min-width: 35px;
+    font-size: 14px;
+  }
+  .cerez-piece-label {
+    font-size: 11px;
+    padding: 3px 8px;
+  }
+  .cerez-piece-selection {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 380px) {
+  .cerez-quantity-option {
+    padding: 4px 6px;
+    font-size: 9px;
+    min-width: 45px;
+  }
+  .cerez-products-add-btn {
+    padding: 4px 6px;
+    font-size: 9px;
+    min-width: 65px;
+    height: 28px;
+    gap: 3px;
+  }
+  .cerez-cart-icon {
+    width: 12px;
+    height: 12px;
+    min-width: 12px;
+    min-height: 12px;
+  }
+  .cerez-price {
+    font-size: 14px;
+  }
+  .cerez-product-name {
+    font-size: 13px;
+  }
+  .cerez-image-wrapper {
+    height: 120px;
+  }
+}
+
+/* ===========================================
+   DİL TƏNZİMLƏMƏLƏRİ (MOBİL)
+=========================================== */
+
+@media (max-width: 500px) {
+  [lang="ru"] .cerez-products-add-btn,
+  [lang="en"] .cerez-products-add-btn,
+  [lang="az"] .cerez-products-add-btn {
+    font-size: 10px;
+    min-width: 70px;
+    padding: 5px 8px;
+  }
+}
+
+/* ===========================================
+   Touch cihazlar üçün
+=========================================== */
+
+@media (hover: none) and (pointer: coarse) {
+  .cerez-product-card:hover {
+    transform: none;
+  }
+  .cerez-products-add-btn:hover:not(:disabled):not(.cerez-disabled) {
+    background-color: #f4e7d9;
+    color: #d6800f;
+  }
+  .cerez-out-of-stock-badge {
+    animation: none;
+  }
+  .cerez-piece-btn:hover:not(:disabled) {
+    background: #faf5f0;
+    color: #d6800f;
+  }
+}
+
+/* ===========================================
+   Animasiyaları azaltmaq istəyənlər üçün
+=========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .cerez-product-card,
+  .cerez-product-img,
+  .cerez-card-badge,
+  .cerez-price,
+  .cerez-cart-icon,
+  .cerez-products-add-btn,
+  .cerez-view-all,
+  .cerez-animate-card,
+  .cerez-products-notification,
+  .cerez-piece-btn {
+    animation: none;
+    transition: none;
+  }
+  .cerez-animate-card {
+    opacity: 1;
+    transform: none;
+  }
+  .cerez-out-of-stock-badge {
+    animation: none;
+  }
+}
+
+/* ===========================================
+   Çap üçün
+=========================================== */
+
+@media print {
+  .cerez-products-section {
+    background-color: white;
+    padding: 20px;
+  }
+  .cerez-products-add-btn,
+  .cerez-cart-icon,
+  .cerez-quantity-selection,
+  .cerez-piece-selection,
+  .cerez-view-all,
+  .cerez-products-notification,
+  .cerez-out-of-stock-badge {
+    display: none;
+  }
+  .cerez-product-card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    box-shadow: none;
+    border: 1px solid #ddd;
+  }
+}

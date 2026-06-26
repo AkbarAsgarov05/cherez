@@ -1,0 +1,282 @@
+/* WhatsApp Butonu */
+.whatsapp-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.5);
+  z-index: 1000;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: visible;
+}
+
+.whatsapp-button:hover {
+  background: linear-gradient(135deg, #128c7e 0%, #075e54 100%);
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.8);
+  transform: scale(1.1);
+}
+
+/* WhatsApp Icon */
+.whatsapp-icon {
+  color: white;
+  font-size: 28px;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.whatsapp-button:hover .whatsapp-icon {
+  transform: rotate(15deg) scale(1.2);
+}
+
+/* Yazı konteyneri */
+.whatsapp-text-container {
+  position: absolute;
+  right: 70px;
+  top: 50%;
+  transform: translateY(-50%) translateX(10px);
+  background: linear-gradient(135deg, #075e54 0%, #054739 100%);
+  padding: 8px 16px;
+  border-radius: 25px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  white-space: nowrap;
+  z-index: 1;
+}
+
+.whatsapp-button:hover .whatsapp-text-container {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-50%) translateX(0);
+  right: 75px;
+}
+
+.whatsapp-text {
+  color: white;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Halqalar - BUTONA YAXIN */
+.whatsapp-rings {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.whatsapp-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 2px solid transparent;
+}
+
+/* Birinci halqa - butona yaxın */
+.whatsapp-ring-1 {
+  width: 70px; /* Butondan cəmi 10px böyük */
+  height: 70px;
+  border-top-color: rgba(37, 211, 102, 0.7);
+  border-right-color: rgba(37, 211, 102, 0.3);
+  animation: ring-rotate-clockwise 5s linear infinite;
+}
+
+/* İkinci halqa - butona yaxın */
+.whatsapp-ring-2 {
+  width: 80px; /* Butondan 20px böyük */
+  height: 80px;
+  border-right-color: rgba(37, 211, 102, 0.5);
+  border-bottom-color: rgba(37, 211, 102, 0.2);
+  animation: ring-rotate-counterclockwise 6s linear infinite;
+  animation-delay: 1s;
+}
+
+/* Üçüncü halqa - butona yaxın */
+.whatsapp-ring-3 {
+  width: 90px; /* Butondan 30px böyük */
+  height: 90px;
+  border-bottom-color: rgba(37, 211, 102, 0.4);
+  border-left-color: rgba(37, 211, 102, 0.1);
+  animation: ring-rotate-clockwise 7s linear infinite;
+  animation-delay: 2s;
+}
+
+/* Hover zamanı halqalar daha parlaq olsun */
+.whatsapp-button:hover .whatsapp-ring-1 {
+  border-top-color: rgba(37, 211, 102, 0.9);
+  border-right-color: rgba(37, 211, 102, 0.6);
+}
+
+.whatsapp-button:hover .whatsapp-ring-2 {
+  border-right-color: rgba(37, 211, 102, 0.8);
+  border-bottom-color: rgba(37, 211, 102, 0.4);
+}
+
+.whatsapp-button:hover .whatsapp-ring-3 {
+  border-bottom-color: rgba(37, 211, 102, 0.7);
+  border-left-color: rgba(37, 211, 102, 0.3);
+}
+
+@keyframes ring-rotate-clockwise {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes ring-rotate-counterclockwise {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(-360deg);
+  }
+}
+
+/* Buton pulsasiyası */
+@keyframes button-pulse {
+  0%, 100% {
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.5);
+  }
+  50% {
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.7);
+  }
+}
+
+.whatsapp-button {
+  animation: button-pulse 3s ease-in-out infinite;
+}
+
+.whatsapp-button:hover {
+  animation: button-pulse 0.5s ease-in-out infinite;
+}
+
+/* Halqalara da pulsasiya */
+@keyframes ring-pulse {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.whatsapp-ring-1 {
+  animation: 
+    ring-rotate-clockwise 5s linear infinite,
+    ring-pulse 4s ease-in-out infinite;
+}
+
+.whatsapp-ring-2 {
+  animation: 
+    ring-rotate-counterclockwise 6s linear infinite,
+    ring-pulse 5s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+.whatsapp-ring-3 {
+  animation: 
+    ring-rotate-clockwise 7s linear infinite,
+    ring-pulse 6s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+/* Mobil uyğunluq */
+@media (max-width: 768px) {
+  .whatsapp-button {
+    width: 55px;
+    height: 55px;
+    bottom: 18px;
+    right: 18px;
+  }
+  
+  .whatsapp-icon {
+    font-size: 25px;
+  }
+  
+  .whatsapp-text-container {
+    right: 65px;
+    padding: 7px 14px;
+  }
+  
+  .whatsapp-button:hover .whatsapp-text-container {
+    right: 70px;
+  }
+  
+  .whatsapp-text {
+    font-size: 13px;
+  }
+  
+  .whatsapp-ring-1 {
+    width: 65px;
+    height: 65px;
+  }
+  
+  .whatsapp-ring-2 {
+    width: 75px;
+    height: 75px;
+  }
+  
+  .whatsapp-ring-3 {
+    width: 85px;
+    height: 85px;
+  }
+}
+
+@media (max-width: 480px) {
+  .whatsapp-button {
+    width: 50px;
+    height: 50px;
+    bottom: 16px;
+    right: 16px;
+  }
+  
+  .whatsapp-icon {
+    font-size: 22px;
+  }
+  
+  .whatsapp-text-container {
+    display: none;
+  }
+  
+  .whatsapp-ring-1 {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .whatsapp-ring-2 {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .whatsapp-ring-3 {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+/* Icon görünmürsə */
+.whatsapp-icon {
+  display: block !important;
+  visibility: visible !important;
+}

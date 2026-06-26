@@ -1,0 +1,252 @@
+/* Privacy Policy Page Styles */
+.privacy-policy-page {
+  min-height: calc(100vh - 200px);
+  background: linear-gradient(135deg, #faf7f2 0%, #f5efe6 100%);
+  padding: 60px 20px;
+}
+
+.privacy-policy-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  padding: 50px 60px;
+}
+
+.privacy-policy-title {
+  font-size: 36px;
+  font-weight: 700;
+  color: #3b2002;
+  text-align: center;
+  margin-bottom: 15px;
+  position: relative;
+  padding-bottom: 20px;
+}
+
+.privacy-policy-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #ffcf99, #ff9a56);
+  border-radius: 2px;
+}
+
+.privacy-policy-date {
+  text-align: center;
+  color: #888;
+  font-size: 14px;
+  margin-bottom: 40px;
+}
+
+/* Intro hissəsi */
+.privacy-policy-intro {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #444;
+  margin-bottom: 35px;
+  padding: 15px 20px;
+  background: #fef9f0;
+  border-left: 4px solid #ff9a56;
+  border-radius: 8px;
+}
+
+/* Bölmələr */
+.privacy-section {
+  margin-bottom: 35px;
+}
+
+.privacy-section h2 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #3b2002;
+  margin-bottom: 15px;
+  padding-left: 15px;
+  border-left: 4px solid #ff9a56;
+}
+
+.privacy-section p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #444;
+  margin-bottom: 10px;
+}
+
+.privacy-section ul {
+  margin: 10px 0 10px 35px;
+  padding-left: 0;
+}
+
+.privacy-section li {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+/* Əlaqə bölməsi */
+.privacy-contact {
+  background: #f8f4ee;
+  padding: 25px 30px;
+  border-radius: 15px;
+  margin-top: 40px;
+  border: 1px solid #e8dfd3;
+}
+
+.privacy-contact h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #3b2002;
+  margin-bottom: 15px;
+}
+
+.privacy-contact p {
+  font-size: 15px;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.privacy-contact strong {
+  color: #3b2002;
+}
+
+/* Hover effektləri */
+.privacy-section h2:hover {
+  color: #ff9a56;
+  transition: color 0.3s ease;
+}
+
+.privacy-contact:hover {
+  background: #f5ede2;
+  transition: background 0.3s ease;
+}
+
+/* ============ RESPONSIVE ============ */
+
+/* Tablet (768px və altı) */
+@media (max-width: 768px) {
+  .privacy-policy-page {
+    padding: 40px 15px;
+  }
+  
+  .privacy-policy-container {
+    padding: 30px 25px;
+  }
+  
+  .privacy-policy-title {
+    font-size: 28px;
+  }
+  
+  .privacy-section h2 {
+    font-size: 20px;
+  }
+  
+  .privacy-section p,
+  .privacy-section li,
+  .privacy-policy-intro {
+    font-size: 14px;
+  }
+  
+  .privacy-policy-intro {
+    padding: 12px 15px;
+  }
+  
+  .privacy-contact {
+    padding: 20px 25px;
+  }
+  
+  .privacy-contact h3 {
+    font-size: 16px;
+  }
+  
+  .privacy-contact p {
+    font-size: 14px;
+  }
+}
+
+/* Mobil (576px və altı) */
+@media (max-width: 576px) {
+  .privacy-policy-page {
+    padding: 30px 12px;
+  }
+  
+  .privacy-policy-container {
+    padding: 25px 18px;
+  }
+  
+  .privacy-policy-title {
+    font-size: 24px;
+  }
+  
+  .privacy-policy-date {
+    font-size: 12px;
+    margin-bottom: 25px;
+  }
+  
+  .privacy-section {
+    margin-bottom: 25px;
+  }
+  
+  .privacy-section h2 {
+    font-size: 18px;
+    padding-left: 10px;
+  }
+  
+  .privacy-section p,
+  .privacy-section li,
+  .privacy-policy-intro {
+    font-size: 13px;
+  }
+  
+  .privacy-section ul {
+    margin-left: 20px;
+  }
+  
+  .privacy-policy-intro {
+    padding: 10px 12px;
+    margin-bottom: 25px;
+  }
+  
+  .privacy-contact {
+    padding: 15px 18px;
+    margin-top: 30px;
+  }
+  
+  .privacy-contact h3 {
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+  
+  .privacy-contact p {
+    font-size: 13px;
+    margin-bottom: 5px;
+  }
+}
+
+/* Kiçik mobil (375px və altı) */
+@media (max-width: 375px) {
+  .privacy-policy-container {
+    padding: 20px 15px;
+  }
+  
+  .privacy-policy-title {
+    font-size: 22px;
+  }
+  
+  .privacy-section h2 {
+    font-size: 16px;
+  }
+  
+  .privacy-section p,
+  .privacy-section li {
+    font-size: 12px;
+  }
+  
+  .privacy-section li {
+    margin-bottom: 5px;
+  }
+}

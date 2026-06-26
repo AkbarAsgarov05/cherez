@@ -1,0 +1,574 @@
+/* =============================================== */
+/* BLOG SƏHİFƏSİ - SAYT DİZAYNINA UYĞUN */
+/* =============================================== */
+
+.blog-list-container {
+  background: #fdfaf7;
+  min-height: calc(100vh - 200px);
+  padding-top: 120px;
+}
+
+.blog-list-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px 60px 20px;
+}
+
+/* ===== HEADER ===== */
+.blog-list-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.blog-list-badge {
+  background: #f4e7d7;
+  color: #c58828;
+  padding: 6px 20px;
+  border-radius: 40px;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 15px;
+  margin-bottom: 16px;
+  opacity: 0;
+  transform: translateY(20px) scale(0.9);
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.blog-list-badge.badge-visible {
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
+}
+
+.blog-list-title {
+  font-size: 36px;
+  margin: 8px 0;
+  font-weight: 700;
+  color: #222;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s;
+}
+
+.blog-list-title.title-visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+.blog-list-title span {
+  color: #c58828;
+}
+
+.blog-list-subtitle {
+  color: #666;
+  font-size: 16px;
+  margin-top: 12px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s;
+}
+
+.blog-list-subtitle.subtitle-visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* ===== KATEQORİYA FİLTRLƏRİ ===== */
+.category-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.category-btn {
+  padding: 8px 20px;
+  background: white;
+  border: 2px solid #e2e8f0;
+  border-radius: 40px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #4a5568;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.category-btn:hover {
+  border-color: #c58828;
+  color: #c58828;
+  transform: translateY(-2px);
+}
+
+.category-btn.active {
+  background: linear-gradient(135deg, #c58828, #ad721f);
+  border-color: transparent;
+  color: white;
+  box-shadow: 0 4px 12px rgba(197, 136, 40, 0.3);
+}
+
+.category-count {
+  background: rgba(0, 0, 0, 0.1);
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.category-btn.active .category-count {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* ===== BLOG KARTLARI GRID ===== */
+.blog-list-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  padding: 20px 0;
+}
+
+/* ===== BLOG KARTI ===== */
+.blog-list-card {
+  text-decoration: none;
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: block;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.blog-list-card.card-visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+.blog-list-card:hover {
+  transform: translateY(-8px) !important;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1) !important;
+}
+
+.blog-list-card-image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+}
+
+.blog-list-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.blog-list-card:hover .blog-list-card-image img {
+  transform: scale(1.08);
+}
+
+.blog-category-badge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: linear-gradient(135deg, #c58828, #ad721f);
+  color: white;
+  padding: 6px 14px;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: 600;
+  z-index: 1;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Kart içi məzmun */
+.blog-list-card-content {
+  padding: 20px;
+  background: white;
+}
+
+.blog-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  font-size: 12px;
+  color: #888;
+}
+
+.blog-meta i {
+  margin-right: 5px;
+  color: #c58828;
+}
+
+.blog-date, .blog-read-time {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.blog-list-card-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #222;
+  margin: 0 0 10px 0;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.blog-list-card-excerpt {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 15px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.blog-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 12px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.blog-views {
+  font-size: 12px;
+  color: #888;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.blog-views i {
+  color: #c58828;
+}
+
+.blog-list-card-link {
+  font-size: 13px;
+  color: #c58828;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: gap 0.2s ease;
+}
+
+.blog-list-card-link i {
+  font-size: 11px;
+  transition: transform 0.2s ease;
+}
+
+.blog-list-card:hover .blog-list-card-link {
+  gap: 10px;
+}
+
+.blog-list-card:hover .blog-list-card-link i {
+  transform: translateX(3px);
+}
+
+/* ===== NO BLOGS MESSAGE ===== */
+.no-blogs-message {
+  text-align: center;
+  padding: 60px 20px;
+  background: white;
+  border-radius: 24px;
+  margin-top: 20px;
+}
+
+.no-blogs-message i {
+  font-size: 60px;
+  color: #cbd5e0;
+  margin-bottom: 20px;
+}
+
+.no-blogs-message h3 {
+  font-size: 20px;
+  color: #2d3748;
+  margin-bottom: 10px;
+}
+
+.no-blogs-message p {
+  color: #718096;
+}
+
+/* ===== RESPONSIVE ===== */
+
+/* Tablet (768px - 1024px) - 2 sütun */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .blog-list-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+
+  .blog-list-card-image {
+    height: 200px;
+  }
+
+  .blog-list-card-title {
+    font-size: 16px;
+  }
+
+  .blog-list-card-excerpt {
+    font-size: 13px;
+  }
+}
+
+/* Mobil (768px və aşağı) - 1 sütun */
+@media (max-width: 768px) {
+  .blog-list-container {
+    padding-top: 100px;
+  }
+
+  .blog-list-wrapper {
+    padding: 0 16px 40px 16px;
+  }
+
+  .blog-list-title {
+    font-size: 28px;
+  }
+
+  .blog-list-subtitle {
+    font-size: 14px;
+  }
+
+  .category-filters {
+    gap: 10px;
+    margin-bottom: 30px;
+  }
+
+  .category-btn {
+    padding: 6px 16px;
+    font-size: 13px;
+  }
+
+  /* Mobil ekranda 1 sütun */
+  .blog-list-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .blog-list-card-image {
+    height: 200px;
+  }
+
+  .blog-list-card-content {
+    padding: 16px;
+  }
+
+  .blog-list-card-title {
+    font-size: 16px;
+  }
+
+  .blog-list-card-excerpt {
+    font-size: 13px;
+    -webkit-line-clamp: 2;
+  }
+
+  .blog-meta {
+    font-size: 12px;
+  }
+
+  .blog-views {
+    font-size: 12px;
+  }
+
+  .blog-list-card-link {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .blog-list-container {
+    padding-top: 80px;
+  }
+
+  .blog-list-wrapper {
+    padding: 0 12px 30px 12px;
+  }
+
+  .blog-list-title {
+    font-size: 24px;
+  }
+
+  .blog-list-badge {
+    font-size: 13px;
+    padding: 5px 16px;
+  }
+
+  .category-filters {
+    gap: 8px;
+    margin-bottom: 25px;
+  }
+
+  .category-btn {
+    padding: 5px 14px;
+    font-size: 12px;
+  }
+
+  /* Kiçik mobil ekranda 1 sütun */
+  .blog-list-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .blog-list-card-image {
+    height: 180px;
+  }
+
+  .blog-list-card-content {
+    padding: 14px;
+  }
+
+  .blog-list-card-title {
+    font-size: 15px;
+  }
+
+  .blog-list-card-excerpt {
+    font-size: 12px;
+    -webkit-line-clamp: 2;
+  }
+
+  .blog-meta {
+    font-size: 11px;
+    margin-bottom: 8px;
+  }
+
+  .blog-views {
+    font-size: 11px;
+  }
+
+  .blog-list-card-link {
+    font-size: 12px;
+  }
+
+  .blog-category-badge {
+    top: 12px;
+    left: 12px;
+    padding: 5px 12px;
+    font-size: 11px;
+  }
+
+  .blog-card-footer {
+    padding-top: 10px;
+  }
+}
+
+/* Çox kiçik ekranlar (380px və aşağı) */
+@media (max-width: 380px) {
+  .blog-list-card-image {
+    height: 150px;
+  }
+
+  .blog-list-card-title {
+    font-size: 14px;
+  }
+
+  .blog-list-card-excerpt {
+    font-size: 11px;
+  }
+
+  .blog-meta {
+    font-size: 10px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .blog-views {
+    font-size: 10px;
+  }
+
+  .blog-list-card-link {
+    font-size: 11px;
+  }
+}
+
+/* =============================================== */
+/* ANİMASİYA KLASSLARI */
+/* =============================================== */
+
+.badge-hidden {
+  opacity: 0;
+  transform: translateY(20px) scale(0.9);
+}
+
+.title-hidden {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.subtitle-hidden {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.card-hidden {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+/* Əlavə tooltip stilləri */
+/* ===== TARİX TOOLTIP ===== */
+.blog-date {
+  position: relative;
+  cursor: help;
+  transition: all 0.2s ease;
+}
+
+.blog-date:hover {
+  color: #c58828;
+}
+
+.blog-date:hover::after {
+  content: attr(title);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.85);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: normal;
+  white-space: nowrap;
+  z-index: 10;
+  pointer-events: none;
+  margin-bottom: 8px;
+  backdrop-filter: blur(4px);
+  font-family: system-ui, -apple-system, sans-serif;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.blog-date:hover::before {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: rgba(0, 0, 0, 0.85);
+  margin-bottom: -4px;
+  pointer-events: none;
+}
+
+/* Mobil cihazlarda tooltip göstərmə (opsiyonel) */
+@media (max-width: 768px) {
+  .blog-date:hover::after,
+  .blog-date:hover::before {
+    display: none;
+  }
+}
+

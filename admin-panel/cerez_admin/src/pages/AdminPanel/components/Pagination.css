@@ -1,0 +1,209 @@
+/* src/components/AdminPanel/components/Pagination.css */
+
+/* ===== PAGINATION (ProductList.jsx stilində) ===== */
+.admin-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+/* Butonlar üçün ümumi stil */
+.admin-pagination-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-width: 40px;
+  height: 40px;
+  padding: 0 10px;
+  border: 1px solid #e2e8f0;
+  background: white;
+  border-radius: 30px;
+  color: #4a5568;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Hover effekti */
+.admin-pagination-btn:hover:not(:disabled) {
+  background: #667eea;
+  border-color: #667eea;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(102, 126, 234, 0.3);
+}
+
+/* Disabled butonlar */
+.admin-pagination-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: #f8fafc;
+  border-color: #e2e8f0;
+  color: #a0aec0;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Aktiv səhifə */
+.admin-pagination-btn.admin-active {
+  background: #667eea;
+  border-color: #667eea;
+  color: white;
+  font-weight: 600;
+  box-shadow: 0 4px 10px rgba(102, 126, 234, 0.3);
+}
+
+/* İlk və son səhifə butonları */
+.admin-first-page,
+.admin-last-page {
+  padding: 0 15px;
+}
+
+/* Əvvəl və sonra butonları */
+.admin-prev-page,
+.admin-next-page {
+  padding: 0 15px;
+}
+
+/* Iconlar */
+.admin-btn-icon {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+/* Buton mətni */
+.admin-btn-text {
+  display: inline-block;
+}
+
+/* Səhifə nömrəsi butonu */
+.admin-page-number {
+  min-width: 40px;
+  padding: 0;
+  font-weight: 500;
+}
+
+/* Üç nöqtə (dots) */
+.admin-pagination-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 30px;
+  height: 40px;
+  color: #a0aec0;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 2px;
+}
+
+/* Səhifə məlumatı */
+.admin-pagination-info {
+  margin-left: 15px;
+  font-size: 13px;
+  color: #718096;
+  padding: 8px 12px;
+  background: #f8fafc;
+  border-radius: 30px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .admin-pagination {
+    gap: 4px;
+  }
+  
+  .admin-pagination-btn {
+    min-width: 36px;
+    height: 36px;
+    font-size: 13px;
+  }
+  
+  .admin-btn-text {
+    display: none;
+  }
+  
+  .admin-first-page,
+  .admin-last-page,
+  .admin-prev-page,
+  .admin-next-page {
+    padding: 0 10px;
+  }
+  
+  .admin-page-number {
+    min-width: 36px;
+  }
+  
+  .admin-pagination-dots {
+    min-width: 25px;
+    height: 36px;
+    font-size: 14px;
+  }
+  
+  .admin-pagination-info {
+    margin-left: 8px;
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .admin-pagination {
+    gap: 3px;
+  }
+  
+  .admin-pagination-btn {
+    min-width: 34px;
+    height: 34px;
+    font-size: 12px;
+  }
+  
+  .admin-page-number {
+    min-width: 34px;
+  }
+  
+  .admin-pagination-dots {
+    min-width: 22px;
+    height: 34px;
+    font-size: 12px;
+  }
+  
+  .admin-pagination-info {
+    margin-left: 5px;
+    font-size: 11px;
+    padding: 4px 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-pagination {
+    gap: 2px;
+  }
+  
+  .admin-pagination-btn {
+    min-width: 32px;
+    height: 32px;
+    font-size: 11px;
+  }
+  
+  .admin-page-number {
+    min-width: 32px;
+  }
+  
+  .admin-pagination-dots {
+    min-width: 18px;
+    height: 32px;
+    font-size: 11px;
+  }
+  
+  .admin-pagination-info {
+    margin-left: 3px;
+    font-size: 10px;
+    padding: 3px 6px;
+  }
+}

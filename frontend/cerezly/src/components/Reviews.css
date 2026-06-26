@@ -1,0 +1,331 @@
+.reviews-wrapper {
+  text-align: center;
+  font-family: sans-serif;
+  padding: 60px 20px;
+  background: white;
+  overflow: hidden;
+}
+
+/* ===== RƏYLƏR BADGE ===== */
+.reviews-badge-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.reviews-badge {
+  background: #f4ece4;
+  color: #b88c5a;
+  padding: 8px 22px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* ===== HEADER ANIMATIONS ===== */
+.header-hidden {
+  color: #b88c5a;
+  font-size: 16px;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.title-hidden {
+  font-size: 32px;
+  margin: 5px 0 10px 0;
+  color: #2c1810;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s;
+}
+
+.subtitle-hidden {
+  margin-top: 5px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s;
+  color: #666;
+}
+
+.header-visible,
+.title-visible,
+.subtitle-visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* ===== CONTAINER ===== */
+.reviews-container {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.container-hidden {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s;
+}
+
+.container-visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* ===== CARDS ===== */
+.card {
+  width: 30%;
+  background: #faf7f3;
+  padding: 25px;
+  border-radius: 15px;
+  text-align: left;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 182, 71, 0.1);
+}
+
+.card-hidden {
+  opacity: 0;
+  transform: translateY(50px) scale(0.95);
+  transition: all 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.card-visible {
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
+}
+
+.card:hover {
+  transform: translateY(-5px) scale(1.02) !important;
+  box-shadow: 0 8px 25px rgba(255, 140, 0, 0.15);
+  border-color: rgba(255, 182, 71, 0.3);
+}
+
+/* ===== STARS ROW ===== */
+.stars-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #ffb347;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+}
+
+.stars {
+  display: flex;
+  gap: 6px;
+}
+
+.stars-hidden .star-container {
+  opacity: 0;
+  transform: scale(0) rotate(-180deg);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.stars-visible .star-container {
+  opacity: 1 !important;
+  transform: scale(1) rotate(0deg) !important;
+}
+
+.stars-visible .star-container:nth-child(1) { transition-delay: 0.1s; }
+.stars-visible .star-container:nth-child(2) { transition-delay: 0.15s; }
+.stars-visible .star-container:nth-child(3) { transition-delay: 0.2s; }
+.stars-visible .star-container:nth-child(4) { transition-delay: 0.25s; }
+.stars-visible .star-container:nth-child(5) { transition-delay: 0.3s; }
+
+.star {
+  width: 22px;
+  height: 22px;
+  filter: drop-shadow(0 2px 3px rgba(255, 140, 0, 0.3));
+  transition: all 0.3s ease;
+}
+
+.card:hover .star {
+  transform: scale(1.1);
+}
+
+/* ===== QUOTE ===== */
+.quote {
+  font-size: 32px;
+  color: #ffb347;
+  font-weight: bold;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.quote-hidden {
+  opacity: 0;
+  transform: scale(0) rotate(-180deg);
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.quote-visible {
+  opacity: 0.8 !important;
+  transform: scale(1) rotate(0deg) !important;
+}
+
+.card:hover .quote {
+  transform: scale(1.2) !important;
+  opacity: 1 !important;
+}
+
+/* ===== TEXT ===== */
+.text {
+  margin: 20px 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #555;
+}
+
+.text-hidden {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.text-visible {
+  opacity: 1 !important;
+  transform: translateX(0) !important;
+}
+
+/* ===== PROFILE ===== */
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.profile-hidden {
+  opacity: 0;
+  transform: translateX(20px);
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.profile-visible {
+  opacity: 1 !important;
+  transform: translateX(0) !important;
+}
+
+.circle {
+  width: 42px;
+  height: 42px;
+  background: linear-gradient(135deg, #ffb347, #ffcc33);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  box-shadow: 0 4px 10px rgba(255, 140, 0, 0.3);
+}
+
+.circle-hidden {
+  opacity: 0;
+  transform: scale(0);
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.profile-visible .circle-hidden {
+  opacity: 1 !important;
+  transform: scale(1) !important;
+}
+
+.card:hover .circle {
+  transform: scale(1.05) !important;
+}
+
+.profile-info {
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.5s ease 0.2s;
+}
+
+.profile-visible .profile-info {
+  opacity: 1 !important;
+  transform: translateX(0) !important;
+}
+
+.name {
+  font-weight: bold;
+  color: #2c1810;
+  font-size: 16px;
+}
+
+.role {
+  font-size: 13px;
+  color: #888;
+  margin-top: 2px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .reviews-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 90%;
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 600px) {
+  .reviews-wrapper {
+    padding: 40px 15px;
+  }
+
+  .reviews-badge {
+    font-size: 13px;
+    padding: 6px 18px;
+  }
+
+  .title-hidden {
+    font-size: 28px;
+  }
+
+  .subtitle-hidden {
+    font-size: 14px;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  .star {
+    width: 20px;
+    height: 20px;
+  }
+
+  .card-hidden {
+    transform: translateY(30px);
+    transition: all 0.5s ease;
+  }
+}
+
+@media (max-width: 480px) {
+  .title-hidden {
+    font-size: 24px;
+  }
+
+  .header-hidden {
+    font-size: 14px;
+  }
+
+  .text {
+    font-size: 14px;
+  }
+
+  .circle {
+    width: 38px;
+    height: 38px;
+    font-size: 16px;
+  }
+}

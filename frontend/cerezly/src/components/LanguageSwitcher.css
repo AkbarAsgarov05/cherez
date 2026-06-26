@@ -1,0 +1,337 @@
+/* LanguageSwitcher.css - Tam animasiyalı versiya */
+
+.lang-switcher {
+  position: relative;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", sans-serif;
+  animation: floatIn 0.5s ease;
+}
+
+/* === BUTTON - GLASS EFFECT === */
+.lang-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(74, 43, 5, 0.3);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  cursor: pointer;
+  font-weight: 600;
+  color: white;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 8px 20px rgba(74, 43, 5, 0.3), inset 0 0 0 1px rgba(255, 255, 255, 0.3);
+  transform: translateY(0);
+}
+
+/* Hover effekti - yumşaq yuxarı qalxma */
+.lang-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(74, 43, 5, 0.4), inset 0 0 0 1px rgba(255, 255, 255, 0.7);
+  background: rgba(74, 43, 5, 0.4);
+}
+
+/* Klik effekti - mikro-interaksiya */
+.lang-btn:active {
+  transform: translateY(-1px) scale(0.98);
+  box-shadow: 0 5px 15px rgba(74, 43, 5, 0.3), inset 0 0 0 1px rgba(255, 255, 255, 0.3);
+}
+
+/* Dropdown açıq olanda arrow animasiyası */
+.lang-btn.open .arrow {
+  transform: rotate(180deg);
+}
+
+/* === FLAG === */
+.flag-svg {
+  font-size: 18px;
+  line-height: 1;
+  border-radius: 3px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+/* Flag-ın yumşaq silkələnmə effekti (hover) */
+.lang-item:hover .flag-svg {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* === LABEL === */
+.label {
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  transition: letter-spacing 0.3s ease;
+  font-weight: 600;
+}
+
+/* Label hover genişlənməsi */
+.lang-item:hover .label {
+  letter-spacing: 1px;
+}
+
+/* Dil adı (tam ad) */
+.lang-name {
+  font-size: 12px;
+  color: #6b7280;
+  transition: all 0.2s ease;
+}
+
+.lang-item.active .lang-name {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* === ARROW === */
+.arrow {
+  font-size: 12px;
+  margin-left: 2px;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  display: inline-block;
+}
+
+/* === DROPDOWN - ANİMASİYALI AÇILIŞ === */
+.lang-dropdown {
+  position: absolute;
+  top: 120%;
+  right: 0;
+  min-width: 200px;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(255, 255, 255, 0.3);
+  padding: 8px;
+  opacity: 0;
+  transform: translateY(-20px) scale(0.9);
+  pointer-events: none;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: 9999;
+  transform-origin: top right;
+}
+
+/* Dropdown görünəndə - rəvan açılış animasiyası */
+.lang-dropdown.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+/* === DROPDOWN İTEM - ANİMASİYALI GÖRÜNÜM === */
+.lang-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  color: #1f2937;
+  border: 1px solid transparent;
+  animation: itemAppear 0.4s ease backwards;
+  transform-origin: left;
+}
+
+/* Item-lərin sıra ilə görünmə animasiyası */
+@keyframes itemAppear {
+  from {
+    opacity: 0;
+    transform: translateX(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Hər item-ə fərqli gecikmə vermək */
+.lang-item:nth-child(1) { animation-delay: 0.05s; }
+.lang-item:nth-child(2) { animation-delay: 0.1s; }
+.lang-item:nth-child(3) { animation-delay: 0.15s; }
+
+.lang-item:hover {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  transform: translateX(6px) scale(1.02);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Aktiv dil item-i */
+.lang-item.active {
+  background: rgba(74, 43, 5, 0.5);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  color: white;
+  font-weight: 600;
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 5px 15px rgba(74, 43, 5, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Aktiv item-ə xüsusi parıltı effekti */
+.lang-item.active::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+  animation: shine 3s infinite;
+}
+
+@keyframes shine {
+  to {
+    left: 100%;
+  }
+}
+
+/* Check işarəsi animasiyası */
+.check {
+  margin-left: auto;
+  font-size: 14px;
+  font-weight: bold;
+  color: #10b981;
+  animation: checkPop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes checkPop {
+  0% {
+    opacity: 0;
+    transform: scale(0) rotate(-90deg);
+  }
+  50% {
+    transform: scale(1.2) rotate(10deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+
+/* === DİL DƏYİŞƏNDƏ BUTON ANİMASİYASI === */
+.lang-btn.lang-changing {
+  animation: buttonChange 0.4s ease;
+}
+
+@keyframes buttonChange {
+  0% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(0.95);
+    background: rgba(74, 43, 5, 0.5);
+  }
+  70% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* === RESPONSIVE DİZAYN === */
+@media (max-width: 768px) {
+  .lang-btn {
+    padding: 6px 12px;
+    gap: 6px;
+  }
+  
+  .label {
+    font-size: 12px;
+  }
+  
+  .lang-dropdown {
+    min-width: 170px;
+  }
+  
+  .lang-item {
+    padding: 8px 12px;
+    gap: 8px;
+  }
+  
+  .lang-name {
+    display: none;
+  }
+  
+  .lang-item .label {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .lang-btn {
+    padding: 5px 10px;
+  }
+  
+  .lang-btn .label {
+    display: none;
+  }
+  
+  .lang-btn .arrow {
+    display: none;
+  }
+  
+  .lang-dropdown {
+    min-width: 150px;
+    right: -10px;
+  }
+}
+
+/* === YÜKLƏNMƏ ANİMASİYASI === */
+@keyframes floatIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === DARK MODE DƏSTƏYİ === */
+@media (prefers-color-scheme: dark) {
+  .lang-dropdown {
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(20px);
+  }
+  
+  .lang-item {
+    color: #e5e7eb;
+  }
+  
+  .lang-item:hover {
+    background: rgba(255, 255, 255, 0.15);
+  }
+  
+  .lang-name {
+    color: #9ca3af;
+  }
+  
+  .lang-item.active .lang-name {
+    color: #d1d5db;
+  }
+}
+
+/* === TOUCH CİHAZLAR ÜÇÜN === */
+@media (hover: none) and (pointer: coarse) {
+  .lang-btn:hover {
+    transform: none;
+  }
+  
+  .lang-item:hover {
+    transform: none;
+  }
+  
+  .lang-item:active {
+    transform: scale(0.98);
+    background: rgba(255, 255, 255, 0.3);
+  }
+}

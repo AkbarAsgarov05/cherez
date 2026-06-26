@@ -1,0 +1,692 @@
+{
+  "nav": {
+    "home": "Ana Səhifə",
+    "products": "Məhsullar",
+    "about": "Haqqımızda",
+    "contact": "Əlaqə",
+    "blog": "Bloq",
+    "campaigns": "Kampaniyalar"
+  },
+  "search": {
+    "placeholder": "Məhsul axtarın..."
+  },
+  "hero": {
+    "badge": "Premium Quru Meyvələr",
+    "title": "Təbii Dadlar, <1>Sağlam</1><br/>Həyat",
+    "description": "Diqqətlə seçilmiş quru meyvələr, çərəzlər, ədviyyatlar və paxlalılar. Sağlamlığınız üçün təbii seçim!",
+    "buttons": {
+      "products": "Məhsulları Gör",
+      "about": "Haqqımızda"
+    },
+    "stats": {
+      "products": "Məhsul Növü",
+      "natural": "Təbii",
+      "customers": "Müştəri"
+    }
+  },
+  "products": {
+    "loading": "Məhsullar yüklənir...",
+    "retry": "Yenilə",
+    "allProductsTitle": "Bütün Məhsullar",
+    "allProductsSubtitle": "Çərəz & Quru Meyvələr",
+    "searchPlaceholder": "Məhsul adı ilə axtar...",
+    "noResultsTitle": "Məhsul tapılmadı",
+    "noResultsForSearch": "\"{{term}}\" axtarışına uyğun heç bir məhsul tapılmadı.",
+    "noResultsForFilter": "Seçilmiş filtrlərə uyğun heç bir məhsul tapılmadı.",
+    "searchSuggestion": "Fərqli sözlərlə axtarış edin və ya filtrləri dəyişdirin.",
+    "showAll": "Bütün məhsulları göstər",
+    "noImage": "Şəkil yoxdur",
+    "outOfStockBadge": "Stokda yoxdur",
+    "outOfStock": "Stokda yoxdur",
+    "perKg": "/ 1 kq",
+    "selectedWeight": "Seçilmiş",
+    "addToCart": "Səbətə əlavə et",
+    "sectionTag": "Məhsullar",
+    "sectionTitle": "Premium <1>Çərəzlər</1>",
+    "sectionSubtitle": "Ən keyfiyyətli quru meyvələr və çərəzlər",
+    "items": [
+      {
+        "id": 1,
+        "name": "Qoz",
+        "tag": "Favorit",
+        "desc": "Təzə və ləzzətli. Ürək və beyin sağlamlığını dəstəkləyən, yüksək qida dəyərinə malikdir."
+      },
+      {
+        "id": 2,
+        "name": "Badam",
+        "tag": "Premium",
+        "desc": "Premium keyfiyyətli badam, vitamin E mənbəyi"
+      },
+      {
+        "id": 3,
+        "name": "Fındıq",
+        "tag": "Yerli",
+        "desc": "Vitamin və minerallarla zəngin, yüksək qida dəyərinə malik təbii fındıq."
+      },
+      {
+        "id": 4,
+        "name": "Quru Ərik",
+        "tag": "Sağlam",
+        "desc": "Həzm sistemini dəstəkləyən, vitaminlərlə zəngin təbii quru ərik."
+      },
+      {
+        "id": 5,
+        "name": "Sublimə olunmuş qidalar",
+        "tag": "Yeni",
+        "desc": "Aşağı temperaturda qurudularaq dadı və qida dəyəri qorunan sublimə olunmuş meyvələr."
+      },
+      {
+        "id": 6,
+        "name": "Kişmiş",
+        "tag": "Populyar",
+        "desc": "Təbii şirinliyi və enerji verən tərkibi ilə seçilən keyfiyyətli kişmiş."
+      }
+    ],
+    "quantity": {
+      "customPlaceholder": "Özəl miqdar (qr)",
+      "selectedText": "Seçilmiş miqdar:",
+      "minQuantity": "Minimum miqdar 100 qramdır!",
+      "options": [
+        { "label": "250 qr", "value": 250 },
+        { "label": "500 qr", "value": 500 },
+        { "label": "750 qr", "value": 750 },
+        { "label": "1 kq", "value": 1000 },
+        { "label": "2 kq", "value": 2000 },
+        { "label": "5 kq", "value": 5000 }
+      ]
+    },
+    "buttons": {
+      "addToCart": "Səbətə əlavə et",
+      "allProducts": "Bütün Məhsullar",
+      "outOfStock": "Stokda yoxdur",
+      "outOfStockBadge": "Stokda yoxdur"
+    },
+    "notifications": {
+      "addedToCartFormat": "{{name}} - {{quantity}} ({{price}} AZN) səbətə əlavə edildi!",
+      "outOfStock": "{{name}} hazırda stokda yoxdur! Zəhmət olmasa daha sonra təkrar yoxlayın.",
+      "selectWeight": "{{name}} üçün çəki seçin!"
+    },
+    "unit": "/1kq"
+  },
+  "cart": {
+    "kg": "kq",
+    "gr": "qr",
+    "piece": "ədəd",
+    "pieces": "ədəd",
+    "piece_one": "ədəd",
+    "piece_other": "ədəd",
+     "decreaseAmount": "100 qr",
+    "increaseAmount": "100 qr",
+    "decreasePieceAmount": "1 ədəd",
+    "increasePieceAmount": "1 ədəd",
+    "decrease": "100 qr azalt",
+    "decreasePiece": "1 ədəd azalt",
+    "title": "Səbətiniz",
+    "productCount": "{{count}} ədəd",
+    "productCount_0": "0 ədəd",
+    "productCount_1": "1 ədəd",
+    "productCount_2": "2 ədəd",
+    "productCount_3": "3 ədəd",
+    "productCount_4": "4 ədəd",
+    "productCount_5": "5 ədəd",
+    "productCount_plural": "{{count}} ədəd",
+    "productCountLabel": "Məhsul sayı",
+    "items": "məhsul",
+    "empty": "Səbətiniz boşdur",
+    "continueShopping": "Alış-verişə davam et",
+    "close": "Bağla",
+    "decrease": "100 qr azalt",
+    "increase": "100 qr artır",
+    "remove": "Sil",
+    "selectedWeight": "Seçilmiş çəki",
+    "totalItems": "Ümumi məhsul sayı",
+    "totalWeight": "Ümumi çəki:",
+    "totalAmount": "Ümumi məbləğ:",
+    "orderNow": "Sifariş et",
+    "orderNote": "Sifarişiniz qəbul edildikdən sonra sizinlə əlaqə saxlayacağıq",
+    "stockOutShort": "{{productName}} məhsulunun stoku bitib",
+    "stockRemainingShort": "{{productName}} məhsulundan stokda {{availableKg}} kq qalıb",
+    "reduceQuantityShort": "Zəhmət olmasa miqdarı azaldın",
+    "stockWarningMultiple": "{{stockText}}. Həmçinin digər {{restCount}} məhsulda da stok problemi var. {{reduceText}}",
+    "stockWarningDefault": "Bəzi məhsulların stoku kifayət deyil. Zəhmət olmasa miqdarı azaldın.",
+    "orderSuccess": "Sifariş №{{orderNumber}} qəbul edildi!",
+    "orderError": "Sifariş xətası",
+    "orderErrorRetry": "Sifariş xətası! Yenidən cəhd edin.",
+    "loginRequired": "Hesaba daxil olun!",
+    "defaultProduct": "Məhsul",
+    "missingPhone": "Telefon nömrəsi",
+    "missingAddress": "Çatdırılma ünvanı",
+    "missingInfoTitle": "Məlumatlar tam deyil",
+    "missingInfoMessage": "Sifarişi tamamlamaq üçün aşağıdakı məlumatları doldurmalısınız:",
+    "required": "(vacib)",
+    "goToSettings": "Hesab parametrlərinə keç",
+    "submitting": "Göndərilir...",
+    "stockOut": "{{productName}} məhsulunun stoku bitib",
+    "stockRemaining": "{{productName}} məhsulundan stokda {{availableKg}} kq qalıb",
+    "reduceQuantity": "{{stockText}}. Zəhmət olmasa miqdarı azaldın",
+    "stockWarningTitle": "⚠️ Aşağıdakı məhsulların stoku azalıb"
+  },
+  "about": {
+    "subtitle": "Haqqımızda",
+    "whyChooseUs": "Niyə Bizi Seçməlisiniz?",
+    "description": "10 ildən artıq təcrübə ilə, biz sizə ən keyfiyyətli məhsulları təqdim edirik. Hər məhsul diqqətlə seçilir və paketlənir.",
+    "natural": "100% Təbii",
+    "naturalDesc": "Heç bir kimyəvi əlavə olmadan, təmiz təbiət məhsulları",
+    "health": "Sağlamlıq Üçün",
+    "healthDesc": "Vitamin və minerallarla zəngin, orqanizmə faydalı",
+    "fastDelivery": "Sürətli Çatdırılma",
+    "deliveryDesc": "Bakı və regionlara çatdırılma xidməti",
+    "quality": "Keyfiyyət Zəmanəti",
+    "qualityDesc": "Etibarlı mənbələrdən diqqətlə seçilmiş premium keyfiyyətli məhsullar",
+    "ourStory": "Bizim Hekayəmiz",
+    "storyPart1": "Çərəz mağazası 2014-cü ildə kiçik bir biznes kimi fəaliyyətə başladı. Məqsədimiz sadə idi: insanlara ən təmiz və ən dadlı məhsulları təqdim etmək.",
+    "storyPart2": "Bu gün, Azərbaycanın hər yerində minlərlə ailə bizimlə sağlam qidalanmanın dadını çıxarır. Biz isə hər gün eyni həvəslə keyfiyyətə sadiq qalmağa davam edirik.",
+    "storyPart3": "Hər məhsulumuzun arxasında sevgi, qayğı və ailə dəyərləri dayanır.",
+    "yearsExperience": "İllik Təcrübə",
+    "products": "Məhsul Növü",
+    "satisfiedCustomers": "Razı Müştəri",
+    "support": "Dəstək"
+  },
+  "faq": {
+    "badge": "FAQ",
+    "title": "Sizin Suallarınıza Cavab Veririk",
+    "subtitle": "Ən çox verilən sualları burada tapa bilərsiniz. Əlavə sualınız varsa, bizimlə əlaqə saxlayın.",
+    "contactText": "Sualınıza cavab tapa bilmədiniz?",
+    "contactLink": "Bizimlə əlaqə saxlayın →",
+    "deliveryCostQuestion": "Çatdırılma haqqı nə qədərdir?",
+    "deliveryCostAnswer": "Çatdırılma haqqı sifarişin miqdarı və ünvanından asılı olaraq dəyişir.",
+    "howToOrderQuestion": "Sifariş necə verilir?",
+    "howToOrderAnswer": "İstər sayt üzərindən, istər WhatsApp və ya zənglə sifariş qəbul edilir.",
+    "deliveryTimeQuestion": "Sifariş verdikdən sonra nə qədər müddətdə çatdırılır?",
+    "deliveryTimeAnswer": "Sifarişlər adətən 24 saat ərzində çatdırılır. Çatdırılma müddəti ünvan, bölgə və digər şərtlərdən asılı olaraq dəyişə bilər.",
+    "paymentMethodsQuestion": "Ödəniş üsulları hansılardır?",
+    "paymentMethodsAnswer": "Nağd, kartla və ya onlayn ödəniş mümkündür.",
+    "wholesaleQuestion": "Topdan satış var?",
+    "wholesaleAnswer": "Xeyr, topdan satış mövcud deyil.",
+    "returnPolicyQuestion": "Məhsulları qaytarmaq və ya dəyişdirmək olarmı?",
+    "returnPolicyAnswer": "Qida təhlükəsizliyi səbəbindən açılmış məhsulların qaytarılması mümkün deyil. Lakin yanlış və ya zədələnmiş məhsul olduqda, 24 saat ərzində müraciət edildiyi halda dəyişdirmə və ya geri qaytarma həyata keçirilir."
+  },
+  "reviews": {
+    "badge": "RƏYLƏR",
+    "title": "Müştərilərimiz Nə Deyir?",
+    "subtitle": "Minlərlə məmnun müştərimizin rəylərini oxuyun",
+    "review1": {
+      "name": "Anonim Müştəri",
+      "role": "Daimi Müştəri",
+      "text": "Çərəz-dən aldığım quru meyvələr həmişə təzə və keyfiyyətlidir."
+    },
+    "review2": {
+      "name": "Anonim Müştəri",
+      "role": "Restoran Sahibi",
+      "text": "Restoranımız üçün hər həftə buradan sifariş veririk."
+    },
+    "review3": {
+      "name": "Anonim Müştəri",
+      "role": "Sağlam Qidalanma Həvəskarı",
+      "text": "Məhsulların təbii olması və geniş çeşidi məni çox sevindirir."
+    }
+  },
+  "contact": {
+    "badge": "Əlaqə",
+    "title": "Bizimlə <1>Əlaqə</1> Saxlayın",
+    "subtitle": "Sifariş vermək və ya suallarınız üçün bizimlə əlaqə saxlayın",
+    "cards": {
+      "address": {
+        "title": "Ünvan",
+        "line1": "Bakı şəhəri, Nəsimi rayonu",
+        "line2": "28 May küçəsi, 15"
+      },
+      "email": {
+        "title": "Email",
+        "line1": "info@cerez.az",
+        "line2": "support@cerez.az"
+      },
+      "phone": {
+        "title": "Telefon",
+        "line1": "+994 50 854 49 14",
+        "line2": "+994 12 456 78 90"
+      },
+      "hours": {
+        "title": "İş Saatları",
+        "line1": "Bazar ertəsi – Şənbə: 09:00 – 20:00",
+        "line2": "Bazar: 10:00 – 18:00"
+      }
+    },
+    "form": {
+      "title": "Mesaj Göndərin",
+      "name": "Adınız və Soyadınız",
+      "namePlaceholder": "Adınızı və Soyadınızı daxil edin",
+      "phone": "Telefon",
+      "phonePlaceholder": "+994 XX XXX XX XX",
+      "email": "E-poçt",
+      "emailPlaceholder": "email@example.com",
+      "optional": "istəyə bağlı",
+      "emailHint": "⚠️ E-poçt daxil etməsəniz, cavabımızı yalnız telefonla alacaqsınız.",
+      "message": "Mesajınız",
+      "messagePlaceholder": "Sifarişiniz və ya sualınız...",
+      "button": "Göndər"
+    },
+    "map": {
+      "title": "Ünvanımız",
+      "address": "📍 Bakı şəhəri, Nəsimi rayonu, 28 May küçəsi, 15",
+      "directions": "İstiqamət göstər"
+    }
+  },
+  "footer": {
+    "description": "Yeniliklər və kampaniyalar üçün sosial şəbəkələrimizi izləyin.",
+    "sections": {
+      "products": {
+        "title": "Kateqoriyalar",
+        "driedFruits": "Meyvə quruları",
+        "saltyNuts": "Duzlu çərəzlər",
+        "chocolateNuts": "Şokoladlı çərəzlər",
+        "spices": "Ədviyyatlar",
+        "legumesAndGrains": "Paxlalılar və Taxıllar",
+        "vegetableOils": "Bitki Yağları",
+        "driedHerbsAndTeas": "Qurudulmuş Otlar və Çaylar",
+        "giftPackages": "Hədiyyə paketləri"
+      },
+      "links": {
+        "title": "Keçidlər",
+        "about": "Haqqımızda",
+        "blog": "Bloq",
+        "campaigns": "Kampaniyalar",
+        "contact": "Əlaqə",
+        "faq": "Tez-tez verilən suallar"
+      },
+      "contact": {
+        "title": "Əlaqə",
+        "address": "Bakı, Azərbaycan",
+        "phone": "+994 50 854 49 14",
+        "email": "info@cerez.az",
+        "hours": "09:00 – 22:00"
+      }
+    },
+    "bottom": {
+      "copyright": "© 2025 Çərəz. Bütün hüquqlar qorunur.",
+      "madeWithLove": "Sevgi ilə hazırlandı",
+      "privacy": "Məxfilik Siyasəti",
+      "terms": "İstifadəçi Şərtləri"
+    }
+  },
+  "whatsapp": {
+    "text": "Bizimlə danışın",
+    "ariaLabel": "WhatsApp ilə əlaqə"
+  },
+  "login": {
+    "welcome": "Xoş gəlmisiniz!",
+    "createAccount": "Hesab yaradın",
+    "loginToAccount": "Hesabınıza daxil olun",
+    "createNewAccount": "Yeni hesab yaradın",
+    "firstName": "Ad",
+    "firstNamePlaceholder": "Adınızı daxil edin",
+    "lastName": "Soyad",
+    "lastNamePlaceholder": "Soyadınızı daxil edin",
+    "phone": "Telefon nömrəsi",
+    "phonePlaceholder": "050 555 55 55",
+    "email": "E-poçt",
+    "emailPlaceholder": "E-poçt ünvanınızı daxil edin",
+    "password": "Şifrə",
+    "passwordPlaceholder": "Şifrənizi daxil edin",
+    "confirmPassword": "Şifrəni təsdiqlə",
+    "confirmPasswordPlaceholder": "Şifrənizi təsdiqləyin",
+    "forgotPassword": "Şifrəni unutdunuz?",
+    "loginButton": "Daxil ol",
+    "registerButton": "Qeydiyyatdan keç",
+    "loggingIn": "Daxil olunur...",
+    "registering": "Qeydiyyat keçirilir...",
+    "noAccount": "Hesabınız yoxdur?",
+    "haveAccount": "Artıq hesabınız var?",
+    "register": "Qeydiyyat",
+    "login": "Daxil ol",
+    "logout": "Çıxış et",
+    "terms": {
+      "agree": "Mən",
+      "link": "İstifadəçi Şərtləri",
+      "and": "və",
+      "privacy": "Məxfilik Siyasəti",
+      "accept": "ilə razıyam"
+    },
+    "errors": {
+      "firstNameRequired": "Ad tələb olunur",
+      "lastNameRequired": "Soyad tələb olunur",
+      "emailRequired": "E-poçt ünvanı tələb olunur",
+      "emailInvalid": "Düzgün e-poçt ünvanı daxil edin",
+      "passwordRequired": "Şifrə tələb olunur",
+      "passwordMin": "Şifrə ən az 6 simvol olmalıdır",
+      "confirmPasswordRequired": "Şifrə təsdiqi tələb olunur",
+      "confirmPasswordMatch": "Şifrələr uyğun gəlmir",
+      "phoneRequired": "Telefon nömrəsi tələb olunur",
+      "phoneInvalid": "Düzgün telefon nömrəsi daxil edin (məs: 050 555 55 55)",
+      "phoneDigits": "Telefon nömrəsi yalnız rəqəmlərdən ibarət olmalıdır",
+      "termsRequired": "Zəhmət olmasa, İstifadəçi Şərtləri və Məxfilik Siyasəti ilə razı olduğunuzu təsdiqləyin",
+      "wrongCredentials": "Email və ya şifrə yanlışdır",
+      "registerError": "Qeydiyyat xətası baş verdi"
+    },
+    "notifications": {
+      "loginSuccess": "Uğurla hesabınıza daxil oldunuz!",
+      "registerSuccess": "Uğurla qeydiyyatdan keçdiniz!",
+      "logout": "Hesabınızdan çıxış edildi"
+    }
+  },
+  "forgotPassword": {
+    "title": "Şifrəni unutdunuz?",
+    "subtitle": "Hesabınıza bağlı e-poçt ünvanınızı daxil edin. Şifrə yeniləmə linki göndərəcəyik.",
+    "emailLabel": "E-poçt ünvanı",
+    "sendButton": "Davam et",
+    "sendingButton": "Göndərilir...",
+    "verificationTitle": "Təsdiq kodu",
+    "verificationSubtitle": "{{email}} ünvanına 6 rəqəmli təsdiq kodu göndərdik. Kodu aşağıda daxil edin.",
+    "codeLabel": "Təsdiq kodu",
+    "verifyButton": "Təsdiqlə",
+    "resendButton": "Kodu yenidən göndər",
+    "resendDisabled": "{{countdown}} saniyə sonra yenidən",
+    "newPasswordTitle": "Yeni şifrə təyin edin",
+    "newPasswordSubtitle": "Yeni şifrəniz ən az 6 simvoldan ibarət olmalıdır.",
+    "newPasswordLabel": "Yeni şifrə",
+    "confirmPasswordLabel": "Şifrəni təsdiqlə",
+    "updateButton": "Şifrəni yenilə",
+    "updatingButton": "Yenilənir...",
+    "backButton": "Geri",
+    "errors": {
+      "emailRequired": "E-poçt ünvanınızı daxil edin",
+      "emailInvalid": "Düzgün e-poçt ünvanı daxil edin",
+      "codeRequired": "Təsdiq kodunu daxil edin",
+      "codeInvalid": "Təsdiq kodu yanlışdır",
+      "newPasswordRequired": "Yeni şifrə daxil edin",
+      "newPasswordMin": "Şifrə ən az 6 simvol olmalıdır",
+      "confirmPasswordRequired": "Şifrəni təsdiqləyin",
+      "confirmPasswordMatch": "Şifrələr uyğun gəlmir"
+    },
+    "notifications": {
+      "codeSent": "Təsdiq kodu göndərildi!",
+      "codeResent": "Yeni kod göndərildi!",
+      "passwordUpdated": "Şifrəniz uğurla yeniləndi!"
+    }
+  },
+  "blog": {
+    "loading": "Yüklənir...",
+    "badge": "Bloq",
+    "title": "Bloq",
+    "titleSuffix": "lar",
+    "subtitle": "Quru meyvələr və paxlalılar haqqında faydalı məlumatlar",
+    "views": "baxış",
+    "readMore": "Ətraflı",
+    "minRead": "{{count}} dəq",
+    "defaultDescription": "Məqalə haqqında məlumat",
+    "noArticles": "Bu kateqoriyada məqalə tapılmadı",
+    "selectOtherCategory": "Başqa kateqoriya seçin",
+    "shareTitle": "Məqalə",
+    "shareLinkTitle": "Linki paylaş",
+    "shareLinkDesc": "Məqalə linkini kopyalayıb istədiyiniz yerdə paylaşa bilərsiniz",
+    "copyLink": "Linki kopyala",
+    "copied": "Kopyalandı!",
+    "copyError": "Link kopyalana bilmədi",
+    "close": "Bağla",
+    "removedFromBookmarks": "Yaddaşdan çıxarıldı",
+    "addedToBookmarks": "Yadda saxlandı",
+    "liked": "Bəyəndiniz! ❤️",
+    "notFound": "Məqalə tapılmadı",
+    "notFoundDesc": "Axtardığınız məqalə mövcud deyil və ya silinmişdir.",
+    "allArticles": "Bütün məqalələr",
+    "noContent": "Məqalə məzmunu əlavə edilməyib.",
+    "category": "Kateqoriya",
+    "share": "Paylaş",
+    "like": "Bəyən",
+    "addToBookmarks": "Yadda saxla",
+    "removeFromBookmarks": "Yaddaşdan çıxar",
+    "locale": "az-AZ",
+    "categories": {
+      "all": "Hamısı",
+      "sağlamlıq": "Sağlamlıq",
+      "qidalanma": "Qidalanma",
+      "təbiiqarışıqlar": "Təbii Qarışıqlar",
+      "gözəllik": "Gözəllik",
+      "reseptlər": "Reseptlər",
+      "idman": "İdman",
+      "uşaqlar": "Uşaqlar",
+      "vegan": "Vegan"
+    }
+  },
+  "pagination": {
+    "first": "İlk",
+    "prev": "Əvvəl",
+    "next": "Sonra",
+    "last": "Son",
+    "firstTitle": "İlk səhifə",
+    "prevTitle": "Əvvəlki səhifə",
+    "nextTitle": "Sonrakı səhifə",
+    "lastTitle": "Son səhifə",
+    "ariaLabel": "Səhifələmə",
+    "goToPage": "Səhifə {{page}}",
+    "pageInfo": "Səhifə {{current}} / {{total}}"
+  },
+  "filter": {
+    "filters": "Filtrlər",
+    "categories": "Kateqoriyalar",
+    "sort": "Sıralama",
+    "priceRange": "Qiymət Aralığı",
+    "selectAll": "Hamısı",
+    "sortDefault": "Standart",
+    "sortPriceAsc": "Qiymət: Artan",
+    "sortPriceDesc": "Qiymət: Azalan",
+    "sortNameAsc": "Ad: A-dan Z-yə",
+    "sortNameDesc": "Ad: Z-dən A-ya",
+    "clearFilters": "Filtrləri Təmizlə",
+    "apply": "Tətbiq et"
+  },
+  "campaigns": {
+    "badge": "Xüsusi Təkliflər",
+    "title": "Kampaniya",
+    "titleSuffix": "lar",
+    "subtitle": "Endirim və keşbek imkanlarından yararlanın",
+    "readMore": "Ətraflı",
+    "discount": "Endirim",
+    "startDate": "Başlama tarixi",
+    "endDate": "Bitmə tarixi",
+    "active": "Aktiv kampaniya",
+    "expired": "Bitmiş",
+    "expiredStatus": "Kampaniya bitib",
+    "shareTitle": "Bu kampaniyanı paylaş",
+    "shareNote": "Kampaniyanı dostlarınızla paylaşın, endirimlərdən onlar da yararlansın!",
+    "linkCopied": "Link kopyalandı! Instagram-da paylaşa bilərsiniz.",
+    "linkCopiedTikTok": "Link kopyalandı! TikTok-da paylaşa bilərsiniz.",
+    "notFound": "Kampaniya tapılmadı",
+    "notFoundDesc": "Axtardığınız kampaniya mövcud deyil və ya silinmişdir.",
+    "allCampaigns": "Bütün kampaniyalar",
+    "noActiveCampaigns": "Hazırda aktiv kampaniya yoxdur",
+    "noActiveCampaignsDesc": "Yeni kampaniyalar üçün bizi izləməyə davam edin!",
+    "noActiveCampaignsSuggestion": "Ən yeni endirimlərdən ilk siz xəbərdar olun!",
+      "toast": {
+        "linkCopiedInstagram": "Link kopyalandı! Instagram-da paylaşa bilərsiniz.",
+        "linkCopiedTikTok": "Link kopyalandı! TikTok-da paylaşa bilərsiniz.",
+        "copyFailed": "Link kopyalana bilmədi. Zəhmət olmasa linki əl ilə kopyalayın."
+      },
+      "loading": {
+        "title": "Yüklənir",
+        "subtitle": "Zəhmət olmasa, gözləyin..."
+     }
+  },
+  "account": {
+    "accountSettings": "Hesab parametrləri",
+    "manageAccount": "Hesab məlumatlarınızı idarə edin",
+    "profileInfo": "Profil məlumatları",
+    "changePassword": "Şifrə dəyişdir",
+    "changePasswordBtn": "Şifrəni dəyişdir",
+    "savingProfile": "Profil yenilənir...",
+    "savingPassword": "Şifrə yenilənir...",
+    "address": "Çatdırılma ünvanı",
+    "addressPlaceholder": "Çatdırılma ünvanınızı daxil edin",
+    "paymentMethod": "Ödəniş metodu",
+    "cash": "Nağd pul",
+    "card": "Kart ilə ödəniş",
+    "online": "Online ödəniş",
+    "saveChanges": "Dəyişiklikləri yadda saxla",
+    "noChanges": "Heç bir dəyişiklik edilmədi!",
+    "profileUpdated": "Profil məlumatları yeniləndi!",
+    "currentPassword": "Cari şifrə",
+    "currentPasswordPlaceholder": "Cari şifrənizi daxil edin",
+    "newPassword": "Yeni şifrə",
+    "newPasswordPlaceholder": "Yeni şifrənizi daxil edin",
+    "confirmNewPassword": "Yeni şifrəni təsdiqlə",
+    "confirmNewPasswordPlaceholder": "Yeni şifrənizi təsdiqləyin",
+    "currentPasswordRequired": "Cari şifrə tələb olunur",
+    "newPasswordRequired": "Yeni şifrə tələb olunur",
+    "confirmPasswordRequired": "Şifrə təsdiqi tələb olunur",
+    "passwordSameError": "Yeni şifrə köhnə şifrə ilə eyni ola bilməz!",
+    "passwordUpdated": "Şifrə uğurla dəyişdirildi!",
+    "emailCannotChange": "Email ünvanını dəyişmək mümkün deyil.",
+    "emailChangeNotAllowed": "Email ünvanını dəyişmək mümkün deyil!",
+    "passwordChangeRequired": "Təhlükəsizlik səbəbindən şifrənizi yeniləməlisiniz!"
+  },
+  "privacy": {
+    "title": "Məxfilik Siyasəti",
+    "lastUpdated": "Son yenilənmə: 15 Yanvar 2025",
+    "intro": "Bu Məxfilik Siyasəti Cherez.az tərəfindən təqdim olunan xidmətlərdən istifadə edən şəxslərin şəxsi məlumatlarının toplanması, işlənməsi və qorunması qaydalarını müəyyən edir.",
+    "sections": {
+      "general": {
+        "title": "1. Ümumi müddəalar",
+        "clause1": "1.1. Saytdan istifadə etməklə istifadəçi bu Məxfilik Siyasətinin şərtlərini qəbul etmiş hesab olunur.",
+        "clause2": "1.2. İstifadəçi təqdim etdiyi məlumatların düzgün və aktual olmasına görə məsuliyyət daşıyır."
+      },
+      "collectedData": {
+        "title": "2. Toplanan məlumatlar",
+        "clause1": "2.1. İstifadəçi tərəfindən könüllü şəkildə təqdim edilən aşağıdakı məlumatlar toplanıla bilər:",
+        "list": {
+          "name": "Ad, soyad",
+          "phone": "Əlaqə nömrəsi",
+          "address": "Çatdırılma ünvanı",
+          "email": "Elektron poçt ünvanı (əgər təqdim olunubsa)",
+          "orderInfo": "Sifariş məlumatları"
+        }
+      },
+      "purposes": {
+        "title": "3. Məlumatların emal məqsədləri",
+        "clause1": "3.1. Toplanan məlumatlar aşağıdakı məqsədlərlə istifadə olunur:",
+        "list": {
+          "orderProcessing": "Sifarişlərin qəbul edilməsi və icrası",
+          "delivery": "Çatdırılmanın təmin edilməsi",
+          "contact": "İstifadəçi ilə əlaqə saxlanılması",
+          "quality": "Xidmət keyfiyyətinin artırılması",
+          "marketing": "Marketinq və məlumatlandırma (istifadəçinin razılığı əsasında)"
+        }
+      },
+      "protection": {
+        "title": "4. Məlumatların qorunması və saxlanması",
+        "clause1": "4.1. Şirkət istifadəçi məlumatlarının qorunması üçün müvafiq texniki və təşkilati tədbirlər həyata keçirir.",
+        "clause2": "4.2. Şəxsi məlumatlar qanunvericiliyin tələblərinə uyğun şəkildə saxlanılır və qorunur."
+      },
+      "thirdParty": {
+        "title": "5. Üçüncü tərəflərə ötürülmə",
+        "clause1": "5.1. İstifadəçi məlumatları aşağıdakı hallarda üçüncü tərəflərə ötürülə bilər:",
+        "clause2": "5.2. Digər hallarda məlumatlar istifadəçinin razılığı olmadan paylaşılmır.",
+        "list": {
+          "deliveryService": "Çatdırılma xidmətinin həyata keçirilməsi üçün",
+          "legalRequirement": "Qanunvericiliklə tələb olunduqda"
+        }
+      },
+      "security": {
+        "title": "6. Məlumatların Təhlükəsizliyi",
+        "clause1": "6.1. Məlumatlarınızın təhlükəsizliyini təmin etmək üçün müasir şifrələmə texnologiyalarından (SSL) istifadə edirik.",
+        "clause2": "6.2. Şəxsi məlumatlarınız qorunan serverlərdə saxlanılır və yalnız icazəli personal tərəfindən əldə edilə bilər."
+      },
+      "cookies": {
+        "title": "7. Kukilər (Cookies)",
+        "clause1": "7.1. Sayt istifadəçi təcrübəsini yaxşılaşdırmaq məqsədilə kukilərdən istifadə edə bilər."
+      },
+      "userRights": {
+        "title": "8. İstifadəçi hüquqları",
+        "clause1": "8.1. İstifadəçi aşağıdakı hüquqlara malikdir:",
+        "list": {
+          "access": "Öz məlumatlarına çıxış əldə etmək",
+          "correction": "Məlumatların düzəldilməsini və ya silinməsini tələb etmək",
+          "objection": "Məlumatların emalına etiraz etmək"
+        }
+      },
+      "changes": {
+        "title": "9. Dəyişikliklər",
+        "clause1": "9.1. Bu Məxfilik Siyasətində vaxtaşırı dəyişikliklər edilə bilər.",
+        "clause2": "9.2. Dəyişikliklər saytda yerləşdirildiyi andan etibarən qüvvəyə minir."
+      }
+    },
+    "contact": {
+      "title": "Əlaqə",
+      "description": "Məxfilik Siyasətimiz haqqında hər hansı sualınız olarsa, bizimlə əlaqə saxlayın:",
+      "emailLabel": "Email",
+      "phoneLabel": "Telefon",
+      "addressLabel": "Ünvan",
+      "address": "Bakı, Azərbaycan"
+    }
+  },
+  "terms": {
+    "title": "İstifadəçi Şərtləri",
+    "lastUpdated": "Son yenilənmə: 15 Yanvar 2025",
+    "intro": "Cherez.az veb saytından istifadə etməklə, siz aşağıdakı istifadəçi şərtlərini qəbul etmiş olursunuz. Bu şərtlərlə razı deyilsinizsə, saytımızdan istifadə etməməyiniz xahiş olunur.",
+    "sections": {
+      "general": {
+        "title": "1. Ümumi müddəalar",
+        "clause1": "1.1. Saytdan istifadə edən hər bir şəxs bu şərtlərlə razılaşmış hesab olunur.",
+        "clause2": "1.2. Mağaza bu şərtləri əvvəlcədən xəbərdarlıq etmədən dəyişdirmək hüququnu özündə saxlayır."
+      },
+      "registration": {
+        "title": "2. Qeydiyyat və istifadəçi hesabı",
+        "clause1": "2.1. Sifariş vermək üçün istifadəçi qeydiyyatdan keçməlidir.",
+        "clause2": "2.2. İstifadəçi təqdim etdiyi məlumatların düzgünlüyünə görə məsuliyyət daşıyır.",
+        "clause3": "2.3. İstifadəçi öz hesab məlumatlarının məxfiliyini qorumağa borcludur."
+      },
+      "orderPayment": {
+        "title": "3. Sifariş və ödəniş şərtləri",
+        "clause1": "3.1. Bütün qiymətlər AZN (Azərbaycan Manatı) ilə göstərilir.",
+        "clause2": "3.2. Qiymətlər əvvəlcədən xəbərdarlıq edilmədən dəyişdirilə bilər.",
+        "clause3": "3.3. Sifarişlər sayt vasitəsilə səbət sistemi üzərindən həyata keçirilir.",
+        "clause4": "3.4. Ödəniş yalnız sifarişin çatdırılması zamanı qəbul edilir.",
+        "clause5": "3.5. Saytda onlayn ödəniş sistemi mövcud deyil."
+      },
+      "delivery": {
+        "title": "4. Çatdırılma qaydaları",
+        "clause1": "4.1. Çatdırılma müddəti sifarişin təsdiqindən sonra istifadəçiyə bildirilir və bu müddət təxmini xarakter daşıyır.",
+        "clause2": "4.2. İstifadəçi tərəfindən qeyd edilən ünvanın düzgün olmaması halında yaranan gecikmələrə görə şirkət məsuliyyət daşımır.",
+        "clause3": "4.3. Çatdırılma zamanı məhsul istifadəçiyə təqdim edilərkən yoxlanılmalı və hər hansı uyğunsuzluq aşkar edildikdə dərhal bildirilməlidir."
+      },
+      "products": {
+        "title": "5. Məhsullar və məsuliyyət",
+        "clause1": "5.1. Saytın texniki problemlər səbəbindən müvəqqəti olaraq dayandırılması halında məsuliyyət daşımırıq.",
+        "clause2": "5.2. Saytda yerləşdirilən məhsul şəkilləri məlumat xarakterlidir.",
+        "clause3": "5.3. Mövcudluq və qiymətlər əvvəlcədən xəbərdarlıq edilmədən dəyişdirilə bilər."
+      },
+      "liability": {
+        "title": "6. Məsuliyyətin məhdudlaşdırılması",
+        "clause1": "6.1. Mağaza istifadəçinin səhv və ya natamam məlumat təqdim etməsi nəticəsində yaranan problemlərə görə məsuliyyət daşımır.",
+        "clause2": "6.2. Mağaza texniki nasazlıqlar nəticəsində xidmətin müvəqqəti dayandırılmasına görə məsuliyyət daşımır."
+      },
+      "return": {
+        "title": "7. Geri qaytarma və dəyişdirmə şərtləri",
+        "clause1": "7.1. Qida təhlükəsizliyi səbəbindən açılmış məhsulların qaytarılması mümkün deyil.",
+        "clause2": "7.2. Yalnız aşağıdakı hallarda istisna tətbiq oluna bilər:",
+        "clause3": "7.3. Belə hallarda istifadəçi məhsulu qəbul etdiyi anda və ya ən gec 24 saat ərzində mağaza ilə əlaqə saxlamalıdır.",
+        "clause4": "7.4. Mağaza müraciəti araşdırdıqdan sonra məhsulun dəyişdirilməsi və ya geri götürülməsi barədə qərar verir.",
+        "list": {
+          "damaged": "Məhsul xarab, keyfiyyətsiz və ya zədələnmiş olduqda",
+          "wrongProduct": "Sifariş veriləndən fərqli məhsul təqdim edildikdə"
+        }
+      },
+      "cancellation": {
+        "title": "8. Ləğv etmə",
+        "clause1": "8.1. İstifadəçi sifarişi yalnız çatdırılma həyata keçirilməmişdən əvvəl ləğv edə bilər.",
+        "clause2": "8.2. Çatdırılma prosesinə başlanıldıqdan sonra sifarişin ləğvi mümkün olmaya bilər."
+      },
+      "changes": {
+        "title": "9. Şərtlərin Dəyişdirilməsi",
+        "clause1": "9.1. Mağaza bu İstifadəçi Şərtlərini istənilən vaxt dəyişdirmək hüququnu özündə saxlayır. Dəyişikliklər saytda yerləşdirildiyi andan etibarən qüvvəyə minir."
+      }
+    },
+    "contact": {
+      "title": "Əlaqə",
+      "description": "İstifadəçi Şərtlərimiz haqqında hər hansı sualınız olarsa, bizimlə əlaqə saxlayın:",
+      "emailLabel": "Email",
+      "phoneLabel": "Telefon",
+      "addressLabel": "Ünvan",
+      "address": "Bakı, Azərbaycan"
+    }
+  }
+}

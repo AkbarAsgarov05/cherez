@@ -1,0 +1,382 @@
+/* src/components/LoadingSpinner.css */
+
+/* =============================================== */
+/* MÜASİR YÜKLƏNMƏ ANİMASİYASI - AYDIN QIRIQ XƏTLƏR */
+/* =============================================== */
+
+.loading-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #ffffff 0%, #fef8f0 50%, #ffffff 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.loading-content {
+  text-align: center;
+  animation: fadeInUp 0.6s ease;
+}
+
+/* ===== AYDIN QIRIQ XƏTLİ FIRLANAN ÇEVRƏ ===== */
+.loading-circle-wrapper {
+  margin-bottom: 40px;
+}
+
+.loading-circle {
+  position: relative;
+  margin: 0 auto;
+}
+
+/* Aydın qırıq xətli fırlanan border */
+.loading-circle-border {
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border-radius: 50%;
+  border-style: dashed;
+  border-width: 3px;
+  border-color: #c58828;
+  border-top-color: #e8a845;
+  border-right-color: #d4942e;
+  border-bottom-color: #c58828;
+  border-left-color: #f0b85a;
+  animation: spin 1.2s linear infinite;
+  box-shadow: 0 0 0 2px rgba(197, 136, 40, 0.1);
+}
+
+/* Daxili hissə - ağ fon */
+.loading-circle-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #fff8f0, #ffffff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 5px 20px rgba(197, 136, 40, 0.15);
+  position: relative;
+  z-index: 1;
+  border: 1px solid rgba(197, 136, 40, 0.2);
+}
+
+/* Ç hərfi */
+.loading-circle-letter {
+  font-weight: 800;
+  background: linear-gradient(135deg, #c58828, #e8a845);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: letterPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes letterPulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(0.96);
+  }
+}
+
+/* ===== PROGRESS BAR ===== */
+.loading-progress-wrapper {
+  width: 280px;
+  max-width: 80%;
+  margin: 20px auto 0;
+}
+
+.loading-progress-bar {
+  width: 100%;
+  height: 3px;
+  background: #f0e0d0;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.loading-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #c58828, #e8a845);
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.loading-progress-text {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #c58828;
+  font-family: monospace;
+  letter-spacing: 1px;
+}
+
+/* ===== MESAJ ===== */
+.loading-message {
+  font-size: 14px;
+  color: #8b7355;
+  margin-top: 25px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.loading-dots {
+  display: inline-block;
+  width: 24px;
+  text-align: left;
+  animation: dotsFade 1.5s step-end infinite;
+}
+
+@keyframes dotsFade {
+  0%, 20% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* ===== ANİMASİYALAR ===== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =============================================== */
+/* İNLAİNE SPİNNER */
+/* =============================================== */
+
+.loading-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.loading-spinner-inline {
+  border-radius: 50%;
+  border: 2px dashed #c58828;
+  border-top-color: #e8a845;
+  animation: spin 0.6s linear inline;
+  width: 20px;
+  height: 20px;
+}
+
+.loading-inline-text {
+  font-size: 13px;
+  color: #8b7355;
+}
+
+/* =============================================== */
+/* SKELETON LOADER */
+/* =============================================== */
+
+.loading-skeleton-container {
+  background: #fdfaf7;
+  padding: 120px 20px 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.skeleton-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.skeleton-badge {
+  width: 120px;
+  height: 32px;
+  background: linear-gradient(90deg, #f0e8e0 25%, #e8e0d8 50%, #f0e8e0 75%);
+  background-size: 200% 100%;
+  border-radius: 40px;
+  margin: 0 auto 16px;
+  animation: skeleton-loading 1.5s infinite;
+}
+
+.skeleton-title {
+  width: 200px;
+  height: 40px;
+  background: linear-gradient(90deg, #f0e8e0 25%, #e8e0d8 50%, #f0e8e0 75%);
+  background-size: 200% 100%;
+  border-radius: 8px;
+  margin: 0 auto 12px;
+  animation: skeleton-loading 1.5s infinite;
+}
+
+.skeleton-subtitle {
+  width: 250px;
+  height: 20px;
+  background: linear-gradient(90deg, #f0e8e0 25%, #e8e0d8 50%, #f0e8e0 75%);
+  background-size: 200% 100%;
+  border-radius: 8px;
+  margin: 0 auto;
+  animation: skeleton-loading 1.5s infinite;
+}
+
+.skeleton-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.skeleton-filter-btn {
+  width: 80px;
+  height: 38px;
+  background: linear-gradient(90deg, #f0e8e0 25%, #e8e0d8 50%, #f0e8e0 75%);
+  background-size: 200% 100%;
+  border-radius: 40px;
+  animation: skeleton-loading 1.5s infinite;
+}
+
+.skeleton-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.skeleton-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.skeleton-image {
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(90deg, #f0e8e0 25%, #e8e0d8 50%, #f0e8e0 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+}
+
+.skeleton-content {
+  padding: 20px;
+}
+
+.skeleton-meta {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.skeleton-meta span {
+  width: 80px;
+  height: 12px;
+  background: linear-gradient(90deg, #f0e8e0 25%, #e8e0d8 50%, #f0e8e0 75%);
+  background-size: 200% 100%;
+  border-radius: 6px;
+  animation: skeleton-loading 1.5s infinite;
+}
+
+.skeleton-title-sm {
+  width: 100%;
+  height: 18px;
+  background: linear-gradient(90deg, #f0e8e0 25%, #e8e0d8 50%, #f0e8e0 75%);
+  background-size: 200% 100%;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  animation: skeleton-loading 1.5s infinite;
+}
+
+.skeleton-text {
+  width: 100%;
+  height: 40px;
+  background: linear-gradient(90deg, #f0e8e0 25%, #e8e0d8 50%, #f0e8e0 75%);
+  background-size: 200% 100%;
+  border-radius: 6px;
+  margin-bottom: 16px;
+  animation: skeleton-loading 1.5s infinite;
+}
+
+.skeleton-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.skeleton-footer span {
+  width: 60px;
+  height: 12px;
+  background: linear-gradient(90deg, #f0e8e0 25%, #e8e0d8 50%, #f0e8e0 75%);
+  background-size: 200% 100%;
+  border-radius: 6px;
+  animation: skeleton-loading 1.5s infinite;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* =============================================== */
+/* RESPONSİV */
+/* =============================================== */
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  .skeleton-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .loading-circle-wrapper {
+    margin-bottom: 30px;
+  }
+  
+  .loading-message {
+    font-size: 13px;
+  }
+  
+  .skeleton-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .loading-progress-wrapper {
+    width: 240px;
+  }
+  
+  .loading-message {
+    font-size: 12px;
+  }
+  
+  .skeleton-title {
+    width: 160px;
+    height: 32px;
+  }
+  
+  .skeleton-subtitle {
+    width: 200px;
+  }
+}

@@ -1,0 +1,152 @@
+/* Reset CSS - elastic scroll qadağan ETMƏ! */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* iOS üçün elastic scroll aktiv et */
+body {
+  -webkit-overflow-scrolling: touch; /* iOS elastic scroll */
+  overscroll-behavior-y: auto; /* Default bounce effekti */
+  overflow-y: auto;
+}
+
+/* iOS Safari və Chrome üçün 100vh fix */
+@supports (-webkit-touch-callout: none) {
+  /* iOS cihazları */
+  .ios-device {
+    height: 100vh;
+    height: -webkit-fill-available;
+  }
+  
+  /* iOS-da bounce effekti aktiv et */
+  body {
+    overscroll-behavior-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+}
+
+/* Chrome mobile üçün */
+@media screen and (max-width: 768px) {
+  html {
+    /* Bounce effekti aktiv */
+    overscroll-behavior: auto;
+  }
+  
+  body {
+    /* iOS kimi davran */
+    -webkit-overflow-scrolling: touch;
+    
+    /* iOS Chrome bounce fix */
+    position: relative;
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+  }
+  
+  /* Saytın əsas konteyneri */
+  #root {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* iOS Chrome xüsusi bounce fix */
+.ios-chrome-fix {
+  /* Bounce effekti aktiv */
+  overscroll-behavior: auto;
+  -webkit-overflow-scrolling: touch;
+  
+  /* Viewport fix */
+  height: 100vh;
+  height: -webkit-fill-available;
+}
+
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+  overscroll-behavior-x: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.page-wrapper {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* iOS SAFARI PINCH FIX */
+@supports (-webkit-touch-callout: none) {
+  body {
+    position: relative;
+    left: 0;
+    right: 0;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+
+
+/* ===== SCROLLBAR - TAMAMİLƏ GİZLƏNƏN ===== */
+
+/* WebKit brauzerlər (Chrome, Edge, Opera, Safari) */
+::-webkit-scrollbar {
+    width: 1px;  /* incə scrollbar */
+    height: 1px;
+}
+
+/* Əvvəlcə HƏR ŞEY gizli */
+::-webkit-scrollbar-track {
+    background: transparent !important;
+}
+
+::-webkit-scrollbar-thumb {
+    background: transparent !important;
+    border-radius: 10px;
+    transition: background 0.2s ease;
+}
+
+/* YALNIZ mouse scrollbarın olduğu bölgəyə gələndə görünür */
+body:hover::-webkit-scrollbar-thumb {
+    background: #cdb63f !important;  /* sizin rənginiz */
+}
+
+body:hover::-webkit-scrollbar-track {
+    background: rgba(205, 182, 63, 0.1) !important;  /* çox solğun trek */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #c99d4d !important;  /* hover zamanı */
+}
+
+/* Firefox üçün - tamamilə gizli, hover zamanı görünür */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+}
+
+*:hover {
+    scrollbar-color: #cdb63f rgba(205, 182, 63, 0.1);
+}

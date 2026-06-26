@@ -1,0 +1,934 @@
+/* =============================================== */
+/* LOADING STATE - GÖZƏL SPINNER */
+/* =============================================== */
+
+.campaign-detail-loading {
+  background: #fdfaf7;
+  min-height: calc(100vh - 200px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 20px 60px 20px;
+}
+
+.loading-spinner-container {
+  text-align: center;
+  background: #fff;
+  padding: 50px 40px;
+  border-radius: 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  animation: fadeInUp 0.5s ease;
+}
+
+.loading-spinner {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 24px auto;
+  border: 4px solid #f4e7d7;
+  border-top-color: #c58828;
+  border-right-color: #c58828;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+.loading-text {
+  text-align: center;
+}
+
+.loading-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.loading-subtitle {
+  font-size: 14px;
+  color: #888;
+  margin: 0;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =============================================== */
+/* KAMPANİYA DETAL SƏHİFƏSİ - SAYT DİZAYNINA UYĞUN */
+/* =============================================== */
+
+.campaign-detail-container {
+  background: #fdfaf7;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 100px 20px 60px 20px;
+  min-height: calc(100vh - 200px);
+  position: relative;
+  scroll-behavior: auto;
+}
+
+.campaign-detail-container.scroll-top {
+  scroll-behavior: auto;
+}
+
+/* Geri düyməsi bölməsi */
+.campaign-detail-back {
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 10;
+}
+
+.campaign-detail-back-button {
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: #c58828;
+  cursor: pointer;
+  padding: 10px 0;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: gap 0.2s ease;
+}
+
+.campaign-detail-back-button:hover {
+  gap: 12px;
+  color: #ad721f;
+}
+
+/* Kampaniya kartı */
+.campaign-detail-card {
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: detailFadeIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes detailFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Kampaniya başlığı */
+.campaign-detail-title {
+  font-size: 32px;
+  color: #222;
+  padding: 30px 30px 0 30px;
+  margin: 0;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+/* Kampaniya şəkli */
+.campaign-detail-image {
+  position: relative;
+  width: 100%;
+  padding: 30px;
+}
+
+.campaign-detail-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.campaign-detail-badge {
+  position: absolute;
+  top: 45px;
+  right: 45px;
+  background: linear-gradient(135deg, #c58828, #ad721f);
+  color: white;
+  padding: 8px 18px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+/* Promo kod nişanı */
+.campaign-promo-badge {
+  position: absolute;
+  top: 100px;
+  right: 45px;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px);
+  color: white;
+  padding: 6px 14px;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: monospace;
+  letter-spacing: 1px;
+  z-index: 1;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Bitmiş kampaniya nişanı (şəklin üstündə) */
+.campaign-expired-badge {
+  position: absolute;
+  top: 45px;
+  left: 45px;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px);
+  color: white;
+  padding: 8px 18px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 600;
+  z-index: 1;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Kampaniya təsviri */
+.campaign-detail-description {
+  padding: 0 30px 20px 30px;
+  line-height: 1.7;
+  font-size: 17px;
+  color: #555;
+}
+
+.campaign-detail-description p {
+  margin: 0 0 20px 0;
+}
+
+/* ===== KAMPANİYA TARİX BÖLMƏSİ ===== */
+.campaign-detail-dates {
+  background: #f8f9fa;
+  border-radius: 16px;
+  padding: 20px;
+  margin-top: 20px;
+  border: 1px solid #e9ecef;
+}
+
+.date-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+.date-item:last-child {
+  margin-bottom: 0;
+}
+
+.date-icon {
+  width: 40px;
+  height: 40px;
+  background: #fff;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.date-icon svg {
+  width: 20px;
+  height: 20px;
+  color: #c58828;
+}
+
+.date-info {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.date-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #6c757d;
+}
+
+.date-value {
+  font-size: 14px;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+/* Kampaniya status badge */
+.campaign-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 500;
+  margin-top: 15px;
+}
+
+.campaign-status-badge.active {
+  background: #d4edda;
+  color: #155724;
+}
+
+.campaign-status-badge.expired {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.status-icon {
+  font-size: 10px;
+}
+
+/* =============================================== */
+/* SOSİAL MEDİDA PAYLAŞ BÖLMƏSİ - HOVER RƏNGLƏRİ */
+/* =============================================== */
+
+.campaign-detail-social {
+  padding: 20px 30px 40px 30px;
+  text-align: center;
+  border-top: 1px solid #eee;
+  margin-top: 10px;
+}
+
+.social-share-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20px;
+  position: relative;
+  display: inline-block;
+}
+
+.social-share-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 2px;
+  background: linear-gradient(90deg, #c58828, #e9b87a);
+  border-radius: 2px;
+}
+
+.social-share-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+/* Ümumi sosial media düyməsi */
+.social-share-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid #c5882840;
+  background: white;
+}
+
+.social-share-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: transparent;
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+.social-share-btn svg {
+  width: 22px;
+  height: 22px;
+  color: #c58828;
+  transition: transform 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+
+/* SADƏ ZOOM EFFEKTİ - Bütün sosial şəbəkələr üçün */
+.social-share-btn:hover {
+  transform: scale(1.08);
+}
+
+.social-share-btn:hover svg {
+  transform: scale(1.05);
+}
+
+/* ===== INSTAGRAM HOVER ===== */
+.instagram-share:hover {
+  border-color: transparent;
+}
+
+.instagram-share:hover .social-share-gradient {
+  background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+}
+
+.instagram-share:hover svg {
+  color: white;
+}
+
+/* ===== FACEBOOK HOVER ===== */
+.facebook-share:hover {
+  border-color: transparent;
+}
+
+.facebook-share:hover .social-share-gradient {
+  background: #1877F2;
+}
+
+.facebook-share:hover svg {
+  color: white;
+}
+
+/* ===== TIKTOK HOVER ===== */
+.tiktok-share:hover {
+  border-color: transparent;
+}
+
+.tiktok-share:hover .social-share-gradient {
+  background: linear-gradient(135deg, #191970 0%, #B22222 50%, #000000 100%);
+}
+
+.tiktok-share:hover svg {
+  color: white;
+}
+
+/* ===== WHATSAPP HOVER ===== */
+.whatsapp-share:hover {
+  border-color: transparent;
+}
+
+.whatsapp-share:hover .social-share-gradient {
+  background: #25D366;
+}
+
+.whatsapp-share:hover svg {
+  color: white;
+}
+
+/* ===== X (TWITTER) HOVER ===== */
+.x-share:hover {
+  border-color: transparent;
+}
+
+.x-share:hover .social-share-gradient {
+  background: #000000;
+}
+
+.x-share:hover svg {
+  color: white !important;
+}
+
+/* ===== LINKEDIN HOVER ===== */
+.linkedin-share:hover {
+  border-color: transparent;
+}
+
+.linkedin-share:hover .social-share-gradient {
+  background: #0077B5;
+}
+
+.linkedin-share:hover svg {
+  color: white;
+}
+
+/* Paylaş notu */
+.social-share-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #888;
+  margin-top: 15px;
+}
+
+.share-note-icon {
+  color: #c58828;
+  font-size: 14px;
+}
+
+/* Tapılmadı səhifəsi */
+.campaign-detail-not-found {
+  background: #fdfaf7;
+  min-height: calc(100vh - 200px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 20px 60px 20px;
+}
+
+.campaign-detail-not-found-content {
+  text-align: center;
+  max-width: 500px;
+  background: #fff;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.campaign-detail-not-found-content h2 {
+  font-size: 28px;
+  color: #222;
+  margin-bottom: 15px;
+}
+
+.campaign-detail-not-found-content p {
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.campaign-detail-back-btn {
+  background: #c58828;
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.campaign-detail-back-btn:hover {
+  background: #ad721f;
+}
+
+/* =============================================== */
+/* LOADING STATE */
+/* =============================================== */
+
+.campaign-detail-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  background: #fdfaf7;
+}
+
+.campaign-detail-loading .spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid #f4e7d7;
+  border-top-color: #c58828;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.campaign-detail-loading p {
+  color: #888;
+  font-size: 16px;
+}
+
+/* =============================================== */
+/* RESPONSIVE DESIGN */
+/* =============================================== */
+
+/* Tablet */
+@media (max-width: 768px) {
+  .campaign-detail-container {
+    padding: 90px 16px 40px 16px;
+  }
+
+  .campaign-detail-title {
+    font-size: 24px;
+    padding: 20px 20px 0 20px;
+  }
+
+  .campaign-detail-image {
+    padding: 20px;
+  }
+
+  .campaign-detail-badge {
+    top: 35px;
+    right: 35px;
+    padding: 6px 14px;
+    font-size: 12px;
+  }
+
+  .campaign-promo-badge {
+    top: 85px;
+    right: 35px;
+    padding: 4px 12px;
+    font-size: 11px;
+  }
+
+  .campaign-expired-badge {
+    top: 35px;
+    left: 35px;
+    padding: 6px 14px;
+    font-size: 12px;
+  }
+
+  .campaign-detail-description {
+    padding: 0 20px 20px 20px;
+    font-size: 15px;
+  }
+
+  .campaign-detail-dates {
+    padding: 16px;
+  }
+  
+  .date-icon {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .date-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .date-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  
+  .date-label, .date-value {
+    font-size: 13px;
+  }
+  
+  .campaign-status-badge {
+    font-size: 12px;
+    padding: 6px 14px;
+  }
+
+  .campaign-detail-social {
+    padding: 20px 20px 30px 20px;
+  }
+
+  .social-share-btn {
+    width: 44px;
+    height: 44px;
+  }
+
+  .social-share-btn svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* Mobil L */
+@media (max-width: 600px) {
+  .campaign-detail-container {
+    padding: 80px 14px 30px 14px;
+  }
+
+  .campaign-detail-title {
+    font-size: 22px;
+    padding: 18px 18px 0 18px;
+  }
+
+  .campaign-detail-image {
+    padding: 18px;
+  }
+
+  .campaign-detail-badge {
+    top: 28px;
+    right: 28px;
+    padding: 5px 12px;
+    font-size: 11px;
+  }
+
+  .campaign-promo-badge {
+    top: 75px;
+    right: 28px;
+    padding: 3px 10px;
+    font-size: 10px;
+  }
+
+  .campaign-expired-badge {
+    top: 28px;
+    left: 28px;
+    padding: 5px 12px;
+    font-size: 11px;
+  }
+
+  .campaign-detail-description {
+    padding: 0 18px 18px 18px;
+    font-size: 14px;
+  }
+
+  .campaign-detail-dates {
+    padding: 14px;
+  }
+  
+  .date-icon {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .date-icon svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .campaign-detail-social {
+    padding: 18px 18px 25px 18px;
+  }
+
+  .social-share-title {
+    font-size: 16px;
+  }
+
+  .social-share-icons {
+    gap: 12px;
+  }
+
+  .social-share-btn {
+    width: 40px;
+    height: 40px;
+  }
+
+  .social-share-btn svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .social-share-note {
+    font-size: 12px;
+  }
+}
+
+/* Mobil S */
+@media (max-width: 480px) {
+  .campaign-detail-container {
+    padding: 70px 12px 30px 12px;
+  }
+
+  .campaign-detail-title {
+    font-size: 20px;
+    padding: 16px 16px 0 16px;
+  }
+
+  .campaign-detail-image {
+    padding: 16px;
+  }
+
+  .campaign-detail-badge {
+    top: 26px;
+    right: 26px;
+    padding: 4px 10px;
+    font-size: 10px;
+  }
+
+  .campaign-promo-badge {
+    top: 70px;
+    right: 26px;
+    padding: 3px 8px;
+    font-size: 9px;
+  }
+
+  .campaign-expired-badge {
+    top: 26px;
+    left: 26px;
+    padding: 4px 10px;
+    font-size: 10px;
+  }
+
+  .campaign-detail-description {
+    padding: 0 16px 16px 16px;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .campaign-detail-dates {
+    padding: 12px;
+  }
+  
+  .date-item {
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  
+  .date-icon {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .date-icon svg {
+    width: 14px;
+    height: 14px;
+  }
+  
+  .date-label, .date-value {
+    font-size: 12px;
+  }
+  
+  .campaign-status-badge {
+    font-size: 11px;
+    padding: 5px 12px;
+    margin-top: 12px;
+  }
+
+  .campaign-detail-social {
+    padding: 16px 16px 20px 16px;
+  }
+
+  .social-share-icons {
+    gap: 10px;
+  }
+
+  .social-share-btn {
+    width: 38px;
+    height: 38px;
+  }
+
+  .social-share-btn svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .campaign-detail-back-button {
+    font-size: 14px;
+  }
+}
+
+/* Çox kiçik cihazlar */
+@media (max-width: 380px) {
+  .campaign-detail-container {
+    padding: 60px 10px 20px 10px;
+  }
+
+  .social-share-icons {
+    gap: 8px;
+  }
+
+  .social-share-btn {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .social-share-btn svg {
+    width: 14px;
+    height: 14px;
+  }
+  
+  .campaign-detail-badge,
+  .campaign-expired-badge {
+    padding: 3px 8px;
+    font-size: 9px;
+  }
+  
+  .campaign-promo-badge {
+    top: 60px;
+    right: 26px;
+    padding: 2px 6px;
+    font-size: 8px;
+  }
+  
+  .campaign-detail-title {
+    font-size: 18px;
+    padding: 12px 12px 0 12px;
+  }
+  
+  .campaign-detail-image {
+    padding: 12px;
+  }
+  
+  .campaign-detail-description {
+    padding: 0 12px 12px 12px;
+    font-size: 13px;
+  }
+  
+  .campaign-detail-dates {
+    padding: 10px;
+  }
+  
+  .date-icon {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .date-icon svg {
+    width: 12px;
+    height: 12px;
+  }
+  
+  .date-label, .date-value {
+    font-size: 11px;
+  }
+}
+
+/* =============================================== */
+/* SAFARI & IOS FIX'LƏR */
+/* =============================================== */
+
+@supports (-webkit-touch-callout: none) {
+  .campaign-detail-card {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+}
+
+/* Scroll sıfırlama üçün əlavə CSS */
+html, body {
+  scroll-behavior: auto !important;
+}
+
+.campaign-detail-container:first-child {
+  margin-top: 0;
+}
+
+
+
+/* Toast bildirişlər üçün əlavə stillər */
+.toast-container {
+  z-index: 9999;
+}
+
+/* Toast animasiyası */
+.toast-animate {
+  animation: slideInRight 0.3s ease;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

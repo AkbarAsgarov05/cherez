@@ -1,0 +1,1027 @@
+/* components/StockManagement.css */
+
+/* Modal Overlay */
+.stock-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1300;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Modal Content */
+.stock-modal-content {
+  background: white;
+  border-radius: 24px;
+  width: 90%;
+  max-width: 550px;
+  max-height: 85vh;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: slideUp 0.3s ease;
+  position: relative;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Header */
+.stock-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 22px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.stock-modal-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.stock-modal-icon {
+  font-size: 22px;
+  color: white;
+}
+
+.stock-modal-title h3 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 600;
+  color: white;
+}
+
+/* X butonu - tamamilə düzəldildi */
+.stock-modal-close {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0;
+}
+
+.stock-modal-close svg {
+  color: white !important;
+  font-size: 18px;
+  stroke: white;
+  stroke-width: 2;
+}
+
+.stock-modal-close:hover {
+  background: rgba(255, 255, 255, 0.35);
+  transform: rotate(90deg);
+}
+
+/* Tabs */
+.stock-tabs {
+  display: flex;
+  border-bottom: 1px solid #e9ecef;
+  background: #f8f9fa;
+}
+
+.stock-tab {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: transparent;
+  border: none;
+  font-size: 13px;
+  font-weight: 500;
+  color: #6c757d;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.stock-tab:hover {
+  color: #667eea;
+  background: rgba(102, 126, 234, 0.05);
+}
+
+.stock-tab.active {
+  color: #667eea;
+  background: white;
+}
+
+.stock-tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #667eea;
+}
+
+/* Modal Body */
+.stock-modal-body {
+  padding: 20px;
+  max-height: calc(85vh - 130px);
+  overflow-y: auto;
+}
+
+/* Cari Stok Info */
+.stock-current-info {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.stock-info-card {
+  flex: 1;
+  background: #f8f9fa;
+  padding: 10px 12px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.stock-info-label {
+  display: block;
+  font-size: 11px;
+  color: #6c757d;
+  margin-bottom: 6px;
+}
+
+.stock-info-value {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #1a202c !important;
+}
+
+.stock-status-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* Stock Status Colors */
+.stock-critical { color: #dc3545; }
+.stock-low { color: #ffc107; }
+.stock-medium { color: #17a2b8; }
+.stock-high { color: #28a745; }
+
+.stock-status-badge.stock-critical { background: #fee; color: #dc3545; }
+.stock-status-badge.stock-low { background: #fff3cd; color: #856404; }
+.stock-status-badge.stock-medium { background: #d1ecf1; color: #0c5460; }
+.stock-status-badge.stock-high { background: #d4edda; color: #155724; }
+
+/* Tab Content */
+.stock-tab-content h4 {
+  margin: 0 0 16px 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* ===== FORM ELEMENTLƏRİ ===== */
+.stock-form-group {
+  margin-bottom: 18px;
+}
+
+.stock-form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 13px;
+  color: #2d3748 !important;
+}
+
+/* Miqdar input və quick buttons */
+.stock-quantity-wrapper {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.stock-quantity-input {
+  flex: 2;
+  padding: 10px 14px;
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  background: white !important;
+  color: #1a202c !important;
+  font-weight: 500;
+  height: 42px;
+  box-sizing: border-box;
+}
+
+.stock-quantity-input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  background: white;
+  color: #1a202c;
+}
+
+.stock-quantity-input:hover {
+  border-color: #cbd5e0;
+}
+
+.stock-quick-buttons {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.stock-quick-btn {
+  padding: 8px 16px;
+  background: #f7fafc !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #4a5568 !important;
+  min-width: 60px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stock-quick-btn:hover {
+  background: #667eea !important;
+  border-color: #667eea !important;
+  color: white !important;
+  transform: translateY(-1px);
+}
+
+.stock-quick-btn:active {
+  transform: translateY(1px);
+}
+
+/* Qeyd inputu */
+.stock-note-input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 13px;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  background: white !important;
+  color: #1a202c !important;
+}
+
+.stock-note-input::placeholder {
+  color: #a0aec0 !important;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.stock-note-input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  background: white;
+  color: #1a202c;
+}
+
+.stock-note-input:hover {
+  border-color: #cbd5e0;
+}
+
+/* Stok hesablama göstəricisi */
+.stock-calc-hint {
+  display: block;
+  margin-top: 8px;
+  font-size: 12px;
+  color: #4a5568 !important;
+}
+
+.stock-calc-hint.stock-warning {
+  color: #dc3545 !important;
+}
+
+.stock-calc-hint.stock-success {
+  color: #28a745 !important;
+}
+
+/* Buttons */
+.stock-form-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.stock-btn {
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+}
+
+.stock-btn-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.stock-btn-primary:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.stock-btn-secondary {
+  background: #f8f9fa;
+  color: #495057;
+  border: 1px solid #e9ecef;
+}
+
+.stock-btn-secondary:hover {
+  background: #e9ecef;
+}
+
+.stock-btn-danger {
+  background: #dc3545;
+  color: white;
+}
+
+.stock-btn-danger:hover:not(:disabled) {
+  background: #c82333;
+  transform: translateY(-2px);
+}
+
+.stock-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Divider */
+.stock-divider {
+  text-align: center;
+  margin: 20px 0;
+  position: relative;
+}
+
+.stock-divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #e9ecef;
+}
+
+.stock-divider span {
+  background: white;
+  padding: 0 12px;
+  position: relative;
+  color: #6c757d;
+  font-size: 11px;
+}
+
+/* Stock Azaltma bölməsi */
+.stock-reduce-section {
+  margin-top: 5px;
+}
+
+.stock-reduce-section h4 {
+  margin-bottom: 12px;
+  color: #dc3545;
+}
+
+/* ===== STOCK MOVEMENTS ===== */
+.stock-movements-list {
+  max-height: 350px;
+  overflow-y: auto;
+}
+
+.stock-movement-item {
+  display: flex;
+  gap: 12px;
+  padding: 12px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  transition: all 0.2s ease;
+}
+
+.stock-movement-item:hover {
+  background: #f0f3ff;
+  transform: translateX(3px);
+}
+
+.stock-movement-item.in {
+  border-left: 3px solid #28a745;
+}
+
+.stock-movement-item.out {
+  border-left: 3px solid #dc3545;
+}
+
+.movement-icon {
+  width: 32px;
+  height: 32px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.stock-movement-item.in .movement-icon {
+  color: #28a745;
+}
+
+.stock-movement-item.out .movement-icon {
+  color: #dc3545;
+}
+
+.movement-details {
+  flex: 1;
+  min-width: 0;
+}
+
+.movement-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.movement-type {
+  font-weight: 700;
+  font-size: 13px;
+  color: #1a202c !important;
+}
+
+.stock-movement-item.in .movement-type {
+  color: #28a745 !important;
+}
+
+.stock-movement-item.out .movement-type {
+  color: #dc3545 !important;
+}
+
+.movement-date {
+  font-size: 11px;
+  color: #4a5568 !important;
+  font-weight: 500;
+}
+
+.movement-quantity {
+  margin-bottom: 6px;
+}
+
+.movement-quantity .quantity {
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.movement-quantity .quantity.positive {
+  color: #28a745 !important;
+}
+
+.movement-quantity .quantity.negative {
+  color: #dc3545 !important;
+}
+
+.movement-stock-change {
+  font-size: 11px;
+  color: #4a5568 !important;
+  font-weight: 500;
+  margin-left: 6px;
+}
+
+.movement-reason, .movement-admin {
+  font-size: 11px;
+  margin-top: 4px;
+  color: #4a5568 !important;
+}
+
+.reason-label, .admin-label {
+  color: #6c757d !important;
+  margin-right: 6px;
+  font-weight: 500;
+}
+
+.reason-text, .admin-text {
+  color: #2d3748 !important;
+  font-weight: 500;
+}
+
+/* Empty History */
+.stock-empty-history {
+  text-align: center;
+  padding: 30px 20px;
+  color: #adb5bd;
+}
+
+.stock-empty-history svg {
+  margin-bottom: 12px;
+}
+
+.stock-empty-history p {
+  margin: 0 0 6px 0;
+  font-size: 14px;
+  color: #6c757d;
+}
+
+.stock-empty-history small {
+  font-size: 11px;
+}
+
+/* ===== ALERT SECTION - KRİTİK, AŞAĞI, NORMAL, YÜKSƏK YAZILARI DÜZƏLDİLDİ ===== */
+.stock-alert-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.stock-status-display {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.stock-alert-status {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px;
+  border-radius: 10px;
+}
+
+.stock-alert-status.critical {
+  background: #fee;
+  border: 1px solid #dc3545;
+}
+
+.stock-alert-status.low {
+  background: #fff3cd;
+  border: 1px solid #ffc107;
+}
+
+.stock-alert-status.medium {
+  background: #d1ecf1;
+  border: 1px solid #17a2b8;
+}
+
+.stock-alert-status.high {
+  background: #d4edda;
+  border: 1px solid #28a745;
+}
+
+.alert-icon {
+  font-size: 36px;
+}
+
+.alert-info {
+  flex: 1;
+}
+
+.alert-title {
+  font-size: 11px;
+  color: #6c757d;
+  margin-bottom: 4px;
+}
+
+.alert-stock {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 2px;
+  color: #1a202c !important;
+}
+
+.alert-status {
+  font-size: 12px;
+  font-weight: 600;
+  color: #1a202c !important;
+}
+
+/* Alert Level labels - Kritik, Aşağı, Normal, Yüksək yazıları */
+.stock-alert-levels {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #e9ecef;
+}
+
+.alert-level {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  background: #f8f9fa;
+  border-radius: 10px;
+}
+
+.level-color {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.level-color.critical { background: #dc3545; box-shadow: 0 0 0 2px rgba(220,53,69,0.2); }
+.level-color.low { background: #ffc107; box-shadow: 0 0 0 2px rgba(255,193,7,0.2); }
+.level-color.medium { background: #17a2b8; box-shadow: 0 0 0 2px rgba(23,162,184,0.2); }
+.level-color.high { background: #28a745; box-shadow: 0 0 0 2px rgba(40,167,69,0.2); }
+
+.alert-level span {
+  flex: 1;
+  font-size: 13px;
+  font-weight: 600;
+  color: #1a202c !important;
+}
+
+.alert-level small {
+  font-size: 10px;
+  color: #6c757d !important;
+}
+
+/* Threshold Input */
+.threshold-input-group {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.threshold-slider {
+  flex: 1;
+  height: 5px;
+  border-radius: 3px;
+  background: #e9ecef;
+  -webkit-appearance: none;
+}
+
+.threshold-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #667eea;
+  cursor: pointer;
+}
+
+.threshold-number {
+  width: 65px;
+  padding: 8px 10px;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 13px;
+  background: white !important;
+  color: #1a202c !important;
+}
+
+.threshold-number:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* ===== CUSTOM NOTIFICATION ===== */
+.stock-notification {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  background: white;
+  border-radius: 12px;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  z-index: 100;
+  animation: slideDown 0.3s ease;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  border-left: 4px solid;
+}
+
+.stock-notification-success {
+  border-left-color: #28a745;
+  background: #f0fff4;
+}
+
+.stock-notification-success .stock-notification-content svg {
+  color: #28a745;
+}
+
+.stock-notification-warning {
+  border-left-color: #ffc107;
+  background: #fffbf0;
+}
+
+.stock-notification-warning .stock-notification-content svg {
+  color: #ffc107;
+}
+
+.stock-notification-error {
+  border-left-color: #dc3545;
+  background: #fff5f5;
+}
+
+.stock-notification-error .stock-notification-content svg {
+  color: #dc3545;
+}
+
+.stock-notification-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  font-size: 13px;
+  font-weight: 500;
+  color: #2d3748;
+}
+
+.stock-notification-content svg {
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.stock-notification-close {
+  background: none;
+  border: none;
+  color: #a0aec0;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.stock-notification-close:hover {
+  background: rgba(0, 0, 0, 0.05);
+  color: #dc3545;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 550px) {
+  .stock-quantity-wrapper {
+    flex-wrap: wrap;
+  }
+  
+  .stock-quantity-input {
+    width: 100%;
+    flex: auto;
+  }
+  
+  .stock-quick-buttons {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .stock-quick-btn {
+    flex: 1;
+    max-width: 80px;
+  }
+}
+
+@media (max-width: 768px) {
+  .stock-modal-content {
+    width: 95%;
+    max-height: 90vh;
+  }
+  
+  .stock-tabs {
+    flex-wrap: wrap;
+  }
+  
+  .stock-tab {
+    flex: auto;
+    padding: 8px 12px;
+    font-size: 11px;
+  }
+  
+  .stock-tab svg {
+    font-size: 12px;
+  }
+  
+  .stock-current-info {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .stock-form-actions {
+    flex-direction: column;
+  }
+  
+  .stock-btn {
+    width: 100%;
+  }
+  
+  .stock-alert-levels {
+    grid-template-columns: 1fr;
+  }
+  
+  .movement-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .movement-reason, .movement-admin {
+    white-space: normal;
+  }
+  
+  .stock-notification {
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    padding: 10px 14px;
+  }
+  
+  .stock-notification-content {
+    font-size: 12px;
+  }
+  
+  .stock-notification-content svg {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .stock-modal-header {
+    padding: 14px 16px;
+  }
+  
+  .stock-modal-title h3 {
+    font-size: 15px;
+  }
+  
+  .stock-modal-body {
+    padding: 16px;
+  }
+  
+  .stock-tab {
+    padding: 6px 10px;
+    font-size: 10px;
+  }
+  
+  .stock-info-value {
+    font-size: 18px;
+  }
+  
+  .stock-quick-btn {
+    padding: 6px 12px;
+    font-size: 11px;
+    min-width: 50px;
+    height: 36px;
+  }
+  
+  .stock-quantity-input {
+    padding: 8px 12px;
+    font-size: 13px;
+    height: 38px;
+  }
+  
+  .stock-alert-status {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .alert-icon {
+    font-size: 28px;
+  }
+  
+  .alert-stock {
+    font-size: 20px;
+  }
+  
+  .alert-level span {
+    font-size: 12px;
+  }
+  
+  .alert-level small {
+    font-size: 9px;
+  }
+  
+  .stock-notification {
+    padding: 8px 12px;
+  }
+  
+  .stock-notification-content {
+    font-size: 11px;
+  }
+  
+  .stock-notification-content svg {
+    font-size: 14px;
+  }
+}
+
+/* ===== MOBILE ZOOM FIX ===== */
+/* Bütün input elementlərinin font-size-ni 16px et (zoom-un qarşısını alır) */
+.stock-quantity-input,
+.stock-note-input,
+.threshold-number,
+.stock-modal-input,
+input:not([type="checkbox"]):not([type="radio"]),
+textarea,
+select {
+  font-size: 16px !important;
+}
+
+/* Butonlar üçün də font-size artır */
+.stock-btn,
+.stock-quick-btn,
+.stock-tab {
+  font-size: 16px !important;
+}
+
+/* Mobil cihazlar üçün xüsusi */
+@media (max-width: 768px) {
+  .stock-quantity-input,
+  .stock-note-input,
+  .threshold-number,
+  input:not([type="checkbox"]):not([type="radio"]),
+  textarea,
+  select {
+    font-size: 16px !important;
+  }
+  
+  .stock-btn,
+  .stock-quick-btn,
+  .stock-tab {
+    font-size: 14px !important;
+  }
+  
+  /* Input hover və focus zamanı zoom olmaması üçün */
+  .stock-quantity-input:focus,
+  .stock-note-input:focus,
+  .threshold-number:focus {
+    font-size: 16px !important;
+    transform: scale(1);
+  }
+}
+
+/* İPhone üçün xüsusi fix */
+@supports (-webkit-touch-callout: none) {
+  .stock-quantity-input,
+  .stock-note-input,
+  .threshold-number,
+  input,
+  textarea,
+  select {
+    font-size: 16px !important;
+  }
+}

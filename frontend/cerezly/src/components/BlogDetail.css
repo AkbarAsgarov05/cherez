@@ -1,0 +1,698 @@
+/* BlogDetail.css - əlavə ediləcək stillər */
+
+/* Loading spinner */
+.blog-detail-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  gap: 20px;
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 3px solid #f0e0d0;
+  border-top-color: #c58828;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Toast animasiyası */
+@keyframes toastFadeInOut {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px);
+  }
+  15% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  85% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-20px);
+  }
+}
+
+/* Modal animasiyaları */
+@keyframes modalFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes modalSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Buton hover effektləri */
+#copyLinkBtn:hover,
+.share-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(197, 136, 40, 0.3);
+}
+
+#closeModalBtn:hover {
+  background: #e9ecef;
+  transform: translateY(-2px);
+}
+
+.meta-btn:active {
+  transform: scale(0.96);
+}
+
+/* BlogDetail.css - Tam CSS (Paylaş modalı və bütün stillər daxil) */
+/* =============================================== */
+/* BLOG DETAL SƏHİFƏSİ - SAYT DİZAYNINA UYĞUN */
+/* =============================================== */
+
+.blog-detail-container {
+  background: #fdfaf7;
+  min-height: calc(100vh - 200px);
+  padding-top: 100px;
+}
+
+.blog-detail-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px 60px 20px;
+}
+
+/* ===== GERİ DÜYMƏSİ ===== */
+.blog-detail-back {
+  margin-bottom: 30px;
+}
+
+.blog-detail-back-button {
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: #c58828;
+  cursor: pointer;
+  padding: 10px 0;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: gap 0.2s ease;
+}
+
+.blog-detail-back-button:hover {
+  gap: 12px;
+  color: #ad721f;
+}
+
+/* ===== MƏQALƏ KARTI ===== */
+.blog-detail-card {
+  background: #fff;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
+  animation: detailFadeIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes detailFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== ŞƏKİL ===== */
+.blog-detail-image {
+  position: relative;
+  width: 100%;
+  height: 450px;
+  overflow: hidden;
+}
+
+.blog-detail-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.blog-detail-card:hover .blog-detail-image img {
+  transform: scale(1.02);
+}
+
+.blog-detail-category {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: linear-gradient(135deg, #c58828, #ad721f);
+  color: white;
+  padding: 8px 18px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 600;
+  z-index: 1;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== MƏZMUN ===== */
+.blog-detail-content {
+  padding: 40px;
+}
+
+/* Meta məlumatlar */
+.blog-detail-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 25px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #f0e0d0;
+}
+
+.meta-left {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.blog-detail-date,
+.blog-detail-read-time,
+.blog-detail-views {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: #888;
+}
+
+.blog-detail-date svg,
+.blog-detail-read-time svg,
+.blog-detail-views svg {
+  color: #c58828;
+  width: 16px;
+  height: 16px;
+}
+
+.meta-right {
+  display: flex;
+  gap: 12px;
+}
+
+.meta-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  color: #888;
+}
+
+.meta-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.meta-btn:hover {
+  background: #f5f5f5;
+  color: #c58828;
+}
+
+.meta-btn.active {
+  color: #c58828;
+}
+
+.bookmark-btn.active {
+  color: #c58828;
+}
+
+.like-btn.active {
+  color: #e53e3e;
+}
+
+/* Başlıq */
+.blog-detail-title {
+  font-size: 36px;
+  color: #222;
+  margin: 0 0 20px 0;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+/* Xülasə */
+.blog-detail-excerpt {
+  background: #fef8f0;
+  padding: 20px 25px;
+  border-radius: 16px;
+  margin-bottom: 30px;
+  border-left: 4px solid #c58828;
+}
+
+.blog-detail-excerpt p {
+  font-size: 18px;
+  color: #555;
+  line-height: 1.6;
+  margin: 0;
+  font-style: italic;
+}
+
+/* Tam məzmun */
+.blog-detail-full-content {
+  margin-bottom: 40px;
+}
+
+.blog-detail-full-content h2 {
+  font-size: 24px;
+  color: #c58828;
+  margin: 30px 0 15px 0;
+  font-weight: 600;
+}
+
+.blog-detail-full-content h2:first-of-type {
+  margin-top: 0;
+}
+
+.blog-detail-full-content p {
+  font-size: 16px;
+  color: #444;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+/* Footer */
+.blog-detail-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 25px 0;
+  border-top: 1px solid #f0e0d0;
+  border-bottom: 1px solid #f0e0d0;
+}
+
+.footer-tags {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.tag-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #666;
+}
+
+.tag {
+  background: #f5f0e8;
+  padding: 6px 14px;
+  border-radius: 30px;
+  font-size: 13px;
+  color: #c58828;
+  font-weight: 500;
+}
+
+.share-button {
+  background: linear-gradient(135deg, #c58828, #ad721f);
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 40px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.share-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(197, 136, 40, 0.3);
+}
+
+/* ===== TAPILMADI SƏHİFƏSİ ===== */
+.blog-detail-not-found {
+  background: #fdfaf7;
+  min-height: calc(100vh - 200px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 20px 60px 20px;
+}
+
+.blog-detail-not-found-content {
+  text-align: center;
+  max-width: 500px;
+  background: #fff;
+  padding: 50px;
+  border-radius: 24px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
+}
+
+.not-found-icon i {
+  font-size: 60px;
+  color: #cbd5e0;
+  margin-bottom: 20px;
+}
+
+.blog-detail-not-found-content h2 {
+  font-size: 28px;
+  color: #222;
+  margin-bottom: 15px;
+}
+
+.blog-detail-not-found-content p {
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.blog-detail-back-btn {
+  background: #c58828;
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 30px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.blog-detail-back-btn:hover {
+  background: #ad721f;
+  transform: translateY(-2px);
+}
+
+/* ===== PAYLAŞ MODAL STILLƏRI ===== */
+.share-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  z-index: 10001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: modalFadeIn 0.2s ease;
+}
+
+.share-modal-content {
+  background: white;
+  border-radius: 28px;
+  max-width: 340px;
+  width: 85%;
+  padding: 28px 24px;
+  text-align: center;
+  animation: modalSlideUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+/* Modal daxili butonlar */
+#copyLinkBtn,
+#closeModalBtn {
+  transition: all 0.2s ease;
+}
+
+#copyLinkBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(197, 136, 40, 0.3);
+}
+
+#closeModalBtn:hover {
+  background: #e9ecef;
+  transform: translateY(-2px);
+}
+
+/* ===== TOAST MESAJ STILLƏRI ===== */
+.custom-toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10000;
+  pointer-events: none;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* ===== ANİMASİYALAR ===== */
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes toastFadeInOut {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px);
+  }
+  15% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  85% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-20px);
+  }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .blog-detail-container {
+    padding-top: 80px;
+  }
+
+  .blog-detail-wrapper {
+    padding: 0 16px 40px 16px;
+  }
+
+  .blog-detail-image {
+    height: 300px;
+  }
+
+  .blog-detail-content {
+    padding: 25px;
+  }
+
+  .blog-detail-title {
+    font-size: 28px;
+  }
+
+  .blog-detail-excerpt p {
+    font-size: 16px;
+  }
+
+  .blog-detail-full-content h2 {
+    font-size: 22px;
+  }
+
+  .blog-detail-full-content p {
+    font-size: 15px;
+  }
+
+  .meta-left {
+    gap: 15px;
+  }
+
+  .blog-detail-date,
+  .blog-detail-read-time,
+  .blog-detail-views {
+    font-size: 13px;
+  }
+
+  /* Mobil paylaş butonu optimizasiyası */
+  .meta-btn.share-btn,
+  .share-button {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+
+  .meta-btn.share-btn:active,
+  .share-button:active {
+    transform: scale(0.96);
+  }
+
+  #copyLinkBtn:active,
+  #closeModalBtn:active {
+    transform: scale(0.98);
+  }
+
+  .share-modal-content {
+    width: 90%;
+    padding: 24px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .blog-detail-container {
+    padding-top: 60px;
+  }
+
+  .blog-detail-wrapper {
+    padding: 0 12px 30px 12px;
+  }
+
+  .blog-detail-image {
+    height: 220px;
+  }
+
+  .blog-detail-category {
+    top: 15px;
+    left: 15px;
+    padding: 6px 14px;
+    font-size: 11px;
+  }
+
+  .blog-detail-content {
+    padding: 20px;
+  }
+
+  .blog-detail-title {
+    font-size: 22px;
+  }
+
+  .blog-detail-excerpt {
+    padding: 15px 18px;
+  }
+
+  .blog-detail-excerpt p {
+    font-size: 14px;
+  }
+
+  .blog-detail-meta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .meta-left {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .blog-detail-full-content h2 {
+    font-size: 20px;
+    margin: 20px 0 10px 0;
+  }
+
+  .blog-detail-full-content p {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .blog-detail-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .share-button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .blog-detail-not-found-content {
+    padding: 30px 20px;
+  }
+
+  .blog-detail-not-found-content h2 {
+    font-size: 22px;
+  }
+
+  .share-modal-content {
+    width: 92%;
+    padding: 20px 16px;
+  }
+  
+  .share-modal-content h3 {
+    font-size: 20px !important;
+  }
+  
+  .share-modal-content p {
+    font-size: 13px !important;
+  }
+  
+  #copyLinkBtn,
+  #closeModalBtn {
+    padding: 12px !important;
+    font-size: 14px !important;
+  }
+}
+
+/* ===== SAFARI & IOS FIX'LƏR ===== */
+@supports (-webkit-touch-callout: none) {
+  .blog-detail-card {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+  
+  .share-modal-overlay {
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+  }
+}
+
+/* Animasiyaları azaldılmış istifadəçilər üçün */
+@media (prefers-reduced-motion: reduce) {
+  .blog-detail-card,
+  .blog-detail-image img,
+  .blog-detail-back-button,
+  .share-button,
+  .share-modal-overlay,
+  .share-modal-content,
+  .meta-btn,
+  #copyLinkBtn,
+  #closeModalBtn {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}

@@ -1,0 +1,230 @@
+.about-page {
+  padding-top: calc(var(--nav-height) + 20px) !important;
+}
+
+.about-container {
+  width: 90%;
+  max-width: 1300px;
+  margin: auto;
+  padding: 40px 0;
+  text-align: center;
+}
+
+/* Haqqımızda badge */
+.about-badge {
+  display: inline-block !important;
+  background: #f6eadf !important;
+  color: #b56b20 !important;
+  padding: 8px 22px !important;
+  border-radius: 30px !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.15) !important;
+  margin-bottom: 15px !important;
+}
+
+/* Titles */
+.about-subtitle {
+  color: #b88a3b;
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.about-title {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.about-desc {
+  color: #555;
+  font-size: 16px;
+  max-width: 700px;
+  margin: 0 auto 40px auto;
+}
+
+/* ICON CARDS */
+.about-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.about-card {
+  background: #fff;
+  padding: 35px 25px;
+  border-radius: 12px;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.07);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  cursor: pointer;
+}
+
+.about-card:hover {
+  transform: translateY(-6px) scale(1.05);
+  box-shadow: 0 6px 25px rgba(0,0,0,0.12);
+}
+
+.about-card h3 {
+  margin-top: 15px;
+  font-size: 20px;
+}
+
+.about-card p {
+  color: #555;
+  margin-top: 5px;
+}
+
+.about-icon {
+  font-size: 45px;
+  color: #e4b169;
+}
+
+/* HISTORY SECTION */
+.history-section {
+  margin-top: 70px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.history-text {
+  text-align: left;
+}
+
+.history-text h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.history-text p {
+  color: #555;
+  margin-bottom: 15px;
+}
+
+/* STATS */
+.history-stats {
+  background: #f7efe4;
+  padding: 25px;
+  border-radius: 15px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.stat-card {
+  background: white;
+  padding: 25px 10px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.10);
+}
+
+.stat-card h1 {
+  color: #ca8f42;
+  font-size: 32px;
+}
+
+.stat-card p {
+  font-size: 15px;
+  color: #555;
+}
+
+/* ENTRANCE ANIMATION */
+.animate-about {
+  opacity: 0;
+  transform: translateY(35px);
+  transition: all 0.8s ease;
+}
+
+.animate-about.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.delay-0 { transition-delay: 0s; }
+.delay-1 { transition-delay: 0.15s; }
+.delay-2 { transition-delay: 0.3s; }
+.delay-3 { transition-delay: 0.45s; }
+
+/* HEART */
+.heart-animate {
+  animation: heartBeat 2.5s infinite ease-in-out;
+}
+
+@keyframes heartBeat {
+  0% { transform: scale(1); }
+  25% { transform: scale(1.24); }
+  50% { transform: scale(1); }
+  75% { transform: scale(1.24); }
+  100% { transform: scale(1); }
+}
+
+/* TRUCK */
+.truck-animate {
+  animation: truckMove 1.6s infinite ease-in-out;
+}
+
+@keyframes truckMove {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(20px); }
+  100% { transform: translateX(0); }
+}
+
+/* STAR */
+.star-animate {
+  animation: starShine 1.5s infinite ease-in-out;
+}
+
+@keyframes starShine {
+  0% { opacity: 1; transform: scale(1); }
+  50% { opacity: .5; transform: scale(1.18); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* LEAF */
+.box-animate {
+  animation: boxSwing 1.7s infinite ease-in-out;
+  transform-origin: top center;
+}
+
+@keyframes boxSwing {
+  0% { transform: rotate(0deg); }
+  50% { transform: rotate(10deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+  .about-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .history-section {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .history-text {
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-title {
+    font-size: 28px;
+  }
+
+  .about-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-card h1 {
+    font-size: 28px;
+  }
+}
+

@@ -1,0 +1,309 @@
+.search-bar-container {
+  position: relative;
+  width: 100%;
+  z-index: 100;
+}
+
+.search-bar-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 40px;
+  border: 1px solid #e0d0c0;
+  transition: all 0.2s ease;
+}
+
+.search-bar-wrapper:focus-within {
+  border-color: #8B4513;
+  box-shadow: 0 0 0 2px rgba(139, 69, 19, 0.1);
+}
+
+.search-icon {
+  position: absolute;
+  left: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #b0a088;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.search-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px 45px 12px 45px;
+  border: none;
+  border-radius: 40px;
+  font-size: 14px;
+  outline: none;
+  background: white;
+  font-weight: 400;
+  color: #5D4037;
+}
+
+.search-input::placeholder {
+  color: #b0a088 !important;
+  font-size: 14px;
+}
+
+.search-input:focus {
+  outline: none;
+}
+
+.clear-search-btn {
+  position: absolute;
+  right: 12px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #b0a088;
+  z-index: 2;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.clear-search-btn:hover {
+  color: #8B4513;
+  background: #f5f0ea;
+}
+
+.clear-search-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+.search-loading {
+  position: absolute;
+  right: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.loading-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #f0e0d0;
+  border-top: 2px solid #8B4513;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Axtarış təklifləri */
+.search-suggestions {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+  max-height: 280px;
+  overflow-y: auto;
+  z-index: 1000;
+  border: 1px solid #f0e0d0;
+  animation: fadeInUp 0.2s ease-out;
+}
+
+.search-suggestions::-webkit-scrollbar {
+  width: 6px;
+}
+
+.search-suggestions::-webkit-scrollbar-track {
+  background: #f5f0ea;
+  border-radius: 3px;
+}
+
+.search-suggestions::-webkit-scrollbar-thumb {
+  background: #d0c0b0;
+  border-radius: 3px;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.suggestion-item {
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  border-bottom: 1px solid #f8f0e8;
+}
+
+.suggestion-item:last-child {
+  border-bottom: none;
+}
+
+.suggestion-item:hover {
+  background: #fef9f4;
+}
+
+.suggestion-item svg {
+  color: #b0a088;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+}
+
+.suggestion-item span {
+  color: #5D4037;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Axtarış statistikası */
+.search-stats {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: #8B4513;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 500;
+  pointer-events: none;
+  z-index: 100;
+  animation: fadeInUp 0.2s ease-out;
+  white-space: nowrap;
+}
+
+/* Responsive dizayn */
+@media (max-width: 992px) {
+  .search-input {
+    padding: 11px 42px 11px 42px;
+    font-size: 14px;
+  }
+  
+  .search-icon {
+    left: 14px;
+  }
+  
+  .search-icon svg {
+    width: 17px;
+    height: 17px;
+  }
+  
+  .clear-search-btn {
+    right: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .search-input {
+    padding: 10px 40px 10px 40px;
+    font-size: 13px;
+  }
+  
+  .search-icon {
+    left: 14px;
+  }
+  
+  .search-icon svg {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .clear-search-btn svg {
+    width: 14px;
+    height: 14px;
+  }
+  
+  .search-stats {
+    font-size: 10px;
+    padding: 3px 10px;
+  }
+  
+  .suggestion-item {
+    padding: 10px 14px;
+  }
+  
+  .suggestion-item span {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .search-input {
+    padding: 9px 38px 9px 38px;
+    font-size: 12px;
+  }
+  
+  .search-icon {
+    left: 12px;
+  }
+  
+  .search-icon svg {
+    width: 14px;
+    height: 14px;
+  }
+  
+  .clear-search-btn {
+    right: 8px;
+    padding: 4px;
+  }
+  
+  .clear-search-btn svg {
+    width: 12px;
+    height: 12px;
+  }
+  
+  .search-stats {
+    font-size: 9px;
+    padding: 2px 8px;
+    top: calc(100% + 5px);
+  }
+  
+  .suggestion-item {
+    padding: 8px 12px;
+  }
+  
+  .suggestion-item span {
+    font-size: 12px;
+  }
+}
+
+/* Touch cihazlar üçün */
+@media (hover: none) and (pointer: coarse) {
+  .suggestion-item {
+    padding: 14px 16px;
+  }
+  
+  .clear-search-btn {
+    min-width: 40px;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .clear-search-btn:hover {
+    background: transparent;
+  }
+}
