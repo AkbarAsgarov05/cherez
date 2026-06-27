@@ -1,7 +1,7 @@
 import express from "express";
 import Category from "../models/Category.js";
 import Product from "../models/Product.js";
-import { auth } from "../middleware/auth.js";
+import { protect, admin } from "../middleware/auth.js";  // ✅ DƏYİŞDİ: auth -> protect, admin
 
 const router = express.Router();
 
@@ -28,7 +28,7 @@ router.get("/:id", async (req, res) => {
 });
 
 // ==================== POST ROUTES ====================
-router.post("/", auth, async (req, res) => {
+router.post("/", protect, admin, async (req, res) => {  // ✅ DƏYİŞDİ
   try {
     const { name, description, image } = req.body;
     
@@ -46,13 +46,12 @@ router.post("/", auth, async (req, res) => {
 });
 
 // ==================== PUT ROUTES ====================
-router.put("/:id", auth, async (req, res) => {
+router.put("/:id", protect, admin, async (req, res) => {  // ✅ DƏYİŞDİ
   try {
     const { name, description, image } = req.body;
     
     console.log("🚀 Kateqoriya yeniləmə başladı. Yeni ad:", name);
     
-    // 1. Köhnə kateqoriyanı tap
     const oldCategory = await Category.findById(req.params.id);
     if (!oldCategory) {
       return res.status(404).json({ message: "Kateqoriya tapılmadı" });
@@ -63,7 +62,6 @@ router.put("/:id", auth, async (req, res) => {
     
     console.log(`📌 Köhnə ad: "${oldName}", Yeni ad: "${newName}"`);
     
-    // 2. Ad dəyişirsə unikallığı yoxla
     if (name && name !== oldName) {
       const existingCategory = await Category.findOne({ 
         name, 
@@ -74,14 +72,12 @@ router.put("/:id", auth, async (req, res) => {
       }
     }
     
-    // 3. Kateqoriyanı yenilə
     const category = await Category.findByIdAndUpdate(
       req.params.id,
       { name: newName, description, image },
       { new: true, runValidators: true }
     );
     
-    // 4. ⭐ KRİTİK HİSSƏ: Məhsulların kateqoriyasını yenilə
     if (oldName !== newName) {
       console.log(`🔄 "${oldName}" kateqoriyasındakı məhsullar yenilənir...`);
       const result = await Product.updateMany(
@@ -99,7 +95,7 @@ router.put("/:id", auth, async (req, res) => {
 });
 
 // ==================== DELETE ROUTES ====================
-router.delete("/:id", auth, async (req, res) => {
+router.delete("/:id", protect, admin, async (req, res) => {  // ✅ DƏYİŞDİ
   try {
     const category = await Category.findById(req.params.id);
     if (!category) {
@@ -122,4 +118,7 @@ router.delete("/:id", auth, async (req, res) => {
   }
 });
 
+// ========================================
+// ✅ EXPORT
+// ========================================
 export default router;
