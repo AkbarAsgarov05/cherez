@@ -68,15 +68,15 @@ const About = ({ isPage }) => {
         <div className="history-text animate-about delay-1">
           <h2>{t("about.ourStory", "Bizim Hekayəmiz")}</h2>
           <p>
-            {t("about.storyPart1", "ÇərəzLy mağazası 2014-cü ildə kiçik bir biznes kimi fəaliyyətə başladı. Məqsədimiz sadə idi: insanlara ən təmiz və ən dadlı məhsulları təqdim etmək.")}
+            {t("about.storyPart1", "Bizim çərəz mağazamızın əsas məqsədi müştərilərimizə yüksək keyfiyyətli, təbii və dadlı məhsullar təqdim etməkdir. Hər bir çərəz diqqətlə seçilmiş xammallardan hazırlanır və müasir gigiyena standartlarına uyğun şəkildə sizə çatdırılır.")}
           </p>
 
           <p>
-            {t("about.storyPart2", "Bu gün, Azərbaycanın hər yerində minlərlə aile bizimlə sağlam qidalanmanın dadını çıxarır. Biz isə hər gün eyni həvəslə keyfiyyətə sadiq qalmağa davam edirik.")}
+            {t("about.storyPart2", "Müştəri məmnuniyyəti bizim üçün ən önəmli prioritetdir. Sifarişdən çatdırılmaya qədər bütün mərhələlərdə sizə rahat və etibarlı xidmət göstərməyə çalışırıq.")}
           </p>
 
           <p>
-            {t("about.storyPart3", "Hər məhsulumuzun arxasında sevgi, qayğı və aile dəyərləri dayanır.")}
+            {t("about.storyPart3", "Sizə ən yaxşısını təqdim etmək üçün daim inkişaf edir və məhsul çeşidimizi genişləndiririk. Bizi seçdiyiniz üçün təşəkkür edirik!")}
           </p>
         </div>
 

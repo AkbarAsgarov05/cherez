@@ -1634,3 +1634,10 @@ select:focus-visible {
   content: "—";
   color: #adb5bd;
 }
+
+/* ===== LOADING TEXT RENGI ===== */
+.ao-loading-text {
+  color: #1a202c;
+  font-size: 16px;
+  font-weight: 500;
+}

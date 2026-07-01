@@ -198,7 +198,6 @@ const AdminPanel = ({ onMenuClick }) => {
     else if (path.includes('/profile')) setActivePage('profile');
     else if (path.includes('/messages')) setActivePage('messages');
     else if (path.includes('/notifications')) setActivePage('notifications');
-    else if (path.includes('/authentication')) setActivePage('authentication');
     else if (path.includes('/users')) setActivePage('users');
     else if (path.includes('/categories')) setActivePage('categories');
     else if (path.includes('/campaigns')) setActivePage('campaigns');
@@ -364,9 +363,6 @@ const AdminPanel = ({ onMenuClick }) => {
         break;
       case 'notifications':
         navigate('/admin/notifications');
-        break;
-      case 'authentication':
-        navigate('/admin/authentication');
         break;
       case 'users':
         navigate('/admin/users');
@@ -646,15 +642,6 @@ const AdminPanel = ({ onMenuClick }) => {
                 onClick={() => handlePageChange('dashboard')}
               >
                 <FiBarChart2 /> Dashboard
-              </button>
-            </li>
-            <li>
-              <button 
-                type="button"
-                className={`sidebar-link ${activePage === 'authentication' ? 'active' : ''}`}
-                onClick={() => handlePageChange('authentication')}
-              >
-                <FiUserCheck /> Authentication
               </button>
             </li>
             <li>

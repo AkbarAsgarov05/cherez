@@ -398,7 +398,7 @@ const Users = () => {
       <div className="users-container">
         <div className="users-loading">
           <div className="users-spinner"></div>
-          <p>İstifadəçilər yüklənir...</p>
+          <p className="users-loading-text">İstifadəçilər yüklənir...</p>
         </div>
       </div>
     );
@@ -613,7 +613,7 @@ const Users = () => {
         </div>
       )}
 
-      {/* ✅ YENİ - EMAİL DƏYİŞMƏ MODALI */}
+      {/* ✅ YENİ - EMAİL DƏYİŞMƏ MODALI - DÜZƏLDİLDİ */}
       {emailChangeModal.show && (
         <div className="users-modal-overlay" onClick={() => setEmailChangeModal({ show: false, user: null, newEmail: '' })}>
           <div className="users-modal users-email-change-modal" onClick={e => e.stopPropagation()}>
@@ -624,10 +624,10 @@ const Users = () => {
               </button>
             </div>
             <div className="users-modal-body">
-              <p>İstifadəçi: <strong>{emailChangeModal.user?.name}</strong></p>
-              <p>Cari email: <strong>{emailChangeModal.user?.email}</strong></p>
+              <p className="email-change-user-info">İstifadəçi: <strong>{emailChangeModal.user?.name}</strong></p>
+              <p className="email-change-user-info">Cari email: <strong>{emailChangeModal.user?.email}</strong></p>
               <div className="users-form-group">
-                <label>Yeni email ünvanı</label>
+                <label className="email-change-label">Yeni email ünvanı</label>
                 <input
                   type="email"
                   value={emailChangeModal.newEmail}
@@ -636,7 +636,7 @@ const Users = () => {
                   className="users-modal-input"
                 />
               </div>
-              <p className="email-change-warning" style={{ color: '#d6800f', fontSize: '12px', marginTop: '10px' }}>
+              <p className="email-change-warning">
                 ⚠️ Yeni emailə təsdiq linki göndəriləcək. İstifadəçi təsdiq etdikdən sonra email dəyişəcək.
               </p>
             </div>

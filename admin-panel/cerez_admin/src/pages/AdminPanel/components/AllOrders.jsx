@@ -10,6 +10,9 @@ import {
   FiCalendar, FiDollarSign, FiChevronDown
 } from 'react-icons/fi';
 
+// ✅ API URL - Environment variable ilə
+const API_URL = import.meta.env.VITE_API_URL || 'https://cherez.onrender.com/api';
+
 const AllOrders = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   
@@ -215,12 +218,12 @@ const AllOrders = () => {
     setStatusModal({ show: true, order: { ...order } });
   };
 
-  // ✅ DÜZƏLDİLMİŞ - BİRBAŞA PATCH METODU İLƏ STATUS DƏYİŞ
+  // ✅ DÜZƏLDİLMİŞ - API_URL istifadə edir
   const handleStatusSelect = async (newStatus) => {
     try {
       const token = localStorage.getItem('adminToken');
       
-      const response = await fetch(`http://localhost:5000/api/orders/${statusModal.order.id}/status`, {
+      const response = await fetch(`${API_URL}/orders/${statusModal.order.id}/status`, {
         method: 'PATCH',
         headers: {
           'x-auth-token': token,
@@ -647,7 +650,7 @@ const AllOrders = () => {
       <div className="ao-container">
         <div className="ao-loading-container">
           <div className="ao-loading-spinner"></div>
-          <p>Sifarişlər yüklənir...</p>
+          <p className="ao-loading-text">Sifarişlər yüklənir...</p>
         </div>
       </div>
     );

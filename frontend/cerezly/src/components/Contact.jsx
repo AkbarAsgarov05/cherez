@@ -20,6 +20,51 @@ export default function Contact() {
   
   const [phoneValue, setPhoneValue] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [user, setUser] = useState(null);
+
+  // ✅ İstifadəçi daxil olub-olmadığını yoxla
+  useEffect(() => {
+    const checkAuth = () => {
+      const token = localStorage.getItem('accessToken');
+      const userData = localStorage.getItem('userData');
+      
+      if (token && userData) {
+        try {
+          const parsedUser = JSON.parse(userData);
+          setIsAuthenticated(true);
+          setUser(parsedUser);
+        } catch (e) {
+          setIsAuthenticated(false);
+          setUser(null);
+        }
+      } else {
+        setIsAuthenticated(false);
+        setUser(null);
+      }
+    };
+    
+    checkAuth();
+    
+    // Storage dəyişdikdə yenilə
+    const handleStorageChange = () => {
+      checkAuth();
+    };
+    
+    // ✅ Login uğurlu olduqda yenilə
+    const handleLoginSuccess = () => {
+      console.log('📢 Contact: loginSuccess event-i alındı!');
+      checkAuth();
+    };
+    
+    window.addEventListener('storage', handleStorageChange);
+    window.addEventListener('loginSuccess', handleLoginSuccess);
+    
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+      window.removeEventListener('loginSuccess', handleLoginSuccess);
+    };
+  }, []);
 
   // Dilə görə mesajları qaytaran funksiya
   const getLocalizedMessage = (key) => {
@@ -55,11 +100,15 @@ export default function Contact() {
         en: "Your message must be at least 5 characters long!",
         ru: "Ваше сообщение должно содержать не менее 5 символов!"
       },
-      // ✅ EMAİL VALİDASİYA MESAJI - YALNIZ EMAİL YAZILANDA ÇIXACAQ
       emailInvalid: {
         az: "Zəhmət olmasa düzgün e-poçt ünvanı daxil edin!",
         en: "Please enter a valid email address!",
         ru: "Пожалуйста, введите правильный адрес электронной почты!"
+      },
+      loginRequired: {
+        az: "Mesaj göndərmək üçün hesaba daxil olun və ya qeydiyyatdan keçin!",
+        en: "Please login or register to send a message!",
+        ru: "Пожалуйста, войдите или зарегистрируйтесь, чтобы отправить сообщение!"
       },
       sendSuccess: {
         az: "Mesajınız uğurla göndərildi! Tezliklə sizinlə əlaqə saxlanılacaq.",
@@ -80,6 +129,12 @@ export default function Contact() {
     return messages[key]?.[lang] || messages[key]?.az;
   };
 
+  // ✅ Login modalını açan funksiya
+  const openLoginModal = () => {
+    window.dispatchEvent(new CustomEvent('openLoginModal'));
+  };
+
+  // Observer animasiyaları
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -141,7 +196,7 @@ export default function Contact() {
           document.body.removeChild(notification);
         }
       }, 300);
-    }, 3000);
+    }, 4000);
   };
 
   const validateName = (name) => {
@@ -149,27 +204,23 @@ export default function Contact() {
     return nameRegex.test(name);
   };
 
-  // Fokus olduqda +994 əlavə et (əgər boşdursa)
   const handlePhoneFocus = () => {
     if (!phoneValue || phoneValue === "") {
       setPhoneValue("+994");
     }
   };
 
-  // Blur olduqda yalnız +994 qalıbsa təmizlə
   const handlePhoneBlur = () => {
     if (phoneValue === "+994" || phoneValue === "+994 ") {
       setPhoneValue("");
     }
   };
 
-  // Telefon dəyişikliyi
   const handlePhoneChange = (e) => {
     let value = e.target.value;
     setPhoneValue(value);
   };
 
-  // Telefon validasiyası
   const validatePhoneNumber = (phone) => {
     let cleanPhone = phone.replace(/[\s\-\(\)\+]/g, '');
     
@@ -185,7 +236,6 @@ export default function Contact() {
     return digitCount >= 9 && digitCount <= 12;
   };
 
-  // Telefon nömrəsini backend-ə göndərmək üçün standartlaşdır
   const normalizePhoneForBackend = (phone) => {
     let cleaned = phone.replace(/[\s\-\(\)\+]/g, '');
     
@@ -209,19 +259,35 @@ export default function Contact() {
     return phone;
   };
 
-  // ✅ DƏYİŞDİRİLMİŞ: FORM SUBMIT - EMAİL OPTIONAL
+  // ✅ DÜZƏLDİLMİŞ: FORM SUBMIT - REAL-TIME AUTH YOXLAMASI
   const handleSubmit = async (e) => {
     e.preventDefault();
     e.stopPropagation();
     
     if (isSubmitting) return;
     
+    // ========================================
+    // 1. REAL-TIME AUTH YOXLA - localStorage-dan birbaşa
+    // ========================================
+    const token = localStorage.getItem('accessToken');
+    const userData = localStorage.getItem('userData');
+    const isAuth = !!(token && userData);
+    const currentUser = userData ? JSON.parse(userData) : null;
+    
+    if (!isAuth || !currentUser) {
+      showNotification(getLocalizedMessage('loginRequired'), "error");
+      openLoginModal();
+      return;
+    }
+    
+    // ========================================
+    // 2. FORM VALİDASİYA
+    // ========================================
     const nameValue = nameRef.current?.value || "";
     const phoneValueRaw = phoneValue;
     const emailValue = emailRef.current?.value || "";
     const messageValue = messageRef.current?.value || "";
     
-    // ✅ Validasiyalar - EMAİL İSTİSNA OLMAQLA!
     if (!nameValue) {
       showNotification(getLocalizedMessage('nameRequired'), "error");
       return;
@@ -252,7 +318,6 @@ export default function Contact() {
       return;
     }
     
-    // ✅ EMAİL VALİDASİYA - YALNIZ EMAİL YAZILANDA!
     if (emailValue && emailValue.trim() !== "") {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(emailValue)) {
@@ -260,8 +325,10 @@ export default function Contact() {
         return;
       }
     }
-    // ✅ Email boşdursa, validasiya ETMƏ və xəta GÖSTERMƏ!
     
+    // ========================================
+    // 3. MESAJI GÖNDƏR
+    // ========================================
     setIsSubmitting(true);
     
     const normalizedPhone = normalizePhoneForBackend(phoneValueRaw);
@@ -269,7 +336,7 @@ export default function Contact() {
     const result = await sendContactMessage({
       name: nameValue,
       phone: normalizedPhone,
-      email: emailValue || '', // Boş olarsa boş string göndər
+      email: emailValue || '',
       subject: `Əlaqə formu: ${nameValue}`,
       message: messageValue
     });

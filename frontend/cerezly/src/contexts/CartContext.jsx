@@ -1,5 +1,9 @@
+// CartContext.jsx - TAM DÜZGÜN VERSİYA
 import React, { createContext, useState, useContext, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+
+// ✅ DÜZGÜN - Environment variable ilə
+const API_URL = import.meta.env.VITE_API_URL || 'https://cherez.onrender.com/api';
 
 const CartContext = createContext();
 
@@ -109,9 +113,10 @@ export const CartProvider = ({ children }) => {
     });
   };
 
+  // ✅ DÜZƏLDİLMİŞ - API_URL istifadə edir
   const checkProductStock = async (productId, requiredQuantity, unitType) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/products/${productId}`);
+      const response = await fetch(`${API_URL}/products/${productId}`);
       if (!response.ok) return { available: false, stock: 0 };
       
       const product = await response.json();
@@ -168,7 +173,7 @@ export const CartProvider = ({ children }) => {
     return { hasStockIssue, warnings, combinedMessage: null };
   };
 
-  // ✅ DÜZƏLDİLMİŞ: Məhsulu səbətə əlavə et
+  // ✅ DÜZƏLDİLMİŞ - API_URL istifadə edir
   const addToCart = async (product, quantity, selectedPrice, unitType, showWarningCallback) => {
     const productId = String(product.id);
     const unitTypeValue = unitType || product.unitType || 'kg';
@@ -185,7 +190,7 @@ export const CartProvider = ({ children }) => {
     console.log('📦 addToCart - product:', product.name, 'quantity:', quantity, 'selectedPrice:', selectedPrice, 'pricePerUnit:', pricePerUnit, 'unitType:', unitTypeValue);
     
     try {
-      const response = await fetch(`http://localhost:5000/api/products/${productId}`);
+      const response = await fetch(`${API_URL}/products/${productId}`);
       if (response.ok) {
         const productData = await response.json();
         
@@ -255,7 +260,7 @@ export const CartProvider = ({ children }) => {
     return true;
   };
 
-  // ✅ DÜZƏLDİLMİŞ: Miqdar artır
+  // ✅ DÜZƏLDİLMİŞ - API_URL istifadə edir
   const incrementQuantity = async (productId, showWarningCallback) => {
     const item = cart.find(i => i.productId === productId);
     if (!item) return false;
@@ -268,7 +273,7 @@ export const CartProvider = ({ children }) => {
     const requiredQuantity = item.unitType === 'kg' ? newQuantity / 1000 : newQuantity;
     
     try {
-      const response = await fetch(`http://localhost:5000/api/products/${productId}`);
+      const response = await fetch(`${API_URL}/products/${productId}`);
       if (response.ok) {
         const productData = await response.json();
         
@@ -317,7 +322,7 @@ export const CartProvider = ({ children }) => {
     return true;
   };
 
-  // ✅ DÜZƏLDİLMİŞ: Miqdar azalt
+  // ✅ DÜZƏLDİLMİŞ
   const decrementQuantity = (productId) => {
     setCart(prevCart => {
       const newCart = prevCart.map(item => {
@@ -374,7 +379,6 @@ export const CartProvider = ({ children }) => {
     return await validateCartStock();
   };
 
-  // ✅ Təhlükəsiz hesablama funksiyaları
   const getProductCount = () => cart.length;
   const getTotalItems = () => cart.length;
   
@@ -388,12 +392,10 @@ export const CartProvider = ({ children }) => {
     }, 0);
   };
   
-  // ✅ DÜZƏLDİLMİŞ: Float dəqiqlik xətasını aradan qaldırır
   const getTotalPrice = () => {
     const total = cart.reduce((sum, item) => {
       return sum + (item.totalPrice || 0);
     }, 0);
-    // 2 onluq xanaya yuvarlaqlaşdır (175.00000000000003 -> 175.00)
     return Math.round(total * 100) / 100;
   };
   

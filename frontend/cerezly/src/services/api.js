@@ -1,7 +1,8 @@
 // services/api.js - ACCESS + REFRESH TOKEN (DÜZGÜN İŞLƏYİR)
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/api';
+// ✅ DÜZGÜN - Environment variable ilə
+const API_URL = import.meta.env.VITE_API_URL || 'https://cherez.onrender.com/api';
 const REQUEST_TIMEOUT = 30000;
 
 const apiClient = axios.create({

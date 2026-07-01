@@ -3,6 +3,9 @@ import { useTranslation } from 'react-i18next';
 import axios from 'axios';
 import './FilterComponent.css';
 
+// ✅ DÜZGÜN - Environment variable ilə
+const API_URL = import.meta.env.VITE_API_URL || 'https://cherez.onrender.com/api';
+
 const FilterComponent = ({ products, onFilterChange, hideCategories = false }) => {
   const { t } = useTranslation();
   
@@ -14,15 +17,16 @@ const FilterComponent = ({ products, onFilterChange, hideCategories = false }) =
   const [sortType, setSortType] = useState('default');
   const [priceRange, setPriceRange] = useState({ min: 0, max: 500 });
   const [tempPriceRange, setTempPriceRange] = useState({ min: 0, max: 500 });
-  const [categories, setCategories] = useState([]); // ✅ Dinamik kateqoriyalar
+  const [categories, setCategories] = useState([]);
   const [loadingCategories, setLoadingCategories] = useState(true);
   const filterRef = useRef(null);
   
-  // ✅ Backend-dən kateqoriyaları yüklə
+  // ✅ Backend-dən kateqoriyaları yüklə - DÜZƏLDİLDİ
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/categories");
+        // ✅ DÜZGÜN - API_URL istifadə edir
+        const response = await axios.get(`${API_URL}/categories`);
         setCategories(response.data);
       } catch (error) {
         console.error("Kateqoriyalar yüklənərkən xəta:", error);
@@ -93,7 +97,7 @@ const FilterComponent = ({ products, onFilterChange, hideCategories = false }) =
     if (selectedCategories.length === categories.length) {
       setSelectedCategories([]);
     } else {
-      setSelectedCategories(categories.map(cat => cat._id));
+      setSelectedCategories(categories.map(cat => cat.name));
     }
   };
   
@@ -123,7 +127,6 @@ const FilterComponent = ({ products, onFilterChange, hideCategories = false }) =
     
     let filtered = [...products];
     
-    // ✅ Dinamik kateqoriya filtri (backend-dən gələn _id ilə)
     if (!hideCategories && selectedCategories.length > 0) {
       filtered = filtered.filter(product => {
         return product.category && selectedCategories.includes(product.category);

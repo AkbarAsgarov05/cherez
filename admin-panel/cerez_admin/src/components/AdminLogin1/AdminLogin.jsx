@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import api from "../../services/api";
+import api from "../../services/api";  // ✅ API istifadə edirik
 import "./AdminLogin.css";
 
 const AdminLogin = () => {
@@ -26,20 +26,19 @@ const AdminLogin = () => {
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:5000/api/admin/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }),
+      // ✅ DÜZGÜN - api istifadə edirik
+      const response = await api.post("/admin/login", {
+        email,
+        password,
       });
 
-      const data = await response.json();
+      // api interceptor-u avtomatik olaraq response.data qaytarır
+      const data = response.data;
 
-      if (response.ok) {
+      if (data.success !== false) {
         // Tokeni localStorage-da saxla
         localStorage.setItem("adminToken", data.token);
-        localStorage.setItem("adminEmail", data.admin.email);
+        localStorage.setItem("adminEmail", data.admin?.email || email);
         navigate("/admin/dashboard");
       } else {
         setError(data.message || "Email və ya şifrə yanlışdır!");
@@ -49,7 +48,16 @@ const AdminLogin = () => {
       }
     } catch (error) {
       console.error("Login xətası:", error);
-      setError("Serverə qoşulma xətası! Backend işlədiyindən əmin olun.");
+      
+      // Xəta mesajını göstər
+      if (error.response?.data?.message) {
+        setError(error.response.data.message);
+      } else if (error.request) {
+        setError("Serverə qoşulma xətası! Backend işlədiyindən əmin olun.");
+      } else {
+        setError("Bir xəta baş verdi. Yenidən cəhd edin.");
+      }
+      
       setTimeout(() => {
         setError("");
       }, 3000);

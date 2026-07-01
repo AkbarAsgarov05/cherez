@@ -1,7 +1,8 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/api';
+// ✅ DÜZGÜN - Render URL-i
+const API_URL = import.meta.env.VITE_API_URL || 'https://cherez.onrender.com/api';
 
 const ProductContext = createContext();
 

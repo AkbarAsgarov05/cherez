@@ -30,6 +30,13 @@
   100% { transform: rotate(360deg); }
 }
 
+/* ===== LOADING TEXT RENGI ===== */
+.users-loading-text {
+  color: #1a202c;
+  font-size: 16px;
+  font-weight: 500;
+}
+
 /* ===== HEADER ===== */
 .users-header {
   display: flex;
@@ -897,14 +904,34 @@
   box-shadow: 0 4px 10px rgba(220, 53, 69, 0.3);
 }
 
-/* Email dəyişmə xəbərdarlığı */
+/* ===== EMAİL DƏYİŞMƏ MODALI - ŞRİFT RƏNGLƏRİ ===== */
+
+/* İstifadəçi məlumat mətni */
+.email-change-user-info {
+  color: #1a202c;
+  font-size: 15px;
+  margin-bottom: 8px;
+}
+
+.email-change-user-info strong {
+  color: #667eea;
+  font-weight: 600;
+}
+
+/* Yeni email label */
+.email-change-label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #4a5568 !important;
+  font-size: 14px;
+}
+
+/* Xəbərdarlıq mətni */
 .email-change-warning {
-  background: rgba(214, 128, 15, 0.08);
-  padding: 12px;
-  border-radius: 10px;
-  margin-top: 15px;
-  font-size: 12px;
   color: #d6800f;
+  font-size: 12px;
+  margin-top: 10px;
 }
 
 /* View Modal */

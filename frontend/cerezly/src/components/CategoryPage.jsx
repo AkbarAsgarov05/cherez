@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import { useSearchParams, useLocation, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useCart } from '../contexts/CartContext';
@@ -22,27 +22,12 @@ const CATEGORY_FROM_SLUG = {
   'hediyye-paketleri': 'Hədiyyə paketləri'
 };
 
-// Kateqoriya adından slug yaratmaq üçün (Backup)
-const getSlugFromCategory = (categoryName) => {
-  const slugMap = {
-    'Meyvə quruları': 'meyve-qurulari',
-    'Duzlu çərəzlər': 'duzlu-cerezler',
-    'Şokoladlı çərəzlər': 'sokokladli-cerezler',
-    'Ədviyyatlar': 'edviyyatlar',
-    'Paxlalılar və Taxıllar': 'paxlalilar-ve-taxillar',
-    'Bitki Yağları': 'bitki-yaglari',
-    'Qurudulmuş Otlar və Çaylar': 'qurudulmus-otlar-ve-caylar',
-    'Hədiyyə paketləri': 'hediyye-paketleri'
-  };
-  return slugMap[categoryName] || categoryName.toLowerCase().replace(/ /g, '-');
-};
-
 const CategoryPage = () => {
   const { t } = useTranslation();
   const { addToCart } = useCart();
   const { products, loading: productsLoading } = useProducts();
   const location = useLocation();
-  const { slug } = useParams(); // Dinamik slug üçün
+  const { slug } = useParams();
   const [searchParams] = useSearchParams();
   
   const [notification, setNotification] = useState(null);
@@ -57,50 +42,63 @@ const CategoryPage = () => {
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(16);
-  const [totalPages, setTotalPages] = useState(1);
   
   const containerRef = useRef(null);
   const isInternalUpdate = useRef(false);
 
-  // URL-dən kateqoriya adını al (slug və ya pathname ilə)
+  // URL-dən kateqoriya adını al
   const pathname = location.pathname;
   let categoryName = '';
   
-  // Əvvəlcə params slug-a bax
   if (slug && CATEGORY_FROM_SLUG[slug]) {
     categoryName = CATEGORY_FROM_SLUG[slug];
   } else {
-    // Köhnə URL formatı üçün (pathname-in son hissəsi)
     const categoryId = pathname.split('/').pop();
     categoryName = CATEGORY_FROM_SLUG[categoryId] || categoryId;
   }
-  
-  // Backend-dən gələn məhsulları kateqoriyaya görə filtrlə
-  const categoryProducts = products.filter(p => p.category === categoryName);
 
-  // Məhsulları göstər (filter/search ilə)
-  const getDisplayProducts = useCallback(() => {
-    if (isSearching && searchTerm.trim() !== '' && filteredProducts.length > 0) return filteredProducts;
-    if (isFilterActive && filteredProductsByFilter.length > 0) return filteredProductsByFilter;
-    if (isSearching || isFilterActive) return [];
+  // ✅ useMemo ilə kateqoriya məhsulları - yalnız products və categoryName dəyişdikdə yenilənir
+  const categoryProducts = useMemo(() => {
+    return products.filter(p => p.category === categoryName);
+  }, [products, categoryName]);
+
+  // ✅ useMemo ilə göstəriləcək məhsullar
+  const allDisplayProducts = useMemo(() => {
+    if (isSearching && searchTerm.trim() !== '' && filteredProducts.length > 0) {
+      return filteredProducts;
+    }
+    if (isFilterActive && filteredProductsByFilter.length > 0) {
+      return filteredProductsByFilter;
+    }
+    if (isSearching || isFilterActive) {
+      return [];
+    }
     return categoryProducts;
   }, [isSearching, searchTerm, filteredProducts, isFilterActive, filteredProductsByFilter, categoryProducts]);
 
-  const allDisplayProducts = getDisplayProducts();
-  
-  // Total pages hesabla
-  useEffect(() => {
-    const newTotalPages = Math.ceil(allDisplayProducts.length / itemsPerPage);
-    setTotalPages(newTotalPages);
+  // ✅ useMemo ilə total səhifə sayı - useEffect silindi
+  const totalPages = useMemo(() => {
+    return Math.ceil(allDisplayProducts.length / itemsPerPage);
   }, [allDisplayProducts, itemsPerPage]);
 
-  // URL-dən cari səhifəni oxu
+  // ✅ useMemo ilə cari səhifə məhsulları
+  const currentProducts = useMemo(() => {
+    return allDisplayProducts.slice(
+      (currentPage - 1) * itemsPerPage, 
+      currentPage * itemsPerPage
+    );
+  }, [allDisplayProducts, currentPage, itemsPerPage]);
+
+  const isAnyFilterActive = (isSearching && searchTerm.trim() !== '') || isFilterActive;
+
+  // URL-dən cari səhifəni oxu - yalnız mount zamanı
   useEffect(() => {
     const pageFromUrl = parseInt(searchParams.get('page') || '1', 10);
     const validPage = !isNaN(pageFromUrl) && pageFromUrl >= 1 ? pageFromUrl : 1;
     if (validPage !== currentPage) {
       setCurrentPage(validPage);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Səhifə dəyişdikdə
@@ -113,14 +111,6 @@ const CategoryPage = () => {
       isInternalUpdate.current = false;
     }, 100);
   }, [currentPage, totalPages]);
-
-  // Cari səhifədəki məhsullar
-  const currentProducts = allDisplayProducts.slice(
-    (currentPage - 1) * itemsPerPage, 
-    currentPage * itemsPerPage
-  );
-
-  const isAnyFilterActive = (isSearching && searchTerm.trim() !== '') || isFilterActive;
 
   // Axtarış handleri
   const handleSearchResults = useCallback((results, term) => {
@@ -160,7 +150,7 @@ const CategoryPage = () => {
     setTimeout(() => setIsTransitioning(false), 500);
   }, []);
 
-  // Çəki seçimi
+  // Çəki seçimi - yalnız categoryProducts dəyişdikdə
   useEffect(() => {
     if (categoryProducts.length > 0) {
       const defaultWeights = {};

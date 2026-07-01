@@ -13,7 +13,7 @@ const Products = () => {
   
   // Çəki ilə satılan məhsullar üçün
   const [selectedWeights, setSelectedWeights] = useState({});
-  const [customQuantities, setCustomQuantities] = useState({});
+  // customQuantities artıq istifadə edilmir - SİLİNDİ
   
   // Ədəd ilə satılan məhsullar üçün
   const [selectedPieces, setSelectedPieces] = useState({});
@@ -28,10 +28,8 @@ const Products = () => {
       
       featuredProducts.forEach(product => {
         if (product.unitType === 'piece') {
-          // Ədəd ilə satılan məhsullar - default 1 ədəd
           defaultPieces[product.id] = 1;
         } else {
-          // Kiloqram ilə satılan məhsullar - default 1 kq
           const defaultWeight = product.weights?.find(w => w.grams === 1000);
           if (defaultWeight) {
             defaultWeights[product.id] = 1000;
@@ -102,25 +100,6 @@ const Products = () => {
       ...prev,
       [productId]: value
     }));
-    
-    setCustomQuantities(prev => ({
-      ...prev,
-      [productId]: ''
-    }));
-  }, []);
-
-  const handleCustomQuantityChange = useCallback((productId, value) => {
-    const numericValue = value.replace(/[^0-9]/g, '');
-    setCustomQuantities(prev => ({
-      ...prev,
-      [productId]: numericValue
-    }));
-    if (numericValue) {
-      setSelectedWeights(prev => ({
-        ...prev,
-        [productId]: null
-      }));
-    }
   }, []);
 
   const showNotification = useCallback((message, type = 'success') => {
@@ -158,16 +137,10 @@ const Products = () => {
       // KİLOQRAM İLƏ SATILAN MƏHSULLAR
       let quantityGrams = 1000;
       
-      const customQty = customQuantities[product.id];
-      if (customQty && parseInt(customQty, 10) > 0) {
-        quantityGrams = parseInt(customQty, 10);
-        selectedPrice = getPriceForWeight(product, quantityGrams);
-      } 
-      else if (selectedWeights[product.id]) {
+      if (selectedWeights[product.id]) {
         quantityGrams = selectedWeights[product.id];
         selectedPrice = getPriceForWeight(product, quantityGrams);
-      }
-      else {
+      } else {
         selectedPrice = getPriceForWeight(product, 1000);
       }
       
@@ -196,7 +169,7 @@ const Products = () => {
         button.classList.remove('cerez-added-to-cart');
       }, 500);
     }
-  }, [addToCart, customQuantities, selectedWeights, selectedPieces, getPriceForWeight, formatQuantity, showNotification, t]);
+  }, [addToCart, selectedWeights, selectedPieces, getPriceForWeight, formatQuantity, showNotification, t]);
 
   // Animasiya stilləri
   useEffect(() => {
@@ -304,7 +277,6 @@ const Products = () => {
           const unitType = item.unitType || 'kg';
           const delayIndex = (index + 3) % 10;
           
-          // Proxy URL
           const productImageUrl = getProxyUrl(item.img) || '/default-product.jpg';
           
           return (
@@ -384,18 +356,6 @@ const Products = () => {
                           {option.label}
                         </button>
                       ))}
-                    </div>
-                    
-                    <div className="cerez-custom-quantity">
-                      <input
-                        type="text"
-                        placeholder={t("products.quantity.customPlaceholder", "Özəl miqdar (qr)")}
-                        value={customQuantities[item.id] || ''}
-                        onChange={(e) => handleCustomQuantityChange(item.id, e.target.value)}
-                        className="cerez-custom-quantity-input"
-                        inputMode="numeric"
-                        disabled={isOutOfStock}
-                      />
                     </div>
                     
                     {selectedWeights[item.id] && selectedWeights[item.id] !== 1000 && !isOutOfStock && (

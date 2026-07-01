@@ -21,6 +21,9 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import WhatsAppButton from "./components/WhatsAppButton";
 
+// ✅ LOGIN MODAL ƏLAVƏ ET
+import LoginModal from "./components/LoginModal";
+
 // KAMPANİYA KOMPONENTLƏRİ
 import CampaignsList from "./components/CampaignsList";
 import CampaignDetail from "./components/CampaignDetail";
@@ -33,7 +36,7 @@ import BlogDetail from "./components/BlogDetail";
 import PrivacyPolicy from "./components/PrivacyPolicy";
 import TermsOfService from "./components/TermsOfService";
 
-// ✅ EMAİL DƏYİŞMƏ TƏSDİQ SƏHİFƏSİ
+// EMAİL DƏYİŞMƏ TƏSDİQ SƏHİFƏSİ
 import VerifyEmailChange from "./components/VerifyEmailChange";
 
 // RedirectWithLanguage komponenti
@@ -68,10 +71,10 @@ const LanguageAwareRoutes = () => {
       {/* All Products */}
       <Route path="/allproducts" element={<><AllProducts /><Footer /></>} />
 
-      {/* ✅ DİNAMİK KATEQORİYA ROUTE - İstənilən kateqoriya üçün */}
+      {/* DİNAMİK KATEQORİYA ROUTE */}
       <Route path="/kateqoriya/:slug" element={<><CategoryPage /><Footer /></>} />
 
-      {/* STATİK KATEQORİYALAR (Köhnə URL-lər üçün dəstək) */}
+      {/* STATİK KATEQORİYALAR */}
       <Route path="/meyve-qurulari" element={<><CategoryPage key="meyve-qurulari" /><Footer /></>} />
       <Route path="/duzlu-cerezler" element={<><CategoryPage key="duzlu-cerezler" /><Footer /></>} />
       <Route path="/sokokladli-cerezler" element={<><CategoryPage key="sokokladli-cerezler" /><Footer /></>} />
@@ -81,7 +84,7 @@ const LanguageAwareRoutes = () => {
       <Route path="/qurudulmus-otlar-ve-caylar" element={<><CategoryPage key="qurudulmus-otlar-ve-caylar" /><Footer /></>} />
       <Route path="/hediyye-paketleri" element={<><CategoryPage key="hediyye-paketleri" /><Footer /></>} />
 
-      {/* KÖHNƏ URL → YENİ URL yönləndirmələri */}
+      {/* KÖHNƏ URL → YENİ URL */}
       <Route path="/dried-fruits" element={<RedirectWithLanguage to="/meyve-qurulari" />} />
       <Route path="/spices" element={<RedirectWithLanguage to="/edviyyatlar" />} />
       <Route path="/legumes-and-grains" element={<RedirectWithLanguage to="/paxlalilar-ve-taxillar" />} />
@@ -94,7 +97,7 @@ const LanguageAwareRoutes = () => {
       <Route path="/about" element={<><About isPage={true} /><Footer /></>} />
       <Route path="/contact" element={<><Contact /><Footer /></>} />
 
-      {/* ✅ EMAİL DƏYİŞMƏ TƏSDİQ SƏHİFƏSİ */}
+      {/* EMAİL DƏYİŞMƏ TƏSDİQ */}
       <Route path="/verify-email-change" element={<VerifyEmailChange />} />
 
       {/* BLOG ROUTELARI */}
@@ -109,7 +112,7 @@ const LanguageAwareRoutes = () => {
       <Route path="/privacy-policy" element={<PrivacyPolicy />} />
       <Route path="/terms-of-service" element={<TermsOfService />} />
       
-      {/* 404 - Tapılmadı */}
+      {/* 404 */}
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
@@ -386,8 +389,66 @@ const CampaignDetailPage = () => {
   );
 };
 
+// ✅ APP KOMPONENTİ - LoginModal ƏLAVƏ EDİLDİ
 function App() {
   const [navHeight, setNavHeight] = useState(0);
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+
+  // ✅ Login modalını açan funksiya
+  const openLoginModal = () => {
+    console.log('🔓 Login modal açılır...');
+    setIsLoginModalOpen(true);
+    window._loginModalOpened = true;
+    window.dispatchEvent(new CustomEvent('loginModalOpened'));
+  };
+
+  // ✅ Login modalını bağlayan funksiya
+  const closeLoginModal = () => {
+    console.log('🔒 Login modal bağlanır...');
+    setIsLoginModalOpen(false);
+    window.dispatchEvent(new CustomEvent('loginModalClosed'));
+  };
+
+  // ✅ Login uğurlu olduqda
+  const handleLoginSuccess = (userData) => {
+    console.log('✅ Login uğurlu:', userData);
+    // İstifadəçi məlumatlarını localStorage-a yazmaq artıq LoginModal-da edilir
+  };
+
+  // ✅ Bildiriş göstərmək üçün funksiya
+  const showNotification = (message, type = 'success') => {
+    const notification = document.createElement('div');
+    notification.className = `cerez-contact-notification ${type}`;
+    notification.innerHTML = `
+      <div class="cerez-contact-notification-content">
+        <span class="cerez-contact-notification-message">${message}</span>
+      </div>
+    `;
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+      notification.classList.add('fade-out');
+      setTimeout(() => {
+        if (document.body.contains(notification)) {
+          document.body.removeChild(notification);
+        }
+      }, 300);
+    }, 4000);
+  };
+
+  // ✅ `openLoginModal` eventini dinlə
+  useEffect(() => {
+    const handleOpenLoginModal = () => {
+      console.log('📢 openLoginModal event-i alındı!');
+      openLoginModal();
+    };
+    
+    window.addEventListener('openLoginModal', handleOpenLoginModal);
+    
+    return () => {
+      window.removeEventListener('openLoginModal', handleOpenLoginModal);
+    };
+  }, []);
 
   useEffect(() => {
     const nav = document.getElementById("navbar");
@@ -411,6 +472,14 @@ function App() {
               </div>
 
               <WhatsAppButton />
+
+              {/* ✅ LOGIN MODAL - ƏLAVƏ EDİLDİ */}
+              <LoginModal 
+                isOpen={isLoginModalOpen}
+                onClose={closeLoginModal}
+                onLoginSuccess={handleLoginSuccess}
+                showNotification={showNotification}
+              />
             </div>
           </LanguageSync>
         </CartProvider>

@@ -26,25 +26,63 @@ const LoginButton = forwardRef((props, ref) => {
     }
   }));
 
-  // ✅ DÜZƏLDİ - accessToken istifadə edir
+  // ✅ İlk yüklənmədə localStorage-dan oxu
   useEffect(() => {
-    const storedUserData = localStorage.getItem("userData");
-    const storedAccessToken = localStorage.getItem("accessToken");
+    const checkAuth = () => {
+      const storedUserData = localStorage.getItem("userData");
+      const storedAccessToken = localStorage.getItem("accessToken");
+      
+      if (storedUserData && storedAccessToken) {
+        try {
+          const user = JSON.parse(storedUserData);
+          setIsLoggedIn(true);
+          setUserData(user);
+          
+          const fullName = user.firstName && user.lastName 
+            ? `${user.firstName} ${user.lastName}` 
+            : (user.name || user.email);
+          setUserFullName(fullName);
+        } catch (e) {
+          console.error("User məlumatı oxunarkən xəta:", e);
+        }
+      } else {
+        setIsLoggedIn(false);
+        setUserData(null);
+        setUserFullName("");
+      }
+    };
     
-    if (storedUserData && storedAccessToken) {
-      try {
-        const user = JSON.parse(storedUserData);
+    checkAuth();
+    
+    // ✅ Storage dəyişdikdə yenilə (başqa tabdan login olarsa)
+    const handleStorageChange = (e) => {
+      if (e.key === 'accessToken' || e.key === 'userData') {
+        checkAuth();
+      }
+    };
+    
+    window.addEventListener('storage', handleStorageChange);
+    return () => window.removeEventListener('storage', handleStorageChange);
+  }, []);
+
+  // ✅ Login uğurlu olduqda çağırılan funksiya (App.jsx-dən gəlir)
+  useEffect(() => {
+    const handleLoginSuccess = (event) => {
+      const user = event.detail;
+      if (user) {
         setIsLoggedIn(true);
         setUserData(user);
-        
         const fullName = user.firstName && user.lastName 
           ? `${user.firstName} ${user.lastName}` 
           : (user.name || user.email);
         setUserFullName(fullName);
-      } catch (e) {
-        console.error("User məlumatı oxunarkən xəta:", e);
+        setIsModalOpen(false);
+        document.body.style.overflow = "auto";
       }
-    }
+    };
+    
+    window.addEventListener('loginSuccess', handleLoginSuccess);
+    return () => window.removeEventListener('loginSuccess', handleLoginSuccess);
   }, []);
 
   useEffect(() => {
@@ -97,8 +135,6 @@ const LoginButton = forwardRef((props, ref) => {
       ? `${userData.firstName} ${userData.lastName}` 
       : (userData.name || userData.email);
     setUserFullName(fullName);
-    
-    // userData artıq LoginModal tərəfindən localStorage-a yazılıb
     closeModal();
   };
 
@@ -111,13 +147,12 @@ const LoginButton = forwardRef((props, ref) => {
     localStorage.setItem("userData", JSON.stringify(updatedUser));
   };
 
-  // ✅ DÜZƏLDİ - accessToken və refreshToken təmizlənir
   const handleLogout = async () => {
     try {
-      // Refresh token-i server-də silmək üçün
       const refreshToken = localStorage.getItem("refreshToken");
       if (refreshToken) {
-        await fetch("http://localhost:5000/api/auth/logout", {
+        const API_URL = import.meta.env.VITE_API_URL || 'https://cherez.onrender.com/api';
+        await fetch(`${API_URL}/auth/logout`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ refreshToken })
@@ -131,17 +166,20 @@ const LoginButton = forwardRef((props, ref) => {
     setUserData(null);
     setUserFullName("");
     
-    // ✅ Bütün tokenləri təmizlə
     localStorage.removeItem("accessToken");
     localStorage.removeItem("refreshToken");
     localStorage.removeItem("userData");
-    localStorage.removeItem("userToken"); // Köhnə token (təhlükəsizlik üçün)
     
     setIsDropdownOpen(false);
-    showNotification(t('login.notifications.logout'), "info");
+    showNotification(t('login.notifications.logoutSuccess', 'Hesabdan çıxış edildi'), "info");
     
-    // Səhifəni yenilə (tokenlər təmizləndi)
-    window.location.href = "/";
+    // ✅ Navbar-ı yeniləmək üçün event göndər
+    window.dispatchEvent(new CustomEvent('logoutSuccess'));
+    
+    // Səhifəni yeniləmə (tokenlər təmizləndi)
+    setTimeout(() => {
+      window.location.reload();
+    }, 500);
   };
 
   const showNotification = (message, type = "success") => {

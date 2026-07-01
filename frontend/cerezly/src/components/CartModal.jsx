@@ -258,7 +258,9 @@ const CartModal = ({ isOpen, onClose, onOpenLoginModal }) => {
     console.log('📦 Göndərilən sifariş:', JSON.stringify(orderData, null, 2));
 
     try {
-      const response = await fetch("http://localhost:5000/api/orders", {
+      // ✅ DÜZGÜN - Environment variable ilə
+      const API_URL = import.meta.env.VITE_API_URL || 'https://cherez.onrender.com/api';
+      const response = await fetch(`${API_URL}/orders`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(orderData)

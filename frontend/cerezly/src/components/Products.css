@@ -356,7 +356,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-bottom: 12px;
+  margin-bottom: 0; /* custom input silindiyi üçün margin-bottom 0 */
   justify-content: center;
 }
 
@@ -430,42 +430,6 @@
   opacity: 0.5;
   cursor: not-allowed;
   transform: none;
-}
-
-.cerez-custom-quantity {
-  display: block;
-  margin-top: 10px;
-  width: 100%;
-}
-
-.cerez-custom-quantity-input {
-  width: 100%;
-  padding: 10px 15px;
-  border: 2px solid #ddd;
-  border-radius: 30px;
-  font-size: 14px;
-  font-weight: 500;
-  transition: all 0.3s ease;
-  background: white;
-  box-sizing: border-box;
-  text-align: center;
-}
-
-.cerez-custom-quantity-input:focus {
-  outline: none;
-  border-color: #d6800f;
-  box-shadow: 0 0 0 3px rgba(214, 128, 15, 0.1);
-}
-
-.cerez-custom-quantity-input::placeholder {
-  color: #999;
-  opacity: 0.7;
-  font-size: 13px;
-}
-
-.cerez-custom-quantity-input:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
 }
 
 .cerez-selected-quantity-info {
@@ -959,10 +923,6 @@
   }
   .cerez-quantity-selection {
     padding: 8px;
-  }
-  .cerez-custom-quantity-input {
-    padding: 8px 10px;
-    font-size: 12px;
   }
   .cerez-card-footer {
     gap: 8px;

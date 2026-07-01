@@ -14,7 +14,8 @@ import {
 } from 'recharts';
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/api';
+// ✅ DÜZGÜN - Environment variable ilə
+const API_URL = import.meta.env.VITE_API_URL || 'https://cherez.onrender.com/api';
 
 const Dashboard = () => {
   const [dateRange, setDateRange] = useState('7days');

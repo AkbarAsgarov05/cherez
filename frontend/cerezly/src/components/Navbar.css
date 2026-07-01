@@ -117,6 +117,9 @@
   width: 100%;
 }
 
+/* Kampaniyalar linki - BÜTÜN XÜSUSİ STİLLƏR SİLİNDİ */
+/* İndi digər linklərlə eyni davranır */
+
 /* right */
 .nav-right {
   display: flex;
@@ -135,100 +138,8 @@
   font-size: 14px;
 }
 
-/* Desktop axtarış */
-.search-box {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 25px;
-  padding: 0;
-  background: rgba(214, 128, 15, 0.05);
-  border: 1px solid rgba(214, 128, 15, 0.1);
-  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  width: 44px;
-  height: 44px;
-  overflow: hidden;
-  cursor: pointer;
-  position: relative;
-}
-
-.search-box.active {
-  width: 240px;
-  padding: 0 16px;
-  background: rgba(255, 255, 255, 0.9);
-  border-color: var(--accent);
-  box-shadow: 0 4px 12px rgba(214, 128, 15, 0.15);
-  justify-content: flex-start;
-}
-
-.search-box:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(214, 128, 15, 0.1);
-}
-
-.search-icon {
-  font-size: 20px;
-  color: var(--accent);
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.search-box.active .search-icon {
-  position: relative;
-  left: 0;
-  top: 0;
-  transform: none;
-  margin-right: 8px;
-}
-
-.search-box:hover .search-icon {
-  color: var(--accent);
-  transform: translate(-50%, -50%) scale(1.15);
-}
-
-.search-box.active:hover .search-icon {
-  transform: scale(1.15);
-}
-
-.search-input {
-  border: none;
-  background: transparent;
-  font-size: 15px;
-  outline: none;
-  width: 0;
-  opacity: 0;
-  transition: all 0.2s ease;
-  color: var(--text-dark);
-  outline: none !important;
-  box-shadow: none !important;
-  -webkit-box-shadow: none !important;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-}
-
-.search-input:focus {
-  outline: none !important;
-  box-shadow: none !important;
-  border: none !important;
-}
-
-.search-input.visible {
-  width: 180px;
-  opacity: 1;
-}
-
-.search-input::placeholder {
-  color: var(--text-light);
-  opacity: 0.7;
-}
-
 /* ================================================ */
-/* SƏBƏT BUTONU - KİÇİLDİLDİ */
+/* SƏBƏT BUTONU */
 /* ================================================ */
 .cart-icon-wrapper {
   position: relative;
@@ -250,7 +161,6 @@
   box-shadow: 0 3px 10px rgba(214, 128, 15, 0.15);
 }
 
-/* ✅ Desktop - icon 20px */
 .cart-icon {
   font-size: 20px;
   color: var(--text-light);
@@ -356,6 +266,15 @@
   padding-top: 20px;
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 /* MOBILE MENU */
 .mobile-menu {
   background: rgba(255, 255, 255, 0.95);
@@ -384,11 +303,11 @@
   }
 }
 
-/* Mobile links */
+/* Mobile links - BÜTÜN LİNKLƏR EYNİ */
 .mobile-links {
   list-style: none;
   padding: 0;
-  margin: 0 0 30px 0;
+  margin: 0;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -404,6 +323,7 @@
 .mobile-links li:nth-child(2) { animation-delay: 0.2s; }
 .mobile-links li:nth-child(3) { animation-delay: 0.3s; }
 .mobile-links li:nth-child(4) { animation-delay: 0.4s; }
+.mobile-links li:nth-child(5) { animation-delay: 0.5s; }
 
 @keyframes slideInLeft {
   to {
@@ -412,6 +332,7 @@
   }
 }
 
+/* BÜTÜN MOBİL LİNKLƏR ÜÇÜN ÜMUMİ STİLLƏR */
 .mobile-links a {
   color: var(--text-dark);
   text-decoration: none;
@@ -448,76 +369,8 @@
   box-shadow: 0 5px 15px rgba(214, 128, 15, 0.1);
 }
 
-/* MOBILE AXTARIŞ */
-.mobile-search-container {
-  margin-top: 20px;
-  animation: fadeInUp 0.5s ease forwards;
-  animation-delay: 0.5s;
-  opacity: 0;
-}
-
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.mobile-search-box {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  border: 2px solid var(--accent);
-  border-radius: 20px;
-  padding: 14px 18px;
-  background: rgba(255, 255, 255, 0.9);
-  transition: all 0.3s ease;
-}
-
-.mobile-search-box:focus-within {
-  box-shadow: 0 5px 20px rgba(214, 128, 15, 0.15);
-  transform: scale(1.02);
-}
-
-.mobile-search-icon {
-  font-size: 20px;
-  color: var(--accent);
-  transition: transform 0.3s ease;
-}
-
-.mobile-search-box:focus-within .mobile-search-icon {
-  transform: rotate(15deg) scale(1.1);
-}
-
-.mobile-search-input {
-  border: none;
-  background: transparent;
-  font-size: 16px;
-  outline: none;
-  width: 100%;
-  color: #000000 !important;
-  -webkit-text-fill-color: #000000 !important;
-  padding: 0;
-  opacity: 1 !important;
-  transition: all 0.3s ease;
-  outline: none !important;
-  box-shadow: none !important;
-  -webkit-box-shadow: none !important;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-}
-
-.mobile-search-input:focus {
-  outline: none !important;
-  box-shadow: none !important;
-  border: none !important;
-}
-
-.mobile-search-input::placeholder {
-  color: var(--text-light) !important;
-  opacity: 0.7 !important;
-}
+/* ✅ KAMPANİYALAR - İNDİ DİGƏR LİNKLƏRLƏ EYNİDİR */
+/* Heç bir xüsusi stil yoxdur */
 
 /* ========== MOBİL RESPONSIVE ========== */
 @media (max-width: 900px) {
@@ -526,10 +379,6 @@
   }
   
   .nav-links {
-    display: none;
-  }
-  
-  .search-box {
     display: none;
   }
   
@@ -543,7 +392,6 @@
     gap: 6px;
   }
   
-  /* ✅ Mobil - icon 22px */
   .cart-icon {
     font-size: 22px !important;
   }
@@ -582,7 +430,6 @@
     gap: 5px;
   }
   
-  /* ✅ Kiçik mobil - icon 20px */
   .cart-icon {
     font-size: 20px !important;
   }
@@ -617,7 +464,6 @@
     font-size: 16px;
   }
   
-  /* ✅ Çox kiçik mobil - icon 18px */
   .cart-icon {
     font-size: 18px !important;
   }

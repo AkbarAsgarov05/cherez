@@ -3,7 +3,8 @@
 import { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/api';
+// ✅ DÜZGÜN - Environment variable ilə
+const API_URL = import.meta.env.VITE_API_URL || 'https://cherez.onrender.com/api';
 
 // Backend-dən gələn məhsulu müştəri tərəfə uyğunlaşdır
 const normalizeProductForCustomer = (product) => {

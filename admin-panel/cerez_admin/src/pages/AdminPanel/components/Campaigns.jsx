@@ -2,6 +2,9 @@ import React, { useState, useRef, useEffect } from 'react';
 import './Campaigns.css';
 import Pagination from './Pagination';
 
+// ✅ API URL - Environment variable ilə
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+
 const Campaigns = () => {
   // ========== STATE LƏR ==========
   const [showCreateModal, setShowCreateModal] = useState(false);
@@ -74,8 +77,6 @@ const Campaigns = () => {
     { value: 'inactive', label: 'Deaktiv', icon: 'fa-pause-circle', description: 'Kampaniya müvəqqəti dayandırılıb' }
   ];
 
-  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
-  
   const getAuthToken = () => {
     let token = localStorage.getItem('token');
     if (token === 'undefined' || token === 'null') {
@@ -92,9 +93,10 @@ const Campaigns = () => {
     return token;
   };
 
+  // ✅ DÜZƏLDİ - API_URL istifadə edir
   const loginAndGetToken = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/auth/admin-login', {
+      const response = await fetch(`${API_URL}/auth/admin-login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: 'admin@example.com', password: 'admin123' })
@@ -743,7 +745,7 @@ const Campaigns = () => {
             </div>
             <div className="campaign-modal-body">
               
-              {/* BANNER UPLOAD - DÜZGÜN FORMATDA */}
+              {/* BANNER UPLOAD */}
               <div className="banner-upload-section">
                 <label className="banner-upload-label">Kampaniya şəkli</label>
                 <div className="banner-upload-area">

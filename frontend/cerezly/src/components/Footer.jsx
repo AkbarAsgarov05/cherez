@@ -13,6 +13,9 @@ import { useTranslation } from "react-i18next";
 import axios from "axios";
 import "./Footer.css";
 
+// ✅ DÜZGÜN - Environment variable ilə
+const API_URL = import.meta.env.VITE_API_URL || 'https://cherez.onrender.com/api';
+
 export default function Footer() {
   const { t } = useTranslation();
   const [categories, setCategories] = useState([]);
@@ -20,11 +23,12 @@ export default function Footer() {
   const sectionsRef = useRef([]);
   const bottomRef = useRef(null);
 
-  // Backend-dən kateqoriyaları yüklə
+  // Backend-dən kateqoriyaları yüklə - DÜZƏLDİLDİ
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/categories");
+        // ✅ DÜZGÜN - API_URL istifadə edir
+        const response = await axios.get(`${API_URL}/categories`);
         setCategories(response.data);
       } catch (error) {
         console.error("Kateqoriyalar yüklənərkən xəta:", error);

@@ -1,6 +1,7 @@
 // C:\Users\Ekber\Desktop\cerez-project\admin-panel\cerez_admin\src\services\blogService.js
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+// ✅ DÜZGÜN - Render URL-i
+const API_URL = import.meta.env.VITE_API_URL || 'https://cherez.onrender.com/api';
 
 // ✅ Cloudinary URL-ni proxy URL-ə çevir (Tracking Prevention üçün)
 const getProxyUrl = (cloudinaryUrl) => {

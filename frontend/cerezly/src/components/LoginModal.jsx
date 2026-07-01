@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { FiUser, FiX, FiMail, FiLock, FiPhone, FiUserCheck, FiCheckSquare, FiSquare } from "react-icons/fi";
 import ForgotPassword from "./ForgotPassword";
@@ -24,6 +24,27 @@ export default function LoginModal({ isOpen, onClose, onLoginSuccess, showNotifi
   const [termsAccepted, setTermsAccepted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
+  // ✅ Contact səhifəsindən gələn event-i dinlə
+  useEffect(() => {
+    const handleOpenLoginModal = () => {
+      // Modal artıq açıqdırsa, yenidən açma
+      if (!isOpen) {
+        // Login modalını aç
+        // Bu funksiya onClose və ya başqa bir şey vasitəsilə işləməlidir
+        // Amma modal artıq isOpen=false olduğu üçün onu açmaq lazımdır
+        // Burada bir həll yolu olaraq, əgər modal qapalıdırsa, onu açmaq üçün 
+        // parent komponentdəki state-i dəyişmək lazımdır.
+        // Bunun üçün bir callback istifadə edə bilərik.
+        if (typeof onOpen === 'function') {
+          onOpen();
+        }
+      }
+    };
+    
+    window.addEventListener('openLoginModal', handleOpenLoginModal);
+    return () => window.removeEventListener('openLoginModal', handleOpenLoginModal);
+  }, [isOpen]);
+
   const getCleanPhoneNumber = (phone) => {
     return phone.replace(/\s/g, '');
   };
@@ -45,6 +66,8 @@ export default function LoginModal({ isOpen, onClose, onLoginSuccess, showNotifi
         confirmPassword: ""
       });
       setTermsAccepted(false);
+      // ✅ Login modal bağlandıqda event göndər
+      window.dispatchEvent(new CustomEvent('loginModalClosed'));
     }, 300);
   };
 
@@ -131,7 +154,6 @@ export default function LoginModal({ isOpen, onClose, onLoginSuccess, showNotifi
     return newErrors;
   };
 
-  // ========== QEYDİYYAT DÜYMƏSİNİN AKTİV OLMA ŞƏRTLƏRİ ==========
   const isRegisterFormValid = () => {
     if (isLogin) return true;
     
@@ -149,7 +171,6 @@ export default function LoginModal({ isOpen, onClose, onLoginSuccess, showNotifi
     return allFieldsFilled && isTermsAccepted;
   };
 
-  // ========== LOGIN ==========
   const handleLogin = async () => {
     try {
       const cleanEmail = formData.email.trim().toLowerCase();
@@ -176,6 +197,10 @@ export default function LoginModal({ isOpen, onClose, onLoginSuccess, showNotifi
         };
         
         localStorage.setItem("userData", JSON.stringify(userDataToStore));
+        localStorage.setItem("accessToken", response.accessToken);
+        if (response.refreshToken) {
+          localStorage.setItem("refreshToken", response.refreshToken);
+        }
         
         if (typeof showNotification === 'function') {
           showNotification(t("login.notifications.loginSuccess"), "success");
@@ -192,6 +217,9 @@ export default function LoginModal({ isOpen, onClose, onLoginSuccess, showNotifi
           loginTime: new Date().toISOString(),
           forcePasswordChange: response.user.forcePasswordChange || false
         };
+        
+        // ✅ Login uğurlu oldu - event göndər
+        window.dispatchEvent(new CustomEvent('loginSuccess', { detail: userData }));
         
         if (userData.forcePasswordChange) {
           if (typeof showNotification === 'function') {
@@ -235,7 +263,6 @@ export default function LoginModal({ isOpen, onClose, onLoginSuccess, showNotifi
     }
   };
 
-  // ========== REGISTER ==========
   const handleRegister = async () => {
     try {
       const cleanPhone = getCleanPhoneNumber(formData.phone);
@@ -272,6 +299,10 @@ export default function LoginModal({ isOpen, onClose, onLoginSuccess, showNotifi
           };
           
           localStorage.setItem("userData", JSON.stringify(userDataToStore));
+          localStorage.setItem("accessToken", loginResponse.accessToken);
+          if (loginResponse.refreshToken) {
+            localStorage.setItem("refreshToken", loginResponse.refreshToken);
+          }
           
           const userData = {
             id: loginResponse.user.id,
@@ -284,6 +315,9 @@ export default function LoginModal({ isOpen, onClose, onLoginSuccess, showNotifi
             loginTime: new Date().toISOString(),
             forcePasswordChange: loginResponse.user.forcePasswordChange || false
           };
+          
+          // ✅ Register uğurlu oldu - event göndər
+          window.dispatchEvent(new CustomEvent('loginSuccess', { detail: userData }));
           
           onLoginSuccess(userData);
           handleClose();
@@ -310,7 +344,6 @@ export default function LoginModal({ isOpen, onClose, onLoginSuccess, showNotifi
     }
   };
 
-  // ========== BUTTON CLICK ==========
   const handleButtonClick = async () => {
     const validationErrors = isLogin ? validateLogin() : validateRegister();
     if (Object.keys(validationErrors).length > 0) {

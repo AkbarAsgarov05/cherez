@@ -10,8 +10,8 @@ import {
   FiRefreshCw, FiMessageSquare
 } from 'react-icons/fi';
 
-// API URL
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+// API URL - ✅ DÜZGÜN
+const API_URL = import.meta.env.VITE_API_URL || 'https://cherez.onrender.com/api';
 
 // Axios instance
 const api = axios.create({
@@ -102,15 +102,13 @@ const MessageSection = () => {
     fetchMessages();
   }, [fetchMessages]);
 
-  // ✅ Axtarış - hər simvol yazanda real-time axtarış
+  // Axtarış
   const handleSearchChange = (e) => {
     const value = e.target.value;
     setSearchTerm(value);
-    setCurrentPage(1); // Axtarış zamanı 1-ci səhifəyə qayıt
-    // fetchMessages useEffect vasitəsilə avtomatik çağırılacaq
+    setCurrentPage(1);
   };
 
-  // ✅ Axtarışı təmizlə
   const handleClearSearch = () => {
     setSearchTerm('');
     setCurrentPage(1);
@@ -222,7 +220,6 @@ const MessageSection = () => {
   const handleViewMessage = (message) => {
     if (message.status === 'unread') {
       markAsRead(message.id);
-      message.status = 'read';
     }
     setViewModal({ show: true, message });
   };
@@ -304,7 +301,7 @@ const MessageSection = () => {
       <div className="msg-container">
         <div className="msg-loading">
           <div className="msg-spinner"></div>
-          <p>Mesajlar yüklənir...</p>
+          <p className="msg-loading-text">Mesajlar yüklənir...</p>
         </div>
       </div>
     );
